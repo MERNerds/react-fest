@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 // import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid'
+import Container from '@mui/material/Container';
+import { Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
 
 function SignUp(props) {
     const [formState, setFormState] = useState({ email: '', password: '' });
