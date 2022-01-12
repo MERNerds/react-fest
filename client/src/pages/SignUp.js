@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 function SignUp(props) {
@@ -31,7 +31,7 @@ function SignUp(props) {
     };
 
     return (
-        <div>
+        <Box>
             <Link to="/login">← Go to Login</Link>
             <Typography variant="h2">
                 SignUp
@@ -69,7 +69,7 @@ function SignUp(props) {
                 <Button variant="outlined" type="submit">Submit</Button>
             </div>
 
-        </div>
+        </Box>
     )
 }
 
