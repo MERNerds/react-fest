@@ -3,6 +3,7 @@ import React from "react";
 import Typography from "@mui/material/Typography"
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
@@ -37,7 +38,7 @@ function Login(props) {
     
 
     return (
-        <div >
+        <Box component="login">
             <Link to="/signup">← Go to Signup</Link>
 
             <Typography variant="h2">
@@ -60,7 +61,7 @@ function Login(props) {
                 />
                 <Button variant="outlined" type="submit">Submit</Button>
             </div>
-        </div>
+        </Box>
     )
 }
 
