@@ -1,2 +1,0 @@
-// purchase date
-// tickets
