@@ -1,23 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "react-fest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MERNerds/react-fest.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MERNerds/react-fest/issues"
-  },
-  "homepage": "https://github.com/MERNerds/react-fest#readme"
-=======
     "name": "mern-reactfest",
     "version": "1.0.0",
     "description": "",
@@ -35,5 +16,4 @@
     "devDependencies": {
         "concurrently": "^5.1.0"
     }
->>>>>>> e067abe67c3a6c63c83a794a6a75fa505a2e5050
 }
