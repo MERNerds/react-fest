@@ -42,6 +42,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    users: [User]
     band(bandId: ID!): Band
     bands: Band
     order(_id: ID!): Order

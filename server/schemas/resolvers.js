@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Order, Ticket, Band } = require('../models');
+const { signToken } = require('../utils/auth');
 
 
 const resolvers = {
@@ -15,6 +16,10 @@ const resolvers = {
         }
 
         throw new AuthenticationError('Not logged in'); 
+      },
+      users: async () => {
+        return User.find()
+          .select('-__v -password')
       }
     },
     Mutation: {
