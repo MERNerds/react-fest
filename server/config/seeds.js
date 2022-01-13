@@ -1,6 +1,7 @@
 const db = require('./connection');
 const { Band } = require('../models');
 
+db.once('open', async () => {
 const bands = await Band.insertMany ([
 
     // Hip-Hop April 20th
@@ -469,5 +470,9 @@ const bands = await Band.insertMany ([
     
 ]);
 
-console.log('Bands seeded')
+console.log('Bands seeded');
+
+process.exit();
+
+});
 
