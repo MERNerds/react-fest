@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-// import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+// import Auth from '../utils/auth';
 import Auth from '../utils/auth';
 
 //material ui components 
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -36,7 +36,7 @@ function Copyright(props) {
 // will change once we have color scheme
 const theme = createTheme();
 
-function SignUp(props) {
+function SignUp() {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [addUser] = useMutation(ADD_USER);
 
@@ -148,7 +148,7 @@ function SignUp(props) {
                 <Grid item>
                   <Link to="/login" variant="body2">
                     Already have an account? Sign in
-                  </Link>
+                   </Link>
                 </Grid>
               </Grid>
             </Box>

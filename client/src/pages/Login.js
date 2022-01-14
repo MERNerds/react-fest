@@ -38,9 +38,9 @@ const theme = createTheme();
 
 
 
-function Login(props) {
+function Login() {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error }] = useMutation(LOGIN);
+    const [login,] = useMutation(LOGIN);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -124,8 +124,8 @@ function Login(props) {
                                 </Link>
                             </Grid> */}
                             <Grid item>
-                                <Link to='/signup' variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                <Link to='/signup' >
+                                    "Don't have an account? Sign Up"
                                 </Link>
                             </Grid>
                         </Grid>
