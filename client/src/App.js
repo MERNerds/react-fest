@@ -16,7 +16,7 @@ import { setContext } from '@apollo/client/link/context';
 //import SignUp from './pages/SignUp';
 import Schedule from './pages/Schedule';
 //import Nav from './components/Nav';
-
+import 'devextreme/dist/css/dx.light.css';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
