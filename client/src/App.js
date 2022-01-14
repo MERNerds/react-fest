@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Login from './pages/Login.js';
 import {
   ApolloClient,
   InMemoryCache,
@@ -12,7 +11,10 @@ import {
 } from "@apollo/client";
 // import { Provider } from 'react-redux';
 import { setContext } from '@apollo/client/link/context';
+
+//import components
 import SignUp from './pages/SignUp';
+import Login from './pages/Login.js';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
