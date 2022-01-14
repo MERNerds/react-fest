@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const ticketSchema = new Schema({
-    name: {
+    ticketName: {
         type: String,
         required: true,
         trim: true

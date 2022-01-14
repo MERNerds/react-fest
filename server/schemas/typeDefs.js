@@ -3,10 +3,10 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID!
-    firstName: String!
-    lastName: String!
-    email: String!
-    password: String!
+    firstName: String
+    lastName: String
+    email: String
+    password: String
     savedBands: [Band]
     orders: [Order]
   }
@@ -14,8 +14,8 @@ const typeDefs = gql`
   type Band {
     _id: ID!
     bandName: String!
-    setStart: String
-    setEnd: String
+    startTime: String
+    endTime: String
     date: String
     stage: String
   }
@@ -44,7 +44,7 @@ const typeDefs = gql`
     user: User
     users: [User]
     band(bandId: ID!): Band
-    bands: Band
+    bands: [Band]
     order(_id: ID!): Order
     ticket(_id: ID!): Ticket
     checkout(ticket: [ID]!): Checkout 
