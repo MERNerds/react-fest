@@ -13,6 +13,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 //import components
+import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login.js';
 
