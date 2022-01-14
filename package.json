@@ -15,5 +15,10 @@
     "license": "ISC",
     "devDependencies": {
         "concurrently": "^5.1.0"
+    },
+    "dependencies": {
+        "@mui/material": "^5.2.8",
+        "devextreme": "21.2.4",
+        "devextreme-react": "21.2.4"
     }
 }
