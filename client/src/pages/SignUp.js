@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 // import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 //material ui components 
 import Avatar from '@mui/material/Avatar';
@@ -49,8 +50,8 @@ function SignUp(props) {
                 lastName: formState.lastName,
             },
         });
-        // const token = mutationResponse.data.addUser.token;
-        // Auth.login(token);
+         const token = mutationResponse.data.addUser.token;
+         Auth.login(token);
     };
 
 
@@ -91,6 +92,7 @@ function SignUp(props) {
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -101,6 +103,7 @@ function SignUp(props) {
                     label="Last Name"
                     name="lastName"
                     autoComplete="family-name"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -111,6 +114,7 @@ function SignUp(props) {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -122,6 +126,7 @@ function SignUp(props) {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    onChange={handleChange}
                   />
                 </Grid>
                 {/* <Grid item xs={12}>

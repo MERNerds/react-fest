@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
+import Auth from '../utils/auth';
 
 // copyright
 function Copyright(props) {
@@ -47,8 +48,8 @@ function Login(props) {
             const mutationResponse = await login({
                 variables: { email: formState.email, password: formState.password },
             });
-            // const token = mutationResponse.data.login.token;
-            // Auth.login(token);
+             const token = mutationResponse.data.login.token;
+            Auth.login(token);
         } catch (e) {
             console.log(e);
         }
