@@ -24,6 +24,24 @@ const resolvers = {
       bands: async () => {
         return Band.find()
           .select('-__v')
+      },
+      tickets: async () => {
+        return await Ticket.find()
+          .select('-__v');
+      },
+      ticket: async (parent, { _id }) => {
+        return await Ticket.findById(_id)
+      },
+      order: async (parent, { _id }, context) => {
+        if (context.user) {
+          const user = await User.findById(context.user._id ).populate({
+            path: 'orders.ticket'
+          });
+
+          return user.orders.id(_id);
+        }
+
+        throw new AuthenticationError('Not logged in')
       }
     },
     Mutation: {

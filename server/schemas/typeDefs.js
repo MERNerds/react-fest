@@ -47,6 +47,7 @@ const typeDefs = gql`
     bands: [Band]
     order(_id: ID!): Order
     ticket(_id: ID!): Ticket
+    tickets: [Ticket]
     checkout(ticket: [ID]!): Checkout 
   }
 
