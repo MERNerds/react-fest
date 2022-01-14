@@ -56,9 +56,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addOrder(tickets: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateTicket(_id: ID!, quantity: Int!): Ticket
-    addBand(_id: ID!): User
-    removeBand(_id: ID!): User
   }
 
   type Checkout {
@@ -67,3 +64,7 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+    // updateTicket(_id: ID!, quantity: Int!): Ticket 
+    // addBand(_id: ID!): User
+    // removeBand(_id: ID!): User
