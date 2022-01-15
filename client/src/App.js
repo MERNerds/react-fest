@@ -5,40 +5,50 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
+<<<<<<< HEAD
+=======
+  createHttpLink,
+>>>>>>> feature/nav-bar
   // useQuery,
   // gql
 } from "@apollo/client";
 // import { Provider } from 'react-redux';
 import { setContext } from '@apollo/client/link/context';
 
-import Login from './pages/Login';
+//import components
+import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
+<<<<<<< HEAD
 import Pricing from './pages/Pricing';
+=======
+import Login from './pages/Login.js';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+>>>>>>> feature/nav-bar
 
 function App() {
-  const httpLink = createHttpLink({
-    uri: '/graphql',
-  });
-  
-  const authLink = setContext((_, { headers }) => {
-    const token = localStorage.getItem('id_token');
-    return {
-      headers: {
-        ...headers,
-        authorization: token ? `Bearer ${token}` : '',
-      },
-    };
-  });
-  
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  });
   return (
-
     <ApolloProvider client={client}>
       <Router>
         <div>
+<<<<<<< HEAD
           <Provider>
           {/* <Nav /> */}
           <Pricing/>
@@ -50,25 +60,35 @@ function App() {
             {/* <Route exact path="/info" component={Info} */}
           </Switch>
           </Provider>
+=======
+          {/* <Provider> */}
+            <Nav />
+            <Switch>
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={SignUp} />
+            </Switch>
+          {/* </Provider> */}
+>>>>>>> feature/nav-bar
         </div>
       </Router>
     </ApolloProvider>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    // <ApolloProvider client={client}>
+    //   <Router>
+    //     <div>
+    //       {/* <Provider > */}
+    //       {/* <Nav /> */}
+    //       <Routes>  
+    //         {/* <Route exact path="/" component={Home} /> */}
+    //         <Route exact path="/login" component={Login} />
+    //         <Route exact path="/signup" component={SignUp} />
+    //         {/* <Route exact path="/myschedule" component={MySchedule} />  */}
+    //         {/* <Route exact path="/info" component={Info} */}
+    //       </Routes>
+    //       {/* </Provider> */}
+    //     </div>
+    //   </Router>
+    // </ApolloProvider>
+
   );
 }
 
