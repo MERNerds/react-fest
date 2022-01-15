@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
-  gql
+  // useQuery,
+  // gql
 } from "@apollo/client";
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import { setContext } from '@apollo/client/link/context';
 
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Pricing from './pages/Pricing';
 
 function App() {
   const httpLink = createHttpLink({
@@ -40,7 +40,8 @@ function App() {
       <Router>
         <div>
           <Provider>
-          <Nav />
+          {/* <Nav /> */}
+          <Pricing/>
           <Switch>  
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
