@@ -1,5 +1,3 @@
-//starter file
-
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh';

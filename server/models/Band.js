@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bandSchema = new Schema({
-    name: {
+    bandName: {
         type: String,
         required: true,
         trim: true

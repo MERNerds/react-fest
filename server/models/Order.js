@@ -13,7 +13,7 @@ const orderSchema = new Schema({
     tickets: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Tickets'
+            ref: 'Ticket'
         }
     ]
 });

@@ -1,7 +1,8 @@
 //Starter file
 
 const User = require('./User');
-const Product = require('./Tickets');
-const Ticket = require('./Tickets');
+const Ticket = require('./Ticket');
+const Order = require('./Order')
+const Band = require('./Band');
 
-module.exports = { User, Tickets, Order };
+module.exports = { User, Ticket, Order, Band };
