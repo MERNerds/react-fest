@@ -14,7 +14,7 @@ import { setContext } from '@apollo/client/link/context';
 // import Login from './pages/Login';
 // import SignUp from './pages/SignUp';
 import Home from './components/Home';
-import Nav from './components/Nav';
+//import Nav from './components/Nav';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -28,6 +28,11 @@ const authLink = setContext((_, { headers }) => {
       authorization: token ? `Bearer ${token}` : '',
     },
   };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
 });
 
 // function App() {
@@ -68,10 +73,7 @@ const authLink = setContext((_, { headers }) => {
 //   );
 // }
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+
 
 function App() {
   return (
