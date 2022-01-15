@@ -155,7 +155,7 @@ function Nav() {
                         >
                             <MenuItem>
                                 <Link to="./lineup">
-                                    <Typography color="primary" textAlign="center">Lineup</Typography>
+                                    <Typography textAlign="center">Lineup</Typography>
                                 </Link>
                             </MenuItem>
                             <MenuItem>

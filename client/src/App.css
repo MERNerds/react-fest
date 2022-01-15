@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ffffff;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.dx-theme-generic-typography a {  
+  color: white;  
+}  
+
+
