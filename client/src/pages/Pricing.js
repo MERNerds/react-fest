@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-
+//items needed for styling
 import  Button  from '@mui/material/Button';
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions';
@@ -10,11 +10,11 @@ import CardHeader from '@mui/material/CardHeader';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 
+//copywright functions
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -28,6 +28,7 @@ function Copyright() {
   );
 }
 
+//importing styles
 const useStyles = makeStyles((theme) => ({
   '@global': {
     ul: {
@@ -49,16 +50,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'baseline',
     marginBottom: theme.spacing(2),
   },
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-  },
+  //will be put in a footer component
+//   footer: {
+//     borderTop: `1px solid ${theme.palette.divider}`,
+//     marginTop: theme.spacing(8),
+//     paddingTop: theme.spacing(3),
+//     paddingBottom: theme.spacing(3),
+//     [theme.breakpoints.up('sm')]: {
+//       paddingTop: theme.spacing(6),
+//       paddingBottom: theme.spacing(6),
+//     },
+//   },
 }));
 
 const tiers = [
@@ -66,7 +68,7 @@ const tiers = [
     title: 'Single-Day Pass',
     price: '100',
     description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch','Free water stations'],
-    buttonText: 'Add to Cart',
+    buttonText: 'Lets',
     buttonVariant: 'outlined',
   },
   {
@@ -79,7 +81,7 @@ const tiers = [
       'Bars and Merch',
       'Free Water Stations',
     ],
-    buttonText: 'Lets Get Rockin!',
+    buttonText: 'Get',
     buttonVariant: 'contained',
   },
   {
@@ -91,7 +93,7 @@ const tiers = [
       '3 free drink tickets daily',
       'Commemorative wristbands',
     ],
-    buttonText: 'Cart',
+    buttonText: 'Rockin!',
     buttonVariant: 'outlined',
   },
 ];

@@ -41,7 +41,7 @@ function Nav() {
     };
 
     function showNavigation() {
-        if (true) {
+        if (false) {
             return (
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
