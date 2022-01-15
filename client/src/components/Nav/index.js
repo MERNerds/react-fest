@@ -41,7 +41,7 @@ function Nav() {
     };
 
     function showNavigation() {
-        if (false) {
+        if (true) {
             return (
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
@@ -155,7 +155,7 @@ function Nav() {
                         >
                             <MenuItem>
                                 <Link to="./lineup">
-                                    <Typography textAlign="center">Lineup</Typography>
+                                    <Typography color="primary" textAlign="center">Lineup</Typography>
                                 </Link>
                             </MenuItem>
                             <MenuItem>
