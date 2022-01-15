@@ -44,11 +44,11 @@ function App() {
         <div>
           {/* <Provider> */}
           <Nav />
-          <Pricing/>
           <Switch>  
             {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path='/tickets' component={Pricing} />
             {/* <Route exact path="/myschedule" component={MySchedule} />  */}
             {/* <Route exact path="/info" component={Info} */}
           </Switch>

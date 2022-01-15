@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import  Button  from '@mui/material/Button';
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -35,18 +35,6 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       listStyle: 'none',
     },
-  },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
   },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
@@ -136,7 +124,7 @@ export default function Pricing() {
                   title={tier.title}
                   subheader={tier.subheader}
                   titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center' }}
+                  subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
                   action={tier.title === 'Pro'}
                   className={classes.cardHeader}
                 />
@@ -146,7 +134,6 @@ export default function Pricing() {
                       ${tier.price}
                     </Typography>
                     <Typography variant="h6" color="textSecondary">
-                      /mo
                     </Typography>
                   </div>
                   <ul>
