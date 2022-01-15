@@ -129,7 +129,36 @@ const resolvers = {
 
         throw new AuthenticationError('Not logged in');
       }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
+  },
+
+  Mutation: {
+    //add user mutation
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+    },
+
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      const correctPW = await user.isCorrectPassword(password);
+
+      if (!correctPW) {
+        throw new AuthenticationError('Incorrect password');
+      }
+      return { token, user };
     }
-  };
-  
-  module.exports = resolvers
+  }
+};
+
+module.exports = resolvers
