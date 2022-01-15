@@ -22,15 +22,18 @@ export const tasks = [
     },
   ];
   
-  export const appointments = [
+  export const appointments = 
+  [
     {
-      text: 'Flume',
-      startDate: new Date('2022-04-20T19:00:00.000Z'),
-      endDate: new Date('2022-04-20T20:00:00.000Z'),
+      text: 'Kanye',
+      startDate: new Date('2022-04-20T23:00:00.000Z'),
+      endDate: new Date('2022-04-20T23:59:00.000Z'),
+      description: 'Hip-Hop'
     }, {
       text: '21 Savage',
       startDate: new Date('2022-04-20T17:00:00.000Z'),
       endtime: new Date('2022-04-20T18:00:00.000Z'),
+      description: 'Hip-Hop'
     }, {
       text: 'Cardi B',
       startDate: new Date('2022-04-20T19:00:00.000Z'),

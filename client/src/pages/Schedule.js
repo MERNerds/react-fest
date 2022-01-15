@@ -44,13 +44,13 @@ class Schedule extends React.Component {
           </Draggable>
         </ScrollView>
         <Scheduler
-          timeZone="America/Los_Angeles"
+          timeZone="Africa/Abidjan"
           id="scheduler"
           dataSource={this.state.appointments}
           views={views}
           defaultCurrentDate={currentDate}
           height={600}
-          startDayHour={9}
+          startDayHour={0}
           editing={true}>
           <AppointmentDragging
             group={draggingGroupName}

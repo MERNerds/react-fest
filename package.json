@@ -19,6 +19,7 @@
     "dependencies": {
         "@mui/material": "^5.2.8",
         "devextreme": "21.2.4",
-        "devextreme-react": "21.2.4"
+        "devextreme-react": "21.2.4",
+        "moment": "^2.29.1"
     }
 }
