@@ -19,7 +19,7 @@ import SignUp from './pages/SignUp';
 import Pricing from './pages/Pricing';
 import Login from './pages/Login';
 import Schedule from './pages/Schedule';
-//import Nav from './components/Nav';
+//import Home from './pages/Home';
 import 'devextreme/dist/css/dx.light.css';
 
 const httpLink = createHttpLink({
