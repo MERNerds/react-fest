@@ -110,7 +110,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['LineUp', 'Tickets'];
+// const pages = ['LineUp', 'Tickets'];
 const settings = ['Profile', 'Account', "Cart", 'Logout'];
 
 function Nav() {
@@ -158,13 +158,34 @@ function Nav() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        {settings.map((setting) => (
+                        
+                        <MenuItem>
+                            <Typography
+                                component={Link} to={'/profile'}
+                                textAlign="center">Profile
+                            </Typography>
+                        </MenuItem>
+                        <MenuItem>
+                            <Typography
+                                component={Link} to={'/cart'}
+                                textAlign="center">Cart
+                            </Typography>
+                        </MenuItem>
+                        <MenuItem>
+                            <Typography
+                                component={Link} to={'/'}
+                                onClick={() => Auth.logout()}
+                                textAlign="center">Logout
+                            </Typography>
+                        </MenuItem>
+                        {/* {settings.map((setting) => (
                             <MenuItem key={setting} onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center">{setting}</Typography>
                             </MenuItem>
-                        ))}
+                        ))} */}
                     </Menu>
                 </Box>
+                
             )
 
         } else {
