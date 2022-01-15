@@ -56,23 +56,6 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-    // <ApolloProvider client={client}>
-    //   <Router>
-    //     <div>
-    //       {/* <Provider > */}
-    //       {/* <Nav /> */}
-    //       <Routes>  
-    //         {/* <Route exact path="/" component={Home} /> */}
-    //         <Route exact path="/login" component={Login} />
-    //         <Route exact path="/signup" component={SignUp} />
-    //         {/* <Route exact path="/myschedule" component={MySchedule} />  */}
-    //         {/* <Route exact path="/info" component={Info} */}
-    //       </Routes>
-    //       {/* </Provider> */}
-    //     </div>
-    //   </Router>
-    // </ApolloProvider>
-
   );
 }
 
