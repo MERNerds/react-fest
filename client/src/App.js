@@ -5,10 +5,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-<<<<<<< HEAD
-=======
   createHttpLink,
->>>>>>> feature/nav-bar
   // useQuery,
   // gql
 } from "@apollo/client";
@@ -18,10 +15,8 @@ import { setContext } from '@apollo/client/link/context';
 //import components
 import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
-<<<<<<< HEAD
 import Pricing from './pages/Pricing';
-=======
-import Login from './pages/Login.js';
+import Login from './pages/Login';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,34 +36,23 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
->>>>>>> feature/nav-bar
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
-<<<<<<< HEAD
-          <Provider>
-          {/* <Nav /> */}
+          {/* <Provider> */}
+          <Nav />
           <Pricing/>
           <Switch>  
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/myschedule" component={MySchedule} /> 
+            {/* <Route exact path="/myschedule" component={MySchedule} />  */}
             {/* <Route exact path="/info" component={Info} */}
           </Switch>
-          </Provider>
-=======
-          {/* <Provider> */}
-            <Nav />
-            <Switch>
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={SignUp} />
-            </Switch>
           {/* </Provider> */}
->>>>>>> feature/nav-bar
         </div>
       </Router>
     </ApolloProvider>
