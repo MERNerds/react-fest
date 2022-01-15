@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const scheduleSchema = new Schema({
-    text: {
+  name: {
     type: String,
     required: true,
     trim: true
@@ -13,6 +13,10 @@ const scheduleSchema = new Schema({
   },
   endDate: {
     type: String
+  },
+  stage: {
+    type: String,
+    required: true
   }
 });
 
