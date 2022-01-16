@@ -2,8 +2,6 @@ import React from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_TICKETS } from "../utils/queries";
 
-import { Link } from "react-router-dom";
-
 //items needed for styling
 import  Button  from '@mui/material/Button';
 import Card from '@mui/material/Card'
@@ -52,45 +50,6 @@ const useStyles = makeStyles((theme) => ({
 //     },
 //   },
 }));
-
-// const tiers = [
-//   {
-//     id: 1,
-//     ticketName: 'Single-Day Pass',
-//     price: '100',
-//     description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch','Free water stations'],
-//     buttonText: 'Lets',
-//     buttonVariant: 'outlined',
-//   },
-//   {
-//     id: 2,
-//     ticketName: '3 Day Pass',
-//     subheader: 'Limited Tickets remaining!',
-//     price: '250',
-//     description: [
-//       '60+ bands on 3 amazing stages',
-//       '30+ food vendor',
-//       'Bars and Merch',
-//       'Free Water Stations',
-//     ],
-//     buttonText: 'Get',
-//     buttonVariant: 'contained',
-//   },
-//   {
-//     id: 3,
-//     ticketName: 'VIP Pass',
-//     price: '500',
-//     description: [
-//       '60+ bands on 3 amazing stages',
-//       'Access to 2 vip lounges ',
-//       '3 free drink tickets daily',
-//       'Commemorative wristbands',
-//     ],
-//     buttonText: 'Rockin!',
-//     buttonVariant: 'outlined',
-//   },
-// ];
-
 
 export default function Pricing() {
   const classes = useStyles();
