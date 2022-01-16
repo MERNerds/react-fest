@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_TICKETS } from "../utils/queries";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { UPDATE_TICKETS } from '../utils/actions'
 //items needed for styling
 import  Button  from '@mui/material/Button';
 import Card from '@mui/material/Card'
@@ -52,11 +53,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Pricing() {
-  const classes = useStyles();
+  const state = useSelector((state) => {
+    return state
+  });
+
+  const dispatch = useDispatch();
 
   const { loading, data } = useQuery(QUERY_TICKETS);
-  const tickets = data?.tickets || [];
+  const { tickets } = state
   console.log(tickets);
+
+  useEffect(() => {
+    if (data) {
+      dispatch({
+        type: UPDATE_TICKETS,
+        tickets: data.tickets
+      })
+    } else if (!loading) {
+      dispatch({
+        type: UPDATE_TICKETS,
+        tickets: tickets
+      })
+    }
+  }, [data, loading, dispatch]);
+
+  const classes = useStyles();
 
   return (
     <React.Fragment>
@@ -74,7 +95,7 @@ export default function Pricing() {
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
-          {data.tickets.map((ticket) => (
+          {state.tickets.map((ticket) => (
             // Enterprise card is full width at sm breakpoint
             <Grid item key={ticket._id} xs={12} sm={ticket.ticketName === 'Enterprise' ? 12 : 6} md={4}>
               <Card>

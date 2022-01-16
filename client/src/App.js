@@ -10,7 +10,8 @@ import {
   // useQuery,
   // gql
 } from "@apollo/client";
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
+import store from './app/store';
 import { setContext } from '@apollo/client/link/context';
 
 //import components
@@ -47,7 +48,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <Provider> */}
+          <Provider store={store}>
           <Nav />
           <Switch>  
             <Route exact path="/" component={Home} />
@@ -58,7 +59,7 @@ function App() {
             {/* <Route exact path="/myschedule" component={MySchedule} />  */}
             {/* <Route exact path="/info" component={Info} */}
           </Switch>
-          {/* </Provider> */}
+          </Provider>
         </div>
       </Router>
     </ApolloProvider>
