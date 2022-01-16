@@ -23,7 +23,7 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
+            <Link color="inherit" to="https://mui.com/">
                 React Fest
             </Link>{' '}
             {new Date().getFullYear()}
@@ -40,7 +40,7 @@ const theme = createTheme();
 
 function Login() {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login,] = useMutation(LOGIN);
+    const [login, { error }] = useMutation(LOGIN);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -124,7 +124,7 @@ function Login() {
                                 </Link>
                             </Grid> */}
                             <Grid item>
-                                <Link to='/signup' >
+                                <Link to="/signup" >
                                     "Don't have an account? Sign Up"
                                 </Link>
                             </Grid>

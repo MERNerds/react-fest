@@ -2,32 +2,32 @@ import { gql } from "@apollo/client";
 
 //get all users 
 export const QUERY_USER = gql`
-  {
-    user {
+query user {
+  user {
+    _id
+    firstName
+    lastName
+    email
+    orders {
       _id
-      firstName
-      lastName
-      email
-      orders {
+      purchaseDate
+      tickets {
         _id
-        purchaseDate
-        tickets {
-          _id
-          ticketName
-          description
-          price
-          quantity
-        }
-      }
-      savedBands {
-        _id
-        bandName
-        startTime
-        endTime
-        stage
-      }
+        ticketName
+        description
+        price
+        quantity
+      } 
+    }
+    savedBands {
+      _id
+      bandName
+      startTime
+      endTime
+      stage
     }
   }
+}
 `;
 
 export const QUERY_USERS = gql`
@@ -47,8 +47,8 @@ query users {
 }
 `;
 
-export const QUER_TICKET = gql`
-{
+export const QUERY_TICKET = gql`
+query ticket($_id: ID!) {
   ticket(_id: $_id) {
     _id
     ticketName
@@ -72,9 +72,10 @@ query tickets {
 `;
 
 export const QUERY_ORDER = gql`
-{
-  order(_id: $_id) {
-    purchaseDate{
+query order($id: ID!) {
+  order(_id: $id) {
+    purchaseDate
+    tickets {
       _id
       ticketName
     }
@@ -83,13 +84,14 @@ export const QUERY_ORDER = gql`
 `;
 
 export const QUERY_BANDS = gql`
-{
-  bands{
+query bands {
+  bands {
     _id
     bandName
     startTime
     endTime
     date
+    startTime
   }
 }
 `;

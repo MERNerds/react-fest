@@ -20,7 +20,7 @@ import MenuItem from '@mui/material/MenuItem';
 // const pages = ['LineUp', 'Tickets'];
 // const settings = ['Profile', 'Account', "Cart", 'Logout'];
 
-function Nav() {
+function Nav() { 
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -41,7 +41,7 @@ function Nav() {
     };
 
     function showNavigation() {
-        if (true) {
+        if (Auth.loggedIn()) {
             return (
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open settings">
