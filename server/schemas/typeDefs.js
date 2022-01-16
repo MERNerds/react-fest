@@ -29,10 +29,14 @@ const typeDefs = gql`
   type Ticket {
     _id: ID!
     ticketName: String
-    description: String
+    subheader: String
+    description1: String
+    description2: String
+    description3: String
+    description4: String
     price: Float
-    quantity: Int
-
+    buttonText: String
+    buttonVariant: String
   }
 
   type Auth {

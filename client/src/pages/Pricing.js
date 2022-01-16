@@ -53,8 +53,9 @@ const useStyles = makeStyles((theme) => ({
 //   },
 }));
 
-// const tickets = [
+// const tiers = [
 //   {
+//     id: 1,
 //     ticketName: 'Single-Day Pass',
 //     price: '100',
 //     description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch','Free water stations'],
@@ -62,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
 //     buttonVariant: 'outlined',
 //   },
 //   {
+//     id: 2,
 //     ticketName: '3 Day Pass',
 //     subheader: 'Limited Tickets remaining!',
 //     price: '250',
@@ -75,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
 //     buttonVariant: 'contained',
 //   },
 //   {
+//     id: 3,
 //     ticketName: 'VIP Pass',
 //     price: '500',
 //     description: [
@@ -118,9 +121,9 @@ export default function Pricing() {
               <Card>
                 <CardHeader
                   title={ticket.ticketName}
-                  // subheader={ticket.subheader}
+                  subheader={ticket.subheader}
                   titleTypographyProps={{ align: 'center' }}
-                  // subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
+                  subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
                   action={ticket.ticketName === 'Pro'}
                   className={classes.cardHeader}
                 />
@@ -133,14 +136,23 @@ export default function Pricing() {
                     </Typography>
                   </div>
                   <ul>
-                      <Typography component="li" variant="subticketName1" align="center">
-                        {ticket.description}
+                      <Typography component="li" variant="subtitle1" align="center" >
+                        {ticket.description1}
+                      </Typography>
+                      <Typography component="li" variant="subtitle1" align="center" >
+                        {ticket.description2}
+                      </Typography>
+                      <Typography component="li" variant="subtitle1" align="center" >
+                        {ticket.description3}
+                      </Typography>
+                      <Typography component="li" variant="subtitle1" align="center" >
+                        {ticket.description4}
                       </Typography>
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth color="primary">
-                    Purchase
+                <Button fullWidth variant={ticket.buttonVariant} color="primary">
+                    {ticket.buttonText}
                   </Button>
                 </CardActions>
               </Card>

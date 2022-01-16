@@ -490,21 +490,34 @@ db.once('open', async () => {
     await Ticket.insertMany([
         {
             ticketName: '1 day pass',
-            description: 'Good for entry to one day of the festival',
+            description1: '21 bands each day on 3 stages',
+            description2: 'Food choices from local vendors',
+            description3: 'Bars and Merch',
+            description4: 'Free water stations',
             price: 100.00,
-            quantity: 1
+            buttonText: 'Lets',
+            buttonVariant: 'outlined'
         },
         {
             ticketName: '3 day pass',
-            description: 'Good for entry to the entire festival',
+            subheader: 'Limited Tickets Remaining!',
+            description1: '60+ bands on 3 amazing stages',
+            description2: '30+ food vendors',
+            description3: 'Bars and Merch',
+            description4: 'Free water stations',
             price: 250.00,
-            quantity: 1
+            buttonText: 'Get',
+            buttonVariant: 'contained'
         },
         {
             ticketName: 'VIP pass',
-            description: 'Good for entry to the entire festival plus access to the VIP tent',
+            description1: '60+ bands on 3 amazing stages',
+            description2: 'Access to 2 VIP lounges',
+            description3: '3 free drink tickets daily',
+            description4: 'Commemorative wristbands',
             price: 500.00,
-            quantity: 1
+            buttonText: 'Rocking',
+            buttonVariant: 'outlined'
         },
     ]);
 

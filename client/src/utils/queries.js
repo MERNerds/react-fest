@@ -52,9 +52,14 @@ query ticket($_id: ID!) {
   ticket(_id: $_id) {
     _id
     ticketName
-    description
+    subheader
+    description1
+    description2
+    description3
+    description4
     price
-    quantity
+    buttonText
+    buttonVariant
   }
 }
 `;
@@ -64,9 +69,14 @@ query tickets {
   tickets {
     _id
     ticketName
-    description
+    subheader
+    description1
+    description2
+    description3
+    description4
     price
-    quantity
+    buttonText
+    buttonVariant
   }
 }
 `;
