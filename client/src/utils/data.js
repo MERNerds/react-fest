@@ -1,6 +1,9 @@
 export const tasks = [
     {
       text: 'Kanye',
+      startDate: new Date('2022-04-20T23:00:00.000Z'),
+      endDate: new Date('2022-04-20T24:00:00.000Z'),
+      description: 'Hip-Hop'
     }, {
       text: 'Lil Wayne',
     }, {
@@ -367,8 +370,8 @@ export const tasks = [
     },
     {
       text: 'Red Hot Chili Peppers',
-      startDate: new Date('2022-04-18T20:30:00.000Z'),
-      endDate: new Date('2022-04-18T21:15:00.000Z'),
+      startDate: new Date('2022-04-18T23:00:00.000Z'),
+      endDate: new Date('2022-04-18T24:00:00.000Z'),
       description: 'Alternative/Rock',
     },
     {
