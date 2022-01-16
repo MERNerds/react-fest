@@ -15,8 +15,8 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Image from 'mui-image'
 import Paper from '@mui/material/Paper';
-import { height } from '@mui/system';
-import { red, yellow } from '@mui/material/colors';
+import { borderBottom } from '@mui/system';
+
 
 //copywright functions
 function Copyright() {
@@ -61,19 +61,10 @@ const useStyles = makeStyles((theme) => ({
 
   },
   paperBg: {
-    backgroundColor: '#02b7dd'
+    backgroundColor: 'Rgba(2, 183, 221, 0.4)',
+    borderBottom: 0,
+    boxShadow: 0 
   }
-  //will be put in a footer component
-  //   footer: {
-  //     borderTop: `1px solid ${theme.palette.divider}`,
-  //     marginTop: theme.spacing(8),
-  //     paddingTop: theme.spacing(3),
-  //     paddingBottom: theme.spacing(3),
-  //     [theme.breakpoints.up('sm')]: {
-  //       paddingTop: theme.spacing(6),
-  //       paddingBottom: theme.spacing(6),
-  //     },
-  //   },
 }));
 
 const tiers = [
@@ -118,32 +109,18 @@ export default function Pricing() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* Hero unit */}
-      {/* <Container maxWidth="sm" component="main" className={classes.heroContent}> */}
-      {/* <Image
-        src='./images/react-ticket-banner.jpg'
-        height="40vh"
-        width="100%"
-        cover="fill"
-        shift="top"
-        sx={{ display: 'block', ml: 'auto', mr: 'auto' }}
-
-      /> */}
       <Paper className={classes.paperContainer} square>
         <Image
           src='./images/react-ticket-banner.jpg'
           height="40vh"
           width="100%"
-          cover="fill"
-          shift="top"
+          cover="fit"
           sx={{ display: 'block', ml: 'auto', mr: 'auto' }}
 
         />
       </Paper>
-      {/* </Container> */}
-      {/* End hero unit */}
       <Paper className={classes.paperBg}>
-      <Container maxWidth="md" component="main" className={classes.paperBg}>
+      <Container maxWidth="md" component="main" >
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
