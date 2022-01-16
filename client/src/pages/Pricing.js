@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 //items needed for styling
-import  Button  from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -13,6 +13,10 @@ import Typography from '@mui/material/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import Image from 'mui-image'
+import Paper from '@mui/material/Paper';
+import { height } from '@mui/system';
+import { red, yellow } from '@mui/material/colors';
 
 //copywright functions
 function Copyright() {
@@ -35,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
       padding: 0,
       listStyle: 'none',
+
     },
   },
   heroContent: {
@@ -50,24 +55,32 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'baseline',
     marginBottom: theme.spacing(2),
   },
+  paperContainer: {
+    backgroundImage: `url(${"client/public/images/react-ticket-banner.jpg"})`,
+    marginBottom: '20px'
+
+  },
+  paperBg: {
+    backgroundColor: '#02b7dd'
+  }
   //will be put in a footer component
-//   footer: {
-//     borderTop: `1px solid ${theme.palette.divider}`,
-//     marginTop: theme.spacing(8),
-//     paddingTop: theme.spacing(3),
-//     paddingBottom: theme.spacing(3),
-//     [theme.breakpoints.up('sm')]: {
-//       paddingTop: theme.spacing(6),
-//       paddingBottom: theme.spacing(6),
-//     },
-//   },
+  //   footer: {
+  //     borderTop: `1px solid ${theme.palette.divider}`,
+  //     marginTop: theme.spacing(8),
+  //     paddingTop: theme.spacing(3),
+  //     paddingBottom: theme.spacing(3),
+  //     [theme.breakpoints.up('sm')]: {
+  //       paddingTop: theme.spacing(6),
+  //       paddingBottom: theme.spacing(6),
+  //     },
+  //   },
 }));
 
 const tiers = [
   {
     title: 'Single-Day Pass',
     price: '100',
-    description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch','Free water stations'],
+    description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch', 'Free water stations'],
     buttonText: 'Lets',
     buttonVariant: 'outlined',
   },
@@ -106,17 +119,31 @@ export default function Pricing() {
     <React.Fragment>
       <CssBaseline />
       {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        {/* <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Pricing
-        </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" component="p">
-          Quickly build an effective pricing table for your potential customers with this layout.
-          It&apos;s built with default Material-UI components with little customization.
-        </Typography> */}
-      </Container>
+      {/* <Container maxWidth="sm" component="main" className={classes.heroContent}> */}
+      {/* <Image
+        src='./images/react-ticket-banner.jpg'
+        height="40vh"
+        width="100%"
+        cover="fill"
+        shift="top"
+        sx={{ display: 'block', ml: 'auto', mr: 'auto' }}
+
+      /> */}
+      <Paper className={classes.paperContainer} square>
+        <Image
+          src='./images/react-ticket-banner.jpg'
+          height="40vh"
+          width="100%"
+          cover="fill"
+          shift="top"
+          sx={{ display: 'block', ml: 'auto', mr: 'auto' }}
+
+        />
+      </Paper>
+      {/* </Container> */}
       {/* End hero unit */}
-      <Container maxWidth="md" component="main">
+      <Paper className={classes.paperBg}>
+      <Container maxWidth="md" component="main" className={classes.paperBg}>
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
@@ -162,6 +189,7 @@ export default function Pricing() {
           <Copyright />
         </Box>
       </Container>
+      </Paper>
       {/* End footer */}
     </React.Fragment>
   );

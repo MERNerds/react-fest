@@ -17,7 +17,7 @@ import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
 import Pricing from './pages/Pricing';
 import Login from './pages/Login';
-import LineUp from './Lineup';
+import LineUp from './components/Lineup';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
