@@ -7,7 +7,7 @@ import ScrollView from 'devextreme-react/scroll-view';
 
 import { appointments, tasks } from '../utils/data';
 
-const currentDate = new Date(2022, 3, 20);
+const currentDate = new Date(2022, 3, 18);
 const views = [{ type: 'day', intervalCount: 3 }];
 const draggingGroupName = 'appointmentsGroup';
 
@@ -49,8 +49,8 @@ class Schedule extends React.Component {
           dataSource={this.state.appointments}
           views={views}
           defaultCurrentDate={currentDate}
-          height={600}
-          startDayHour={0}
+          height={900}
+          startDayHour={15}
           editing={true}>
           <AppointmentDragging
             group={draggingGroupName}
