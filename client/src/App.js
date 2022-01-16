@@ -19,6 +19,7 @@ import SignUp from './pages/SignUp';
 import Pricing from './pages/Pricing';
 import Login from './pages/Login';
 import Schedule from './pages/Schedule';
+import Home from './pages/Home';
 //import Nav from './components/Nav';
 //import 'devextreme/dist/css/dx.light.css';
 
@@ -49,7 +50,7 @@ function App() {
           {/* <Provider> */}
           <Nav />
           <Switch>  
-            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path='/tickets' component={Pricing} />

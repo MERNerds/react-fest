@@ -31,16 +31,16 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_USERS = gql`
-{
-  users{
+query users {
+  users {
     _id
     firstName
     lastName
     email
-    savedBands{
+    savedBands {
       bandName
     }
-    order{
+    orders {
       _id
     }
   }
@@ -60,8 +60,8 @@ export const QUER_TICKET = gql`
 `;
 
 export const QUERY_TICKETS = gql`
-{
-  tickets{
+query tickets {
+  tickets {
     _id
     ticketName
     description
