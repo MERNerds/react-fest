@@ -111,10 +111,12 @@ function Nav() {
     }
 
 
+
     return (
-        <AppBar position="static">
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
+        <React.Fragment>
+        <AppBar position="sticky" sx={{backgroundColor:'Rgba(255, 122, 243, 1)' }}>
+            <Container maxWidth="xl" sx={{color: "FF4DF0" }} >
+                <Toolbar disableGutters sx={{color: "FF4DF0" }}>
                     <Typography
                         variant="h6"
                         noWrap
@@ -124,7 +126,7 @@ function Nav() {
                         React-Fest
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' },color: "FF4DF0"   }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -150,7 +152,7 @@ function Nav() {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: { xs: 'block', md: 'none', color: "FF4DF0" },
                             }}
                         >
                             <MenuItem>
@@ -210,6 +212,7 @@ function Nav() {
                 </Toolbar>
             </Container>
         </AppBar>
+        </React.Fragment>
     );
 };
 export default Nav;

@@ -56,14 +56,23 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   paperContainer: {
-    backgroundImage: `url(${"client/public/images/react-ticket-banner.jpg"})`,
-    marginBottom: '20px'
+    backgroundImage: `url(${"client/public/images/react-ticket-bannerv1.jpg"})`,
+    marginBottom: '20px',
+    boxShadow: 'none',
+    animation: 'none',
 
   },
   paperBg: {
     backgroundColor: 'Rgba(2, 183, 221, 0.4)',
-    borderBottom: 0,
-    boxShadow: 0 
+    borderBottom: '10px',
+    boxShadow: 0
+  },
+  heroImg: {
+    height: "60vh",
+    width: "100%",
+    animation: "none",
+    cover: 'fit',
+    transition: "none"
   }
 }));
 
@@ -108,64 +117,67 @@ export default function Pricing() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <Paper className={classes.paperContainer} square>
-        <Image
+        <Image className={classes.heroImg} 
           src='./images/react-ticket-banner.jpg'
-          height="40vh"
-          width="100%"
-          cover="fit"
-          sx={{ display: 'block', ml: 'auto', mr: 'auto' }}
+          layout="fill"
+          objectFit="contain"
+          animation= 'none'
+          transition-property='none'
+          transitionDuration= 'none'
+          sx={{ display: 'block', ml: 'auto', mr: 'auto', animation: 'none', 
+          transitionDuration:'none'
+          }}
 
         />
       </Paper>
       <Paper className={classes.paperBg}>
-      <Container maxWidth="md" component="main" >
-        <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-              <Card>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
-                  action={tier.title === 'Pro'}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary">
-                    </Typography>
-                  </div>
-                  <ul>
-                    {tier.description.map((line) => (
-                      <Typography component="li" variant="subtitle1" align="center" key={line}>
-                        {line}
+        <Container maxWidth="md" component="main" >
+          <Grid container spacing={5} alignItems="flex-end">
+            {tiers.map((tier) => (
+              // Enterprise card is full width at sm breakpoint
+              <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+                <Card>
+                  <CardHeader
+                    title={tier.title}
+                    subheader={tier.subheader}
+                    titleTypographyProps={{ align: 'center' }}
+                    subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
+                    action={tier.title === 'Pro'}
+                    className={classes.cardHeader}
+                  />
+                  <CardContent>
+                    <div className={classes.cardPricing}>
+                      <Typography component="h2" variant="h3" color="textPrimary">
+                        ${tier.price}
                       </Typography>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
-                    {tier.buttonText}
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-      {/* Footer */}
-      <Container maxWidth="md" component="footer" className={classes.footer}>
-        <Box mt={5}>
-          <Copyright />
-        </Box>
-      </Container>
+                      <Typography variant="h6" color="textSecondary">
+                      </Typography>
+                    </div>
+                    <ul>
+                      {tier.description.map((line) => (
+                        <Typography component="li" variant="subtitle1" align="center" key={line}>
+                          {line}
+                        </Typography>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardActions>
+                    <Button fullWidth variant={tier.buttonVariant} color="primary">
+                      {tier.buttonText}
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+        {/* Footer */}
+        <Container maxWidth="md" component="footer" className={classes.footer}>
+          <Box mt={5}>
+            <Copyright />
+          </Box>
+        </Container>
       </Paper>
       {/* End footer */}
     </React.Fragment>

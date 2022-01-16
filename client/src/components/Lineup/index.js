@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { alignProperty } from '@mui/material/styles/cssUtils';
+import { margin } from '@mui/system';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,10 +24,20 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   lineupCard: {
-    padding: 10,
-    margin: 20,
+    padding: "10px",
+    marginTop: '20px',
     maxWidth: 800,
+    marginLeft: "auto",
+    marginRight: "auto"
     
+  },
+  paperDiv:{
+    backgroundColor: 'Rgba(2, 183, 221, 0.4)',
+    borderBottom: 0,
+    boxShadow: 0,
+    disableGutters: true,
+    marginLeft: "auto"
+
   }
 
 }));
@@ -36,14 +47,14 @@ export default function LineUp() {
  
   return (
 
-    <Paper >
+    <Paper className={classes.paperDiv}>
       <Card className={classes.lineupCard}>
         <CardMedia
           component="img"
           alt="Day 1"
           height="400"
           width="800"
-          image="./images/react-ticket-banner.jpg"
+          image="./images/Day-1.jpg"
         />
       </Card>
       <Card className={classes.lineupCard}>

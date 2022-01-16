@@ -12,6 +12,8 @@ import {
 // import { Provider } from 'react-redux';
 import { setContext } from '@apollo/client/link/context';
 
+import CssBaseline from '@mui/material/CssBaseline';
+
 //import components
 import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
@@ -45,6 +47,7 @@ function App() {
         <div>
           {/* <Provider> */}
           <Nav />
+          <CssBaseline />
           <Switch>  
             {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/lineup" component={LineUp} />
