@@ -1,4 +1,6 @@
 import React from 'react';
+import { useQuery } from "@apollo/client";
+import { QUERY_TICKETS } from "../utils/queries";
 
 import { Link } from "react-router-dom";
 
@@ -51,44 +53,48 @@ const useStyles = makeStyles((theme) => ({
 //   },
 }));
 
-const tiers = [
-  {
-    title: 'Single-Day Pass',
-    price: '100',
-    description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch','Free water stations'],
-    buttonText: 'Lets',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: '3 Day Pass',
-    subheader: 'Limited Tickets remaining!',
-    price: '250',
-    description: [
-      '60+ bands on 3 amazing stages',
-      '30+ food vendor',
-      'Bars and Merch',
-      'Free Water Stations',
-    ],
-    buttonText: 'Get',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'VIP Pass',
-    price: '500',
-    description: [
-      '60+ bands on 3 amazing stages',
-      'Access to 2 vip lounges ',
-      '3 free drink tickets daily',
-      'Commemorative wristbands',
-    ],
-    buttonText: 'Rockin!',
-    buttonVariant: 'outlined',
-  },
-];
+// const tickets = [
+//   {
+//     ticketName: 'Single-Day Pass',
+//     price: '100',
+//     description: ['21 bands each day on 3 stages', 'Food choices from local vendors', 'Bars and Merch','Free water stations'],
+//     buttonText: 'Lets',
+//     buttonVariant: 'outlined',
+//   },
+//   {
+//     ticketName: '3 Day Pass',
+//     subheader: 'Limited Tickets remaining!',
+//     price: '250',
+//     description: [
+//       '60+ bands on 3 amazing stages',
+//       '30+ food vendor',
+//       'Bars and Merch',
+//       'Free Water Stations',
+//     ],
+//     buttonText: 'Get',
+//     buttonVariant: 'contained',
+//   },
+//   {
+//     ticketName: 'VIP Pass',
+//     price: '500',
+//     description: [
+//       '60+ bands on 3 amazing stages',
+//       'Access to 2 vip lounges ',
+//       '3 free drink tickets daily',
+//       'Commemorative wristbands',
+//     ],
+//     buttonText: 'Rockin!',
+//     buttonVariant: 'outlined',
+//   },
+// ];
 
 
 export default function Pricing() {
   const classes = useStyles();
+
+  const { loading, data } = useQuery(QUERY_TICKETS);
+  const tickets = data?.tickets || [];
+  console.log(tickets);
 
   return (
     <React.Fragment>
@@ -106,37 +112,35 @@ export default function Pricing() {
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
-          {tiers.map((tier) => (
+          {data.tickets.map((ticket) => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+            <Grid item key={ticket._id} xs={12} sm={ticket.ticketName === 'Enterprise' ? 12 : 6} md={4}>
               <Card>
                 <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
+                  title={ticket.ticketName}
+                  // subheader={ticket.subheader}
                   titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
-                  action={tier.title === 'Pro'}
+                  // subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
+                  action={ticket.ticketName === 'Pro'}
                   className={classes.cardHeader}
                 />
                 <CardContent>
                   <div className={classes.cardPricing}>
                     <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
+                      ${ticket.price}
                     </Typography>
                     <Typography variant="h6" color="textSecondary">
                     </Typography>
                   </div>
                   <ul>
-                    {tier.description.map((line) => (
-                      <Typography component="li" variant="subtitle1" align="center" key={line}>
-                        {line}
+                      <Typography component="li" variant="subticketName1" align="center">
+                        {ticket.description}
                       </Typography>
-                    ))}
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
-                    {tier.buttonText}
+                  <Button fullWidth color="primary">
+                    Purchase
                   </Button>
                 </CardActions>
               </Card>
