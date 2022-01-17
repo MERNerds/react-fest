@@ -9,7 +9,7 @@ import { appointments, tasks } from '../utils/data';
 
 
 const currentDate = new Date(2022, 3, 18);
-const views = [{ type: 'day', intervalCount: 3 }];
+const views = [{ type: 'day', intervalCount: 1 }];
 const draggingGroupName = 'appointmentsGroup';
 
 class Schedule extends React.Component {
@@ -105,6 +105,7 @@ class Schedule extends React.Component {
       e.cancel = true;
     }
   }
+  
 }
 
 export default Schedule;
