@@ -28,6 +28,16 @@ const initialState = {
     cartOpen: false
 };
 
+test('UPDATE_TICKETS', () => {
+    let newState = reducer(initialState, {
+        type: UPDATE_TICKETS,
+        tickets: [{}, {}]
+    });
+    
+    expect(newState.tickets.length).toBe(2);
+    expect(initialState.tickets.length).toBe(0);
+});
+
 test('ADD_TO_CART', () => {
     let newState = reducer(initialState, {
         type: ADD_TO_CART,

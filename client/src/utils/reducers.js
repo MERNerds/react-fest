@@ -27,13 +27,13 @@ export const reducer = (state = defaultState, action) => {
                 ...state,
                 cartOpen: true,
                 cart: [...state.cart, ...action.ticket]
-            }
+            };
 
         case ADD_MULTIPLE_TO_CART:
             return {
                 ...state,
                 cart: [...state.cart, ...action.tickets]
-            }
+            };
 
         case REMOVE_FROM_CART:
             let newState = state.cart.filter(ticket => {
@@ -54,7 +54,7 @@ export const reducer = (state = defaultState, action) => {
                     if (action._id === ticket._id) {
                         ticket.purchaseQuantity = action.purchaseQuantity;
                     }
-                    return product;
+                    return ticket;
                 })
             };
 
