@@ -17,7 +17,12 @@ const scheduleSchema = new Schema({
   stage: {
     type: String,
     required: true
+  },
+  colorExpr: {
+    type: String,
+    Default: 'color'
   }
+  
 });
 
 const Schedule = mongoose.model('Schedule', scheduleSchema);
