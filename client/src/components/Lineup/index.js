@@ -5,12 +5,14 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { alignProperty } from '@mui/material/styles/cssUtils';
 import { margin } from '@mui/system';
+import { Container } from '@mui/material';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,22 +31,34 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 800,
     marginLeft: "auto",
     marginRight: "auto"
-    
+
   },
-  paperDiv:{
-    backgroundColor: 'Rgba(2, 183, 221, 0.4)',
+  paperDiv: {
+    backgroundColor: 'Rgba(4, 241, 103, 0.4)',
     borderBottom: 0,
     boxShadow: 0,
     disableGutters: true,
-    marginLeft: "auto"
-
+    marginLeft: "auto",
+    marginTop: '-10px',
+    paddingTop: '20px'
+  },
+  buttonClass: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "20px",
+    width: '50%',
+    height: '50%',
+    backgroundColor: 'Rgba(255, 112, 243, 1)',
+    color: 'Rgba(29, 39, 155, 1)',
+    fontSize: '1.5rem',
+    fontWeight: "bold"
   }
 
 }));
 
 export default function LineUp() {
- const classes = useStyles();
- 
+  const classes = useStyles();
+
   return (
 
     <Paper className={classes.paperDiv}>
@@ -73,7 +87,23 @@ export default function LineUp() {
           image="./images/react-ticket-banner.jpg"
         />
       </Card>
-      <Button size="large" component={Link} to>Tickets</Button>
+      <Box  sx={{
+        width: '100%',
+        height: 100,
+        textAlign: 'center'
+      }} >
+        <Button
+          variant="contained"
+          className={classes.buttonClass}
+          size="large"
+          component={Link} to="/tickets" 
+           sx={{'&:hover': {
+            backgroundColor: 'Rgba(255, 112, 243, .5)',
+          }
+        }}
+        >Tickets
+        </Button>
+      </Box>
     </Paper>
   );
 }
