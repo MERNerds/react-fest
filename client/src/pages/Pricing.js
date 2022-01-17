@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardHeader: {
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
+    "Rgba(4,241,103,.5)"
   },
   cardPricing: {
     display: 'flex',
@@ -69,11 +69,19 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 0
   },
   heroImg: {
-    height: "60vh",
     width: "100%",
     cover: 'contain',
-    alignItems:'bottom',
+    alignItems: 'bottom',
+    borderBottom: 'none'
+
+  },
+  pricingCard: {
+    border: 1
+  },
+  cardHeader2: {
+    backgroundColor: "none"
   }
+  
 }));
 
 const tiers = [
@@ -118,10 +126,11 @@ export default function Pricing() {
   return (
     <React.Fragment>
       <Paper className={classes.paperContainer} square>
-        <Card className={classes.heroImg} 
+        <Card className={classes.heroImg}
           src='./images/react-ticket-banner.jpg'
-          >
-          <CardMedia 
+
+        >
+          <CardMedia
             component="img"
             alt="ticket-banner"
             image="./images/react-ticket-banner.jpg"
@@ -136,7 +145,7 @@ export default function Pricing() {
             {tiers.map((tier) => (
               // Enterprise card is full width at sm breakpoint
               <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-                <Card>
+                <Card sx={{ border: 2, borderColor: 'Rgba(255, 122, 243, 1)' }}>
                   <CardHeader
                     title={tier.title}
                     subheader={tier.subheader}
@@ -145,7 +154,7 @@ export default function Pricing() {
                     action={tier.title === 'Pro'}
                     className={classes.cardHeader}
                   />
-                  <CardContent>
+                  <CardContent >
                     <div className={classes.cardPricing}>
                       <Typography component="h2" variant="h3" color="textPrimary">
                         ${tier.price}
