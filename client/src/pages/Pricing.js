@@ -16,6 +16,7 @@ import Box from '@material-ui/core/Box';
 import Image from 'mui-image'
 import Paper from '@mui/material/Paper';
 import { borderBottom } from '@mui/system';
+import { CardMedia } from '@mui/material';
 
 
 //copywright functions
@@ -70,9 +71,8 @@ const useStyles = makeStyles((theme) => ({
   heroImg: {
     height: "60vh",
     width: "100%",
-    animation: "none",
-    cover: 'fit',
-    transition: "none"
+    cover: 'contain',
+    alignItems:'bottom',
   }
 }));
 
@@ -118,18 +118,17 @@ export default function Pricing() {
   return (
     <React.Fragment>
       <Paper className={classes.paperContainer} square>
-        <Image className={classes.heroImg} 
+        <Card className={classes.heroImg} 
           src='./images/react-ticket-banner.jpg'
-          layout="fill"
-          objectFit="contain"
-          animation= 'none'
-          transition-property='none'
-          transitionDuration= 'none'
-          sx={{ display: 'block', ml: 'auto', mr: 'auto', animation: 'none', 
-          transitionDuration:'none'
-          }}
+          >
+          <CardMedia 
+            component="img"
+            alt="ticket-banner"
+            image="./images/react-ticket-banner.jpg"
+            alignItems="bottom"
+          />
 
-        />
+        </Card>
       </Paper>
       <Paper className={classes.paperBg}>
         <Container maxWidth="md" component="main" >

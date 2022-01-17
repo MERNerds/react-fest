@@ -2,17 +2,12 @@ import * as React from 'react';
 import { Link } from "react-router-dom";
 
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { alignProperty } from '@mui/material/styles/cssUtils';
-import { margin } from '@mui/system';
-import { Container } from '@mui/material';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +63,7 @@ export default function LineUp() {
           alt="Day 1"
           height="400"
           width="800"
-          image="./images/Day-1.jpg"
+          image="./images/Day-1.png"
         />
       </Card>
       <Card className={classes.lineupCard}>
@@ -76,7 +71,7 @@ export default function LineUp() {
           component="img"
           alt="Day 1"
           height="400"
-          image="./images/react-ticket-banner.jpg"
+          image="./images/Day-2.png"
         />
       </Card>
       <Card className={classes.lineupCard}>
@@ -84,7 +79,7 @@ export default function LineUp() {
           component="img"
           alt="Day 1"
           height="400"
-          image="./images/react-ticket-banner.jpg"
+          image="./images/Day-3.png"
         />
       </Card>
       <Box  sx={{
