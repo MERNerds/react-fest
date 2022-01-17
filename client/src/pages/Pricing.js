@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from "@apollo/client";
 import { QUERY_TICKETS } from "../utils/queries";
 import { useSelector, useDispatch } from 'react-redux';
-import { UPDATE_TICKETS } from '../utils/actions'
+import { useParams } from 'react-router-dom';
+import { UPDATE_TICKETS, ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions'
 //items needed for styling
 import  Button  from '@mui/material/Button';
 import Card from '@mui/material/Card'
@@ -16,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Copyright from '../components/Copyright';
+import Cart from '../components/Cart'
 
 //importing styles
 const useStyles = makeStyles((theme) => ({
@@ -59,12 +61,19 @@ export default function Pricing() {
 
   const dispatch = useDispatch();
 
+  const { id } = useParams();
+
+  const [currentTicket, setCurrentTicket] = useState({});
+
   const { loading, data } = useQuery(QUERY_TICKETS);
-  const { tickets } = state
+  const { tickets, cart } = state
   console.log(tickets);
 
   useEffect(() => {
-    if (data) {
+    if (tickets.length) {
+      setCurrentTicket(tickets.find(ticket => ticket._id === id));
+    }
+    else if (data) {
       dispatch({
         type: UPDATE_TICKETS,
         tickets: data.tickets
@@ -75,7 +84,24 @@ export default function Pricing() {
         tickets: tickets
       })
     }
-  }, [data, loading, dispatch]);
+  }, [tickets, data, loading, dispatch, id]);
+
+  const addToCart = () => {
+    const itemInCart = cart.find((cartItem) => cartItem._id === id);
+
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: id,
+        purchaseQuantitiy: parseInt(itemInCart.purchaseQuantitiy) + 1
+      })
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        ticket: { ...currentTicket, purchaseQuantitiy: 1 }
+      })
+    }
+  };
 
   const classes = useStyles();
 
@@ -131,7 +157,7 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                <Button fullWidth variant={ticket.buttonVariant} color="primary">
+                <Button fullWidth variant={ticket.buttonVariant} color="primary" onClick={addToCart}>
                     {ticket.buttonText}
                   </Button>
                 </CardActions>
@@ -146,7 +172,9 @@ export default function Pricing() {
           <Copyright />
         </Box>
       </Container>
+      <Cart item={state.tickets}/>
       {/* End footer */}
     </React.Fragment>
+    
   );
 }
