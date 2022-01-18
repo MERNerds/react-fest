@@ -14,7 +14,11 @@ const defaultState = {
     cartOpen: false
 }
 
+<<<<<<< HEAD
 export default function reducer(state = defaultState, action) {
+=======
+export default function reducer (state = defaultState, action) {
+>>>>>>> 7786efdde6d6d6342e770e73927c7d546da73596
     switch (action.type) {
         case UPDATE_TICKETS:
             return {
