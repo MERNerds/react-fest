@@ -4,8 +4,9 @@ import { QUERY_TICKETS } from "../utils/queries";
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { UPDATE_TICKETS, ADD_TO_CART, UPDATE_CART_QUANTITY } from '../utils/actions'
+import { idbPromise } from '../utils/helpers';
 //items needed for styling
-import  Button  from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -43,16 +44,16 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   //will be put in a footer component
-//   footer: {
-//     borderTop: `1px solid ${theme.palette.divider}`,
-//     marginTop: theme.spacing(8),
-//     paddingTop: theme.spacing(3),
-//     paddingBottom: theme.spacing(3),
-//     [theme.breakpoints.up('sm')]: {
-//       paddingTop: theme.spacing(6),
-//       paddingBottom: theme.spacing(6),
-//     },
-//   },
+  //   footer: {
+  //     borderTop: `1px solid ${theme.palette.divider}`,
+  //     marginTop: theme.spacing(8),
+  //     paddingTop: theme.spacing(3),
+  //     paddingBottom: theme.spacing(3),
+  //     [theme.breakpoints.up('sm')]: {
+  //       paddingTop: theme.spacing(6),
+  //       paddingBottom: theme.spacing(6),
+  //     },
+  //   },
 }));
 
 export default function Pricing() {
@@ -79,31 +80,20 @@ export default function Pricing() {
       dispatch({
         type: UPDATE_TICKETS,
         tickets: data.tickets
-      })
+      });
+
+      data.tickets.forEach((ticket) => {
+        idbPromise('tickets', 'put', ticket);
+      });
     } else if (!loading) {
-      dispatch({
-        type: UPDATE_TICKETS,
-        tickets: tickets
-      })
+      idbPromise('tickets', 'get').then((indexedTickets) => {
+        dispatch({
+          type: UPDATE_TICKETS,
+          tickets: indexedTickets
+        });
+      });
     }
   }, [tickets, data, loading, dispatch, id]);
-
-  const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
-
-    if (itemInCart) {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: id,
-        purchaseQuantitiy: parseInt(itemInCart.purchaseQuantitiy) + 1
-      })
-    } else {
-      dispatch({
-        type: ADD_TO_CART,
-        ticket: { ...currentTicket, purchaseQuantitiy: 1 }
-      })
-    }
-  };
 
   const classes = useStyles();
 
@@ -119,23 +109,23 @@ export default function Pricing() {
           Quickly build an effective pricing table for your potential customers with this layout.
           It&apos;s built with default Material-UI components with little customization.
         </Typography> */}
-      </Container> 
+      </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {state.tickets.map((ticket) => (
             <TicketItem
-            key={ticket._id}
-            _id={ticket._id}
-            ticketName={ticket.ticketName}
-            subheader={ticket.subheader}
-            price={ticket.price}
-            description1={ticket.description1}
-            description2={ticket.description2}
-            description3={ticket.description3}
-            description4={ticket.description4}
-            buttonVariant={ticket.buttonVariant}
-            buttonText={ticket.buttonText} />
+              key={ticket._id}
+              _id={ticket._id}
+              ticketName={ticket.ticketName}
+              subheader={ticket.subheader}
+              price={ticket.price}
+              description1={ticket.description1}
+              description2={ticket.description2}
+              description3={ticket.description3}
+              description4={ticket.description4}
+              buttonVariant={ticket.buttonVariant}
+              buttonText={ticket.buttonText} />
 
             // Enterprise card is full width at sm breakpoint
             // <Grid item key={ticket._id} xs={12} sm={ticket.ticketName === 'Enterprise' ? 12 : 6} md={4}>
@@ -190,6 +180,6 @@ export default function Pricing() {
       <Cart />
       {/* End footer */}
     </React.Fragment>
-    
+
   );
 }
