@@ -8,12 +8,13 @@ const resolvers = {
     Query: {
       user: async (parent, args, context) => {
         if (context.user) {
-          const userData = await User.findOne({ _id: context.user._id })
-            .select('-__v')
-            .populate('savedBands')
-            .populate('orders')
+          const user = await User.findById({ _id: context.user._id }).populate({
+            path: 'orders.tickets'
+          });
+          
+          user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate)
 
-            return userData;
+            return user;
         }
 
         throw new AuthenticationError('Not logged in'); 
@@ -26,9 +27,16 @@ const resolvers = {
         return Band.find()
           .select('-__v')
       },
-      tickets: async () => {
-        return await Ticket.find()
-          .select('-__v');
+      tickets: async (parent, { ticketName }) => {
+        const params = {};
+
+        if (ticketName) {
+          params.ticketName = {
+            $regex: ticketName
+          };
+        }
+
+        return await Ticket.find(params)
       },
       ticket: async (parent, { _id }) => {
         return await Ticket.findById(_id)
@@ -45,7 +53,7 @@ const resolvers = {
         throw new AuthenticationError('Not logged in')
       },
       checkout: async (parent, args, context) => {
-        const url = new URL(context.headers.referer).origin;
+        // const url = new URL(context.headers.referer).origin;
   
         const order = new Order({ tickets: args.tickets });
         const { tickets } = await order.populate('tickets').execPopulate();
@@ -54,8 +62,8 @@ const resolvers = {
   
         for (let i = 0; i < tickets.length; i++) {
           const ticket = await stripe.tickets.create({
-            name: tickets[i].name,
-            description: tickets[i].description,
+            ticketName: tickets[i].ticketName,
+            description1: tickets[i].description1,
             // images: [`${url}/images/${tickets[i].image}`]
           });
   
@@ -75,8 +83,8 @@ const resolvers = {
           payment_method_types: ['card'],
           line_items,
           mode: 'payment',
-          success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${url}/`
+          success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+          cancel_url: 'https://example.com/cancel'
         });
   
         return { session: session.id };
