@@ -53,7 +53,7 @@ function Login() {
 
 
     return (
-        <ThemeProvider theme={theme} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)' }}>
+        <ThemeProvider theme={theme} >
             <Paper sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)' }}>
                 <Container component="main" maxWidth="xs" >
                     <CssBaseline />
