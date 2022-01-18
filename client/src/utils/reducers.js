@@ -32,7 +32,7 @@ export default function reducer(state = defaultState, action) {
         case ADD_MULTIPLE_TO_CART:
             return {
                 ...state,
-                cart: [...state.cart, ...action.tickets]
+                cart: [...state.cart, action.tickets]
             };
 
         case REMOVE_FROM_CART:
