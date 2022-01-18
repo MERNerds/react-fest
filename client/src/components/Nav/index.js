@@ -51,7 +51,7 @@ function Nav() {
     };
 
     function showNavigation() {
-        if (true) {
+        if (Auth.loggedIn()) {
             return (
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip sx={{color: '#02B7DD'}} title="Open settings">

@@ -10,7 +10,8 @@ import {
   // useQuery,
   // gql
 } from "@apollo/client";
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
+import store from './app/store';
 import { setContext } from '@apollo/client/link/context';
 
 import CssBaseline from '@mui/material/CssBaseline';
@@ -25,7 +26,6 @@ import Schedule from './pages/Schedule';
 //import Home from './pages/Home';
 import 'devextreme/dist/css/dx.light.css';
 import LineUp from './components/Lineup';
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -50,7 +50,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <Provider> */}
+          <Provider store={store}>
           <Nav />
           <CssBaseline />
           <Switch>  
@@ -63,7 +63,7 @@ function App() {
             {/* <Route exact path="/myschedule" component={MySchedule} />  */}
             {/* <Route exact path="/info" component={Info} */}
           </Switch>
-          {/* </Provider> */}
+          </Provider>
         </div>
       </Router>
     </ApolloProvider>

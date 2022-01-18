@@ -2,79 +2,90 @@ import { gql } from "@apollo/client";
 
 //get all users 
 export const QUERY_USER = gql`
-  {
-    user {
-      _id
-      firstName
-      lastName
-      email
-      orders {
-        _id
-        purchaseDate
-        tickets {
-          _id
-          ticketName
-          description
-          price
-          quantity
-        }
-      }
-      savedBands {
-        _id
-        bandName
-        startTime
-        endTime
-        stage
-      }
-    }
-  }
-`;
-
-export const QUERY_USERS = gql`
-{
-  users{
+query user {
+  user {
     _id
     firstName
     lastName
     email
-    savedBands{
+    orders {
+      _id
+      purchaseDate
+      tickets {
+        _id
+        ticketName
+        description
+        price
+        quantity
+      } 
+    }
+    savedBands {
+      _id
+      bandName
+      startTime
+      endTime
+      stage
+    }
+  }
+}
+`;
+
+export const QUERY_USERS = gql`
+query users {
+  users {
+    _id
+    firstName
+    lastName
+    email
+    savedBands {
       bandName
     }
-    order{
+    orders {
       _id
     }
   }
 }
 `;
 
-export const QUER_TICKET = gql`
-{
+export const QUERY_TICKET = gql`
+query ticket($_id: ID!) {
   ticket(_id: $_id) {
     _id
     ticketName
-    description
+    subheader
+    description1
+    description2
+    description3
+    description4
     price
-    quantity
+    buttonText
+    buttonVariant
   }
 }
 `;
 
 export const QUERY_TICKETS = gql`
-{
-  tickets{
+query tickets {
+  tickets {
     _id
     ticketName
-    description
+    subheader
+    description1
+    description2
+    description3
+    description4
     price
-    quantity
+    buttonText
+    buttonVariant
   }
 }
 `;
 
 export const QUERY_ORDER = gql`
-{
-  order(_id: $_id) {
-    purchaseDate{
+query order($id: ID!) {
+  order(_id: $id) {
+    purchaseDate
+    tickets {
       _id
       ticketName
     }
@@ -83,14 +94,23 @@ export const QUERY_ORDER = gql`
 `;
 
 export const QUERY_BANDS = gql`
-{
-  bands{
+query bands {
+  bands {
     _id
     bandName
     startTime
     endTime
     date
+    startTime
   }
 }
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
 `;
 

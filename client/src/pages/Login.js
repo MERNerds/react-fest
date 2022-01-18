@@ -18,20 +18,7 @@ import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from '../utils/auth';
 import Paper from '@mui/material/Paper';
-
-// copyright
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                React Fest
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import Copyright from '../components/Copyright/';
 
 
 //can change this once we know our color pallette 
@@ -41,7 +28,7 @@ const theme = createTheme();
 
 function Login() {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login,] = useMutation(LOGIN);
+    const [login, { error }] = useMutation(LOGIN);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
