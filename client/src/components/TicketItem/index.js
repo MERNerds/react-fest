@@ -9,56 +9,57 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
+import { idbPromise } from "../../utils/helpers";
 
 const useStyles = makeStyles((theme) => ({
     '@global': {
-      ul: {
-        margin: 0,
-        padding: 0,
-        listStyle: 'none',
-  
-      },
+        ul: {
+            margin: 0,
+            padding: 0,
+            listStyle: 'none',
+
+        },
     },
     heroContent: {
-      padding: theme.spacing(8, 0, 6),
+        padding: theme.spacing(8, 0, 6),
     },
     cardHeader: {
-      backgroundColor:
-      "Rgba(4,241,103,.5)"
+        backgroundColor:
+            "Rgba(4,241,103,.5)"
     },
     cardPricing: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'baseline',
-      marginBottom: theme.spacing(2),
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'baseline',
+        marginBottom: theme.spacing(2),
     },
     paperContainer: {
-      backgroundImage: `url(${"client/public/images/react-ticket-bannerv1.jpg"})`,
-      marginBottom: '20px',
-      boxShadow: 'none',
-      animation: 'none',
-  
+        backgroundImage: `url(${"client/public/images/react-ticket-bannerv1.jpg"})`,
+        marginBottom: '20px',
+        boxShadow: 'none',
+        animation: 'none',
+
     },
     paperBg: {
-      backgroundColor: 'Rgba(2, 183, 221, 0.4)',
-      borderBottom: '10px',
-      boxShadow: 0
+        backgroundColor: 'Rgba(2, 183, 221, 0.4)',
+        borderBottom: '10px',
+        boxShadow: 0
     },
     heroImg: {
-      width: "100%",
-      cover: 'contain',
-      alignItems: 'bottom',
-      borderBottom: 'none'
-  
+        width: "100%",
+        cover: 'contain',
+        alignItems: 'bottom',
+        borderBottom: 'none'
+
     },
     pricingCard: {
-      border: 1
+        border: 1
     },
     cardHeader2: {
-      backgroundColor: "none"
+        backgroundColor: "none"
     }
-    
-  }));
+
+}));
 
 function TicketItem(item) {
     const state = useSelector((state) => {
@@ -70,20 +71,26 @@ function TicketItem(item) {
     const { cart } = state;
 
     const addToCart = () => {
-       
+        // find the cart item with the matching id
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
 
+        // if there was a match, call UPDATE with a new purchase quantity
         if (itemInCart) {
             dispatch({
                 type: UPDATE_CART_QUANTITY,
                 _id: _id,
                 purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
             });
+            idbPromise('cart', 'put', {
+                ...itemInCart,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            })
         } else {
             dispatch({
                 type: ADD_TO_CART,
-                product: { ...item, purchaseQuantity: 1 }
+                ticket: { ...item, purchaseQuantity: 1 }
             });
+            idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 })
         }
     };
 
