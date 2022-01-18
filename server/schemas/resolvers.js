@@ -53,7 +53,7 @@ const resolvers = {
         throw new AuthenticationError('Not logged in')
       },
       checkout: async (parent, args, context) => {
-        // const url = new URL(context.headers.referer).origin;
+        const url = new URL(context.headers.referer).origin;
   
         const order = new Order({ tickets: args.tickets });
         const { tickets } = await order.populate('tickets').execPopulate();
@@ -61,18 +61,21 @@ const resolvers = {
         const line_items = [];
   
         for (let i = 0; i < tickets.length; i++) {
+          // generate product id
           const ticket = await stripe.tickets.create({
-            ticketName: tickets[i].ticketName,
-            description1: tickets[i].description1,
-            // images: [`${url}/images/${tickets[i].image}`]
+            name: tickets[i].ticketName,
+            description: tickets[i].description1,
+            images: [`${url}/images/${products[i].image}`]
           });
   
+          // generate price id using the product id
           const price = await stripe.prices.create({
             ticket: ticket.id,
             unit_amount: tickets[i].price * 100,
             currency: 'usd',
           });
   
+          // add price id to the line items array
           line_items.push({
             price: price.id,
             quantity: 1
@@ -83,8 +86,8 @@ const resolvers = {
           payment_method_types: ['card'],
           line_items,
           mode: 'payment',
-          success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
-          cancel_url: 'https://example.com/cancel'
+          success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${url}/`
         });
   
         return { session: session.id };
