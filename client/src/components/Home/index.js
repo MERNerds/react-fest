@@ -17,6 +17,7 @@ import { margin } from '@mui/system';
 import { Container } from '@mui/material';
 import { Image } from 'mui-image';
 import Pricing from '../../pages/Pricing';
+import nightBlue from '../../assets/images/night-blue.jpeg'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +64,7 @@ export default function Home() {
                         component="img"
                         width="100%"
                         alt="photogrid"
-                        image="/images/night-blue.jpeg"
+                        image={nightBlue}
                     />
                 </Card>
             <Pricing />
