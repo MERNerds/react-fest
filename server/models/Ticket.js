@@ -13,7 +13,20 @@ const ticketSchema = new Schema({
         required: true,
         trim: true
     },
-    description: {
+    subheader: {
+        type: String,
+        trim: true
+    },
+    description1: {
+        type: String
+    },
+    description2: {
+        type: String
+    },
+    description3: {
+        type: String
+    },
+    description4: {
         type: String
     },
     price: {
@@ -21,10 +34,13 @@ const ticketSchema = new Schema({
         required: true,
         min: 100.00
     },
-    quantity: {
-        type: Number,
-        min: 0,
-        default: 0
+    buttonText: {
+        type: String,
+        trim: true
+    },
+    buttonVariant: {
+        type: String,
+        trim: true
     }
 });
 

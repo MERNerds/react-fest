@@ -17,20 +17,8 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from '../utils/auth';
-
-// copyright
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                React Fest
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import Paper from '@mui/material/Paper';
+import Copyright from '../components/Copyright/';
 
 
 //can change this once we know our color pallette 
@@ -40,7 +28,7 @@ const theme = createTheme();
 
 function Login() {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login,] = useMutation(LOGIN);
+    const [login, { error }] = useMutation(LOGIN);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -48,7 +36,7 @@ function Login() {
             const mutationResponse = await login({
                 variables: { email: formState.email, password: formState.password },
             });
-             const token = mutationResponse.data.login.token;
+            const token = mutationResponse.data.login.token;
             Auth.login(token);
         } catch (e) {
             console.log(e);
@@ -65,74 +53,64 @@ function Login() {
 
 
     return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar> */}
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
-                            onChange={handleChange}
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={handleChange}
-                        />
-                        {/* <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        /> */}
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                        >
-                            Sign In
-                        </Button>
-                        <Grid container>
-                            {/* <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid> */}
-                            <Grid item>
-                                <Link to='/signup' >
-                                    "Don't have an account? Sign Up"
-                                </Link>
+        <ThemeProvider theme={theme} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)' }}>
+            <Paper sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)' }}>
+                <Container component="main" maxWidth="xs" >
+                    <CssBaseline />
+                    <Box
+                        sx={{
+                            marginTop: 8,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Typography component="h1" variant="h5">
+                            Sign in
+                        </Typography>
+                        <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                autoFocus
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                onChange={handleChange}
+                            />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Sign In
+                            </Button>
+                            <Grid container>
+                                <Grid item>
+                                    <Link to='/signup' >
+                                        "Don't have an account? Sign Up"
+                                    </Link>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                        </Box>
                     </Box>
-                </Box>
-                <Copyright sx={{ mt: 8, mb: 4 }} />
-            </Container>
+                    <Copyright sx={{ mt: 8, mb: 4 }} />
+                </Container>
+            </Paper>
         </ThemeProvider>
     )
 }

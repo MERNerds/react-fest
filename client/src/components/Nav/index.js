@@ -15,12 +15,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import '@fortawesome/fontawesome-free'
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import { padding } from '@mui/system';
+import { makeStyles } from '@mui/material';
+
 
 
 // const pages = ['LineUp', 'Tickets'];
 // const settings = ['Profile', 'Account', "Cart", 'Logout'];
+// const useStyles = makeStyles((theme) => ({
+
+
+// }))
 
 function Nav() {
+    // const classes = useStyles
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -41,12 +51,14 @@ function Nav() {
     };
 
     function showNavigation() {
-        if (true) {
+        if (Auth.loggedIn()) {
             return (
                 <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            <Avatar alt="" src="" />
+                    <Tooltip sx={{color: '#02B7DD'}} title="Open settings">
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: '#02B7DD'}}>
+                            <Avatar alt="" src="">
+                                <MusicNoteIcon sx={{fontSize:30, color: '#04F167'}}/>
+                            </Avatar>
                         </IconButton>
                     </Tooltip>
                     <Menu
@@ -65,7 +77,7 @@ function Nav() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        
+
                         <MenuItem>
                             <Typography
                                 component={Link} to={'/profile'}
@@ -92,14 +104,14 @@ function Nav() {
                         ))} */}
                     </Menu>
                 </Box>
-                
-                
+
+
             )
 
         } else {
             return (
                 <Box>
-                    <Button component={Link} to={'/login'}color="inherit" variant="outlined" >
+                    <Button component={Link} to={'/login'} color="inherit" variant="outlined" >
                         Login
                     </Button>
                     <Button component={Link} to={'/signup'} color="inherit" variant="outlined" sx={{ ml: 1 }}>
@@ -111,105 +123,94 @@ function Nav() {
     }
 
 
+
     return (
-        <AppBar position="static">
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        React-Fest
-                    </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
+        <React.Fragment>
+            <AppBar position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
+                <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
+                    <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                         >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            <MenuItem>
-                                <Link to="./lineup">
-                                    <Typography textAlign="center">Lineup</Typography>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link to="./tickets">
-                                    <Typography textAlign="center">Tickets</Typography>
-                                </Link>
-                            </MenuItem>
-                            {/* {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                    <Link to={page}></Link>
-                                </MenuItem>
-                            ))} */}
-                        </Menu>
-                    </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        React-Fest
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Button
-                            // onClick={handleCloseNavMenu}
-                            component={Link} to={'/lineup'}
-                            // containerElement={<Link to="/lineup" />}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >Lineup
-                        </Button>
-                        <Button
-                            // onClick={handleCloseNavMenu}
-                            component={Link} to={'/tickets'}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >Tickets
-                        </Button>
+                            <Link to="/">
+                                React-Fest
+                            </Link>
+                        </Typography>
 
-                        {/* {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
                             >
-                                {page}
+                                <MenuIcon />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                sx={{
+                                    display: { xs: 'block', md: 'none', color: "FF4DF0" },
+                                }}
+                            >
+                                <MenuItem>
+                                    <Link to="./lineup">
+                                        <Typography textAlign="center">Lineup</Typography>
+                                    </Link>
+                                </MenuItem>
+                                <MenuItem>
+                                    <Link to="./tickets">
+                                        <Typography textAlign="center">Tickets</Typography>
+                                    </Link>
+                                </MenuItem>
+                            </Menu>
+                        </Box>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        >
+                            React-Fest
+                        </Typography>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            <Button variant="outlined"
+                                // onClick={handleCloseNavMenu}
+                                component={Link} to={'/lineup'}
+                                // containerElement={<Link to="/lineup" />}
+                                sx={{ my: 2, color: 'white', display: 'block', mr: 1, borderColor:'Rgb(29, 38, 155)' }}
+                            >Lineup
                             </Button>
-                        ))} */}
-                    </Box>
-                    <Box>
-                        {showNavigation()}
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
+                            <Button variant="outlined"
+                                // onClick={handleCloseNavMenu}
+                                component={Link} to={'/tickets'}
+                                sx={{ my: 2, color: 'white', display: 'block', mr: 1, borderColor:'Rgb(29, 38, 155)' }}
+                            >Tickets
+                            </Button>
+                        </Box>
+                        <Box>
+                            {showNavigation()}
+                        </Box>
+                    </Toolbar>
+                </Container>
+            </AppBar>
+        </React.Fragment>
     );
 };
 export default Nav;

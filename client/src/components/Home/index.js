@@ -1,13 +1,60 @@
-import React from 'react'; 
-import coverImage from '../../assets/images/react-lineup.jpg';
-import ticketBanner from '../../assets/images/react-ticket-banner.jpg';
+import React from 'react';
+// import coverImage from '../../assets/images/react-lineup.jpg';
+// import ticketBanner from '../../assets/images/react-ticket-banner.jpg';
+
+//importing Material UI
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { Box } from '@mui/system';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import { alignProperty } from '@mui/material/styles/cssUtils';
+import { margin } from '@mui/system';
+import { Container } from '@mui/material';
+import { Image } from 'mui-image';
+import Pricing from '../../pages/Pricing';
+
+
+const useStyles = makeStyles((theme) => ({
+    lineupHero: {
+        component: "img",
+        backgroundImage: "client/public/images/react-lineup.jpg",
+        image: "client/public/images/react-lineup.jpg",
+        width: '100%',
+        height: '400vh',
+    },
+    lineupCard: {
+        padding: "0px",
+        marginTop: '0px',
+        maxWidth: '100%',
+        marginLeft: "auto",
+        marginRight: "auto",
+        height: "100%"
+
+    },
+}));
 
 function Home() {
+    const classes = useStyles();
+
     return (
-        <section>
-            <img src={coverImage} className="my-2" style={{ width: "100%" }} alt="cover"></img>
-            <img src={ticketBanner} className='my-=2' style={{ width: "100%" }} alt="banner"></img>
-        </section>
+        <Paper>
+            <Card className={classes.lineupCard}>
+                <CardMedia
+                    component="img"
+                    alt="Festival-Lineup"
+                    width="100%"
+                    image="/images/react-lineup.jpg"
+
+                />
+            </Card>
+            <Pricing/>
+        </Paper >
+
     )
 }
 
