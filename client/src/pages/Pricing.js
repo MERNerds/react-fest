@@ -9,6 +9,9 @@ import { idbPromise } from '../utils/helpers';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -38,17 +41,19 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'baseline',
     marginBottom: theme.spacing(2),
   },
-  //will be put in a footer component
-  //   footer: {
-  //     borderTop: `1px solid ${theme.palette.divider}`,
-  //     marginTop: theme.spacing(8),
-  //     paddingTop: theme.spacing(3),
-  //     paddingBottom: theme.spacing(3),
-  //     [theme.breakpoints.up('sm')]: {
-  //       paddingTop: theme.spacing(6),
-  //       paddingBottom: theme.spacing(6),
-  //     },
-  //   },
+  paperBg: {
+    backgroundColor: 'Rgba(2, 183, 221, 0.4)',
+    borderBottom: '10px',
+    boxShadow: 0
+  },
+  heroImg: {
+    width: "100%",
+    cover: 'contain',
+    alignItems: 'bottom',
+    borderBottom: 'none'
+
+  },
+
 }));
 
 export default function Pricing() {
@@ -95,14 +100,21 @@ export default function Pricing() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Pricing
-        </Typography>
-      </Container>
+       <Paper className={classes.paperContainer} square>
+        <Card className={classes.heroImg}
+          src='./images/react-ticket-banner.jpg'
+
+        >
+          <CardMedia
+            component="img"
+            alt="ticket-banner"
+            image="./images/react-ticket-banner.jpg"
+            alignItems="bottom"
+          />
+        </Card>
+      </Paper>
       {/* End hero unit */}
+      <Paper className={classes.paperBg}>
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {state.tickets.map((ticket) => (
@@ -127,6 +139,7 @@ export default function Pricing() {
           <Copyright />
         </Box>
       </Container>
+      </Paper>
       <Cart />
       {/* End footer */}
     </React.Fragment>
