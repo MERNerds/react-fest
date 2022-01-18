@@ -36,7 +36,7 @@ const resolvers = {
       order: async (parent, { _id }, context) => {
         if (context.user) {
           const user = await User.findById(context.user._id ).populate({
-            path: 'orders.ticket'
+            path: 'orders.tickets'
           });
 
           return user.orders.id(_id);
@@ -75,8 +75,8 @@ const resolvers = {
           payment_method_types: ['card'],
           line_items,
           mode: 'payment',
-          success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
-          cancel_url: 'https://example.com/cancel'
+          success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${url}/`
         });
   
         return { session: session.id };
