@@ -108,8 +108,8 @@ function TicketItem(item) {
     const classes = useStyles();
 
     return (
-        <Grid item key={_id} xs={12} sm={ticketName === 'Enterprise' ? 12 : 6} md={4}>
-            <Card>
+        <Grid item key={_id} xs={12} sm={ticketName === 'Enterprise' ? 12 : 6} md={4} sx={{p:1}}>
+            <Card sx={{ border: 1, borderColor: 'Rgba(255, 122, 243, 1)' }}>
                 <CardHeader
                     title={ticketName}
                     subheader={subheader}
