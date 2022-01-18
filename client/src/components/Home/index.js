@@ -33,9 +33,15 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '100%',
         marginLeft: "auto",
         marginRight: "auto",
-        height: "100%"
-
+        height: "100%",
     },
+    photoGrid: {
+        padding: "10px",
+        marginTop: '20px',
+        maxWidth: 800,
+        marginLeft: "auto",
+        marginRight: "auto"
+    }
 }));
 
 function Home() {
@@ -52,7 +58,14 @@ function Home() {
 
                 />
             </Card>
-            <Pricing/>
+                <Card className={classes.photoGrid}>
+                    <CardMedia
+                        component="img"
+                        width="100%"
+                        image="/images/night-blue.jpeg"
+                    />
+                </Card>
+            <Pricing />
         </Paper >
 
     )
