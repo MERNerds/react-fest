@@ -22,6 +22,7 @@ import { borderBottom } from '@mui/system';
 import { CardMedia } from '@mui/material';
 import Copyright from '../components/Copyright';
 import Cart from '../components/Cart'
+import TicketItem from '../components/TicketItem';
 
 //importing styles
 const useStyles = makeStyles((theme) => ({
@@ -203,47 +204,18 @@ export default function Pricing() {
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {state.tickets.map((ticket) => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={ticket._id} xs={12} sm={ticket.ticketName === 'Enterprise' ? 12 : 6} md={4}>
-              <Card>
-                <CardHeader
-                  title={ticket.ticketName}
-                  subheader={ticket.subheader}
-                  titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
-                  action={ticket.ticketName === 'Pro'}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
-                      ${ticket.price}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary">
-                    </Typography>
-                  </div>
-                  <ul>
-                      <Typography component="li" variant="subtitle1" align="center" >
-                        {ticket.description1}
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center" >
-                        {ticket.description2}
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center" >
-                        {ticket.description3}
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center" >
-                        {ticket.description4}
-                      </Typography>
-                  </ul>
-                </CardContent>
-                <CardActions>
-                <Button fullWidth variant={ticket.buttonVariant} color="primary" onClick={addToCart}>
-                    {ticket.buttonText}
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
+            <TicketItem
+              key={ticket._id}
+              _id={ticket._id}
+              ticketName={ticket.ticketName}
+              subheader={ticket.subheader}
+              price={ticket.price}
+              description1={ticket.description1}
+              description2={ticket.description2}
+              description3={ticket.description3}
+              description4={ticket.description4}
+              buttonVariant={ticket.buttonVariant}
+              buttonText={ticket.buttonText} />
           ))}
         </Grid>
       </Container>
@@ -253,7 +225,7 @@ export default function Pricing() {
           <Copyright />
         </Box>
       </Container>
-      <Cart item={state.tickets}/>
+      <Cart />
       {/* End footer */}
     </React.Fragment>
     
