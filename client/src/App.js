@@ -19,7 +19,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 //import components
 import Nav from './components/Nav';
 import Home from './components/Home';
-import GridList from './components/photo-Grid';
 import SignUp from './pages/SignUp';
 import Pricing from './pages/Pricing';
 import Login from './pages/Login';
@@ -56,7 +55,6 @@ function App() {
           <CssBaseline />
           <Switch>  
             <Route exact path="/" component={Home} />
-            <Route exact path="/" component={GridList} />
             <Route exact path="/lineup" component={LineUp} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
