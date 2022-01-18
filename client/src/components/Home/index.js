@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Home() {
+export default function Home() {
     const classes = useStyles();
 
     return (
@@ -62,6 +62,7 @@ function Home() {
                     <CardMedia
                         component="img"
                         width="100%"
+                        alt="photogrid"
                         image="/images/night-blue.jpeg"
                     />
                 </Card>
@@ -72,4 +73,3 @@ function Home() {
 }
 
 
-export default Home;
