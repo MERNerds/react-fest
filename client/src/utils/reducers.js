@@ -14,7 +14,7 @@ const defaultState = {
     cartOpen: false
 }
 
-export const reducer = (state = defaultState, action) => {
+export default function reducer (state = defaultState, action) {
     switch (action.type) {
         case UPDATE_TICKETS:
             return {
