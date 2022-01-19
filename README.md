@@ -23,10 +23,15 @@ This application is target for festival goers. First and foremost, it supports t
 
 ## Include Credits
 -[Rick Martin](https://github.com/rmartin1985)
+
 -[Adam West](https://github.com/Adamwest023)
+
 -[Jacob Johnson](https://github.com/jljohnson1454)
+
 -[Kaylee Stevens](https://github.com/kayldubs)
+
 -[Alexis Valesquez]()
+
 -[Kyle Ferguson](https://github.com/kferguson52)
 
 ## License
