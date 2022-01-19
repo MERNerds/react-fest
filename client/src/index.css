@@ -66,6 +66,7 @@
   padding: 20px;
   background-color: rgba(191, 191, 191, 0.15);
   margin-top: 20px;
+  text-align: center;
 }
 
 .caption {
@@ -76,4 +77,5 @@
 .option {
   margin-top: 10px;
   display: inline-block;
+  text-align: center;
 }

@@ -1,6 +1,7 @@
-export const resourcesList = ['Hip-hop', 'EDM', 'Alternative/Rock'];
+export const resourcesList = ['HIP-HOP', 'EDM', 'ALTERNATIVE/ROCK'];
 
 export const tasks = [
+  
   {
     text: 'Kanye',
     startDate: new Date('2022-04-20T23:00:00.000Z'),
@@ -469,24 +470,26 @@ export const tasks = [
       startDate: new Date('2022-04-20T23:00:00.000Z'),
       endDate: new Date('2022-04-20T24:00:00.000Z'),
       genre: 1,
+      
       //color: '#FF4DF0'
     }, {
       text: 'Lil Wayne',
       startDate: new Date('2022-04-20T21:00:00.000Z'),
       endDate: new Date('2022-04-20T22:00:00.000Z'),
       genre: 1,
+      
     }, {
       text: 'SZA',
       startDate: new Date('2022-04-20T20:00:00.000Z'),
       endDate: new Date('2022-04-20T20:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      
     }, {
       text: 'Post Malone',
       startDate: new Date('2022-04-20T19:00:00.000Z'),
       endDate: new Date('2022-04-20T19:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      
     }, {
       text: 'Isaiah Rashad',
       startDate: new Date('2022-04-20T17:45:00.000Z'),
