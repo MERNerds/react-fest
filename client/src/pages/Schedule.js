@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-import Scheduler, { AppointmentDragging } from 'devextreme-react/scheduler';
+import Scheduler, { AppointmentDragging, Resource } from 'devextreme-react/scheduler';
 import Draggable from 'devextreme-react/draggable';
 import ScrollView from 'devextreme-react/scroll-view';
 
-import { appointments, tasks } from '../utils/data';
+import { appointments, tasks, genreData } from '../utils/data';
 
 
 const currentDate = new Date(2022, 3, 18);
@@ -43,6 +43,7 @@ class Schedule extends React.Component {
               onDragEnd={this.onItemDragEnd}>
               {task.text}
             </Draggable>)}
+
           </Draggable>
         </ScrollView>
         <Scheduler
@@ -58,6 +59,12 @@ class Schedule extends React.Component {
             group={draggingGroupName}
             onRemove={this.onAppointmentRemove}
             onAdd={this.onAppointmentAdd}
+          />
+           <Resource
+            fieldExpr="genre"
+            allowMultiple={false}
+            dataSource={genreData}
+            label="Genre"
           />
         </Scheduler>
       </React.Fragment>

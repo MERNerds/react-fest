@@ -20,6 +20,7 @@
 #scroll,
 #list {
   position: absolute;
+  top: 50px;
   width: 240px;
 }
 
@@ -31,7 +32,7 @@
 
 #scheduler {
   margin-left: 270px;
-  background-color: #04f167;
+
 }
 
 .dx-draggable-source {
