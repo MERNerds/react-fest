@@ -23,7 +23,6 @@ import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -56,11 +55,8 @@ const theme = createTheme({
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
+        padding: theme.spacing(0),
+    }
 }));
 
 const BootstrapDialogTitle = (props) => {
@@ -189,11 +185,11 @@ function Nav() {
                         aria-labelledby="customized-dialog-title"
                         open={open}
                     >
-                        <BootstrapDialogTitle sx={{ color: 'black' }} onClose={handleClose}>
-                            Cart
+                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
+                            Smash That Checkout Button!
                         </BootstrapDialogTitle>
-                        <DialogContent dividers>
-                            <Cart />
+                        <DialogContent >
+                            <Cart/>
                         </DialogContent>
                     </BootstrapDialog>
                 </Box>

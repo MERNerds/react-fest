@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
@@ -9,6 +9,7 @@ import { useLazyQuery } from '@apollo/client';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography';
 
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -86,13 +87,23 @@ const Cart = () => {
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
-          <Grid>
-            Total: ${calculateTotal()}
-          </Grid>
-          <Grid>
-            <Button onClick={submitCheckout}>
-              Checkout
-            </Button>
+          <Grid
+            container
+            direction="row"
+            justifyContent='space-between'
+            alignItems='center'
+            sx={{ p: 3 }}
+          >
+            <Grid >
+              <Typography variant='h5' sx={{ color: 'black' }}>
+                Total: ${calculateTotal()}
+              </Typography>
+            </Grid>
+            <Grid >
+              <Button variant="contained" sx={{ color: 'black', backgroundColor: 'var(--bright)' }} onClick={submitCheckout}>
+                Checkout
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       ) : (<h3>

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -43,8 +42,11 @@ const CartItem = ({ item }) => {
     };
 
     return (
-        <>
-            <Grid item xs={10} sx={{ py: 1 }}>
+        <Grid 
+            container
+            justifyContent='center'
+            sx={{ borderBottom: 'solid' }} >
+            <Grid item xs={10} sx={{ pb: 1, pt: 3 }}>
                 <Typography variant='h5' sx={{ color: 'black' }}>
                     Ticket: {item.ticketName}
                 </Typography>
@@ -54,7 +56,7 @@ const CartItem = ({ item }) => {
                     Price: ${item.price}
                 </Typography>
             </Grid>
-            <Grid item xs={3} sx={{ py: 1 }}>
+            <Grid item xs={3} sx={{ pt: 1, pb: 3 }}>
                 <Typography variant='h5' sx={{ color: 'black' }}>Qty:
                     <Input
                         type="number"
@@ -70,7 +72,7 @@ const CartItem = ({ item }) => {
                     <DeleteIcon fontSize="large" />
                 </IconButton>
             </Grid>
-        </>
+        </Grid>
     );
 }
 
