@@ -100,18 +100,20 @@ const Cart = () => {
               </Typography>
             </Grid>
             <Grid >
-              <Button variant="contained" sx={{ color: 'black', backgroundColor: 'var(--bright)' }} onClick={submitCheckout}>
+              <Button variant="contained" sx={{ color: 'black', backgroundColor: 'var(--tertiary)', '&:hover': { backgroundColor: 'var(--bright)' } }} onClick={submitCheckout}>
                 Checkout
               </Button>
             </Grid>
           </Grid>
         </Grid>
-      ) : (<h3>
-        <span role="img" aria-label="shocked">
-          😱
-        </span>
-        You haven't added anything to your cart yet!
-      </h3>
+      ) : (<Grid
+        container
+        justifyContent='center'
+        sx={{ py: 5 }}>
+        <Grid item xs={8}>
+          <Typography variant='h5' sx={{ color: 'black' }}>How can you if you haven't added anything to your cart yet?!</Typography>
+        </Grid>
+      </Grid>
       )}
     </Box>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
@@ -24,6 +25,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import CloseIcon from '@mui/icons-material/Close';
+import Badge from '@mui/material/Badge';
+import Grid from '@mui/material/Grid';
 
 
 const theme = createTheme({
@@ -95,6 +98,10 @@ BootstrapDialogTitle.propTypes = {
 
 
 function Nav() {
+    const state = useSelector((state) => {
+        return state
+    });
+
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -131,9 +138,11 @@ function Nav() {
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip sx={{ color: '#02B7DD' }} title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: '#02B7DD' }}>
-                            <Avatar alt="" src="">
-                                <MusicNoteIcon sx={{ fontSize: 30, color: '#04F167' }} />
-                            </Avatar>
+                            <Badge badgeContent={state.cart.length} color='error'>
+                                <Avatar alt="" src="">
+                                    <MusicNoteIcon sx={{ fontSize: 30, color: '#04F167' }} />
+                                </Avatar>
+                            </Badge>
                         </IconButton>
                     </Tooltip>
                     <Menu
@@ -161,11 +170,14 @@ function Nav() {
                             </Typography>
                         </MenuItem>
                         <MenuItem >
-                            <Typography
-                                sx={{ underline: 'none', textTransform: 'none' }}
-                                component={Link} to='#' variant='text' onClick={handleClickOpen}
-                                textAlign="center">Cart
-                            </Typography>
+                            <Grid container justifyContent='space-between' alignItems='center'>
+                                <Typography
+                                    sx={{ underline: 'none', textTransform: 'none' }}
+                                    component={Link} to='#' variant='text' onClick={handleClickOpen}
+                                    textAlign="center">Cart
+                                </Typography>
+                                <Badge badgeContent={state.cart.length} color='error' sx={{ px: 1 }} />
+                            </Grid>
                         </MenuItem>
                         <MenuItem >
                             <Typography
@@ -181,6 +193,7 @@ function Nav() {
                         ))} */}
                     </Menu>
                     <BootstrapDialog
+                        fullWidth={true}
                         onClose={handleClose}
                         aria-labelledby="customized-dialog-title"
                         open={open}
@@ -189,7 +202,7 @@ function Nav() {
                             Smash That Checkout Button!
                         </BootstrapDialogTitle>
                         <DialogContent >
-                            <Cart/>
+                            <Cart />
                         </DialogContent>
                     </BootstrapDialog>
                 </Box>
