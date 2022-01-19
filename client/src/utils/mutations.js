@@ -35,7 +35,6 @@ mutation addOrder($tickets: [ID]!) {
     tickets {
       _id
       ticketName
-      description
       price
     }
   }

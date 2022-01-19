@@ -23,6 +23,7 @@ import SignUp from './pages/SignUp';
 import Pricing from './pages/Pricing';
 import Login from './pages/Login';
 import Schedule from './pages/Schedule';
+import Success from './pages/Success';
 //import Home from './pages/Home';
 import 'devextreme/dist/css/dx.light.css';
 import LineUp from './components/Lineup';
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="/myschedule" component={Schedule} />
             {/* <Route exact path="/myschedule" component={MySchedule} />  */}
             {/* <Route exact path="/info" component={Info} */}
+            <Route exact path='/success' component={Success} />
           </Switch>
           </Provider>
         </div>
