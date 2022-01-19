@@ -125,14 +125,14 @@ export default function Pricing() {
               component="img"
               alt="ticket-banner"
               image="./images/react-ticket-banner.jpg"
-              alignItems="bottom"
+              sx={{ alignItems: "bottom" }}
             />
           </Card>
         </Paper>
         {/* End hero unit */}
         <Paper className={classes.paperBg} sx={{ pt: 4 }}>
           <Container maxWidth="md" component="main">
-            <Grid container spacing={5} alignItems="flex-end" >
+            <Grid container spacing={5} sx={{ alignItems: "flex-end" }} >
               {state.tickets.map((ticket) => (
                 <TicketItem
                   key={ticket._id}

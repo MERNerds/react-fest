@@ -1,8 +1,6 @@
-// import React from 'react';
 import React from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,8 +16,15 @@ import MenuItem from '@mui/material/MenuItem';
 import Cart from '../Cart'
 import '@fortawesome/fontawesome-free'
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const theme = createTheme({
@@ -41,12 +46,51 @@ const theme = createTheme({
         }
     }
 });
-const useStyles = makeStyles({
-    logo: {
-        maxWidth: 160,
-    },
-});
 
+// This isn't being called anywhere so I am commenting it out incase it was meant to be used. 
+// const useStyles = makeStyles({
+//     logo: {
+//         maxWidth: 160,
+//     },
+// });
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+}));
+
+const BootstrapDialogTitle = (props) => {
+    const { children, onClose, ...other } = props;
+
+    return (
+        <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+            {children}
+            {onClose ? (
+                <IconButton
+                    aria-label="close"
+                    onClick={onClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        // color: (theme) => theme.palette.grey[500],
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
+            ) : null}
+        </DialogTitle>
+    );
+};
+
+BootstrapDialogTitle.propTypes = {
+    children: PropTypes.node,
+    onClose: PropTypes.func.isRequired,
+};
 
 
 // const pages = ['LineUp', 'Tickets'];
@@ -55,7 +99,14 @@ const useStyles = makeStyles({
 
 
 function Nav() {
-    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -75,8 +126,8 @@ function Nav() {
         setAnchorElUser(null);
     };
     const handlePageChange = () => {
-        window.location.href="/"
-        }
+        window.location.href = "/"
+    }
 
     function showNavigation() {
         if (Auth.loggedIn()) {
@@ -114,12 +165,11 @@ function Nav() {
                             </Typography>
                         </MenuItem>
                         <MenuItem >
-                            <Cart />
-                            {/* <Typography
-                                sx={{ underline: 'none' }}
-                                component={Link} to={'/cart'}
+                            <Typography
+                                sx={{ underline: 'none', textTransform: 'none' }}
+                                component={Link} to='#' variant='text' onClick={handleClickOpen}
                                 textAlign="center">Cart
-                            </Typography> */}
+                            </Typography>
                         </MenuItem>
                         <MenuItem >
                             <Typography
@@ -134,6 +184,23 @@ function Nav() {
                             </MenuItem>
                         ))} */}
                     </Menu>
+                    <BootstrapDialog
+                        onClose={handleClose}
+                        aria-labelledby="customized-dialog-title"
+                        open={open}
+                    >
+                        <BootstrapDialogTitle sx={{ color: 'black' }} onClose={handleClose}>
+                            Cart
+                        </BootstrapDialogTitle>
+                        <DialogContent dividers>
+                            <Cart />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button autoFocus onClick={handleClose}>
+                                Save changes
+                            </Button>
+                        </DialogActions>
+                    </BootstrapDialog>
                 </Box>
 
 
@@ -158,18 +225,18 @@ function Nav() {
     return (
         <ThemeProvider theme={theme}>
             <React.Fragment>
-                <AppBar  position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
+                <AppBar position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
                     <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
                         <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
                             <Box
-                              component="img"
-                              sx={{
-                              height: 80,
-                              pr: 2
-                              }}
-                              alt="Your logo."
-                              src={"./images/header-reactFest.png"}
-                              onClick={handlePageChange}
+                                component="img"
+                                sx={{
+                                    height: 80,
+                                    pr: 2
+                                }}
+                                alt="Your logo."
+                                src={"./images/header-reactFest.png"}
+                                onClick={handlePageChange}
                             />
                             {/* <Typography
                                 variant="h6"

@@ -24,7 +24,7 @@ import Pricing from './pages/Pricing';
 import Login from './pages/Login';
 import Schedule from './pages/Schedule';
 import Success from './pages/Success';
-//import Home from './pages/Home';
+
 import 'devextreme/dist/css/dx.light.css';
 import LineUp from './components/Lineup';
 const httpLink = createHttpLink({

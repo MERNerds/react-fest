@@ -143,19 +143,23 @@ function TicketItem(item) {
                         </Typography>
                     </ul>
                 </CardContent>
-                { 
-                    Auth.loggedIn() ?
                 <CardActions>
-                    <Button fullWidth variant={buttonVariant} color="primary" onClick={addToCart}>
-                        {buttonText}
-                    </Button>
+                    {
+                        Auth.loggedIn() ?
+                            <Button fullWidth variant={buttonVariant} color="primary" onClick={addToCart}>
+                                {buttonText}
+                            </Button>
+
+                            :
+
+                            <Button fullWidth variant={buttonVariant} color="primary">
+                                Login To Purchase
+                            </Button>
+                    }
                 </CardActions>
-                :
-                <span> log in to purchase tickets</span>
-}
             </Card>
         </Grid>
     )
-}
 
-export default TicketItem
+                }
+    export default TicketItem

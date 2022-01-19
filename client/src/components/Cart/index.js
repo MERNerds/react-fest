@@ -9,6 +9,7 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 
+
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
@@ -68,13 +69,13 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
-    return (
-      <div className='cart-closed' onClick={toggleCart}>
-        <span role="img" aria-label='cart'>🛒</span>
-      </div>
-    );
-  }
+  // if (!state.cartOpen) {
+  //   return (
+  //     <div className='cart-closed' onClick={toggleCart}>
+  //       <span role="img" aria-label='cart' ></span>
+  //     </div>
+  //   );
+  // }
 
 
   return (
