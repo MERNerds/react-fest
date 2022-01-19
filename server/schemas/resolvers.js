@@ -62,17 +62,10 @@ const resolvers = {
   
         for (let i = 0; i < tickets.length; i++) {
           // generate product id
-<<<<<<< HEAD
           const ticket = await stripe.products.create({
             name: tickets[i].name,
             description: tickets[i].description,
             images: [`${url}/images/${tickets[i].image}`]
-=======
-          const ticket = await stripe.tickets.create({
-            name: tickets[i].ticketName,
-            description: tickets[i].description1,
-            images: [`${url}/images/${products[i].image}`]
->>>>>>> feature/pricing-restyle
           });
   
           // generate price id using the product id
