@@ -71,10 +71,8 @@ function TicketItem(item) {
     const { cart } = state;
 
     const addToCart = () => {
-        // find the cart item with the matching id
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
 
-        // if there was a match, call UPDATE with a new purchase quantity
         if (itemInCart) {
             dispatch({
                 type: UPDATE_CART_QUANTITY,
@@ -110,8 +108,8 @@ function TicketItem(item) {
     const classes = useStyles();
 
     return (
-        <Grid item key={_id} xs={12} sm={ticketName === 'Enterprise' ? 12 : 6} md={4}>
-            <Card>
+        <Grid item key={_id} xs={12} sm={ticketName === 'Enterprise' ? 12 : 6} md={4} sx={{ p: 1 }}>
+            <Card sx={{ border: 1, borderColor: 'Rgba(255, 122, 243, 1)', backgroundColor: "rgb(250,250,249)" }}>
                 <CardHeader
                     title={ticketName}
                     subheader={subheader}
@@ -119,6 +117,7 @@ function TicketItem(item) {
                     subheaderTypographyProps={{ align: 'center', color: '#f44336' }}
                     action={ticketName === 'Pro'}
                     className={classes.cardHeader}
+                    sx={{ backgroundColor: 'rgba(2,183,221,0.5)' }}
                 />
                 <CardContent>
                     <div className={classes.cardPricing}>
