@@ -15,7 +15,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Copyright from '../components/Copyright';
+
 import Cart from '../components/Cart'
 import TicketItem from '../components/TicketItem'
 import bannerTickets from '../assets/images/react-ticket-banner.png';
@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
   paperBg: {
     backgroundColor: 'Rgba(2, 183, 221, 0.4)',
     borderBottom: '10px',
-    boxShadow: 0
+    boxShadow: 0,
+    pb: 10
   },
   heroImg: {
     width: "100%",
@@ -131,7 +132,7 @@ export default function Pricing() {
           </Card>
         </Paper>
         {/* End hero unit */}
-        <Paper className={classes.paperBg} sx={{ pt: 4 }}>
+        <Paper className={classes.paperBg} sx={{ pt: 4, pb: 4}}>
           <Container maxWidth="md" component="main">
             <Grid container spacing={5} alignItems="flex-end" >
               {state.tickets.map((ticket) => (
@@ -151,11 +152,7 @@ export default function Pricing() {
             </Grid>
           </Container>
           {/* Footer */}
-          <Container maxWidth="md" component="footer" className={classes.footer}>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </Container>
+
         </Paper>
         <Cart />
         {/* End footer */}

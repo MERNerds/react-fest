@@ -27,6 +27,7 @@ import Success from './pages/Success';
 //import Home from './pages/Home';
 import 'devextreme/dist/css/dx.light.css';
 import LineUp from './components/Lineup';
+import Footer from './components/Footer';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -65,6 +66,7 @@ function App() {
             {/* <Route exact path="/info" component={Info} */}
             <Route exact path='/success' component={Success} />
           </Switch>
+          <Footer />
           </Provider>
         </div>
       </Router>
