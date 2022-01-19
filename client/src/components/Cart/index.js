@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-// import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button'
 
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -43,9 +44,9 @@ const Cart = () => {
     }
   }, [data])
 
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
+  // function toggleCart() {
+  //   dispatch({ type: TOGGLE_CART });
+  // }
 
   function calculateTotal() {
     let sum = 0;
@@ -79,26 +80,23 @@ const Cart = () => {
 
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>[close]</div>
-      <h2>Shopping Cart</h2>
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       {state.cart.length ? (
-        <div>
+        <Grid>
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
-            {
-              Auth.loggedIn() ?
-              <button onClick={submitCheckout}>
-                  Checkout
-                </button>
-                :
-                <span>(log in to check out)</span>
-            }
-          </div>
-        </div>
+          <Grid>
+            <Grid>
+              Total: ${calculateTotal()}
+            </Grid>
+            <Grid>
+              <Button onClick={submitCheckout}>
+                Checkout
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
       ) : (<h3>
         <span role="img" aria-label="shocked">
           😱
@@ -106,7 +104,7 @@ const Cart = () => {
         You haven't added anything to your cart yet!
       </h3>
       )}
-    </div>
+    </Box>
   );
 };
 

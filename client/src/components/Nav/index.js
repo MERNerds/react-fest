@@ -185,6 +185,7 @@ function Nav() {
                         ))} */}
                     </Menu>
                     <BootstrapDialog
+                        fullWidth={true}
                         onClose={handleClose}
                         aria-labelledby="customized-dialog-title"
                         open={open}
@@ -195,11 +196,6 @@ function Nav() {
                         <DialogContent dividers>
                             <Cart />
                         </DialogContent>
-                        <DialogActions>
-                            <Button autoFocus onClick={handleClose}>
-                                Save changes
-                            </Button>
-                        </DialogActions>
                     </BootstrapDialog>
                 </Box>
 
