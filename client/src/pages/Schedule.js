@@ -59,7 +59,7 @@ class Schedule extends React.Component {
           dataSource={this.state.appointments}
           views={views}
           defaultCurrentDate={currentDate}
-          height={900}
+          height={600}
           startDayHour={15}
           editing={true}>
           
