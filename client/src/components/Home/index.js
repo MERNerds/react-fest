@@ -14,10 +14,15 @@ import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { alignProperty } from '@mui/material/styles/cssUtils';
 import { margin } from '@mui/system';
-import { Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { Image } from 'mui-image';
 import Pricing from '../../pages/Pricing';
-import nightBlue from '../../assets/images/night-blue.jpeg'
+import nightBlue from '../../assets/images/night-blue.jpeg';
+import dayYellow from '../../assets/images/day-yellow.jpeg';
+import ubbi from '../../assets/images/ubbi.JPG';
+import crowdSurf from '../../assets/images/crowd-surf.jpg';
+import heartStage from '../../assets/images/heart-stage.jpeg';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,8 +45,11 @@ const useStyles = makeStyles((theme) => ({
         padding: "10px",
         marginTop: '20px',
         maxWidth: 800,
-        marginLeft: "auto",
-        marginRight: "auto"
+        display: 'flex',
+        flexDirection: 'row',
+        margin: 'auto',
+        boxShadow: '5px 5px 5px 5px rgba(3, 221, 94, .5)'
+
     }
 }));
 
@@ -59,16 +67,53 @@ export default function Home() {
 
                 />
             </Card>
+            <Grid container>
                 <Card className={classes.photoGrid}>
                     <CardMedia
                         component="img"
-                        width="100%"
+                        width="50%"
                         alt="photogrid"
                         image={nightBlue}
                     />
                 </Card>
+                <Card className={classes.photoGrid}>
+                    <CardMedia
+                    component="img"
+                    width="50%"
+                    alt="photo"
+                    image={crowdSurf}
+                    />
+                </Card>
+                <Card className={classes.photoGrid}>
+                    <CardMedia
+                    component="img"
+                    width="100%"
+                    height="100%"
+                    alt="photo"
+                    image={ubbi}
+                    />
+                </Card>
+                <Card className={classes.photoGrid}>
+                    <CardMedia
+                    component="img"
+                    width="50%"
+                    height="80%"
+                    alt="photo"
+                    image={heartStage}
+                    />
+                </Card>
+                <Card className={classes.photoGrid}>
+                    <CardMedia
+                    component="img"
+                    width="100%"
+                    height="100%"
+                    alt="photo"
+                    image={dayYellow}
+                    />
+                </Card>
+                </Grid>
             <Pricing />
-        </Paper >
+        </Paper>
 
     )
 }
