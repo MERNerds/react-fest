@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { Paper } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
-import footer from '../../assets/graphics/footer.png'
+import footer from '../../assets/graphics/react-footer.png'
 import { borderColor, margin } from '@mui/system';
 
 
@@ -24,10 +24,11 @@ function Copyright() {
 }
 const useStyles = makeStyles({
     footerBg: {
-        maxWidth: 1600,
-        height: 60,
+
+        height: 160,
         backgroundImage: `url(${footer})`,
-        backgroundSize: "1600px 300px",
+        backgroundSize: "contain",
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         border: 4,
         borderColor: 'pink',
@@ -47,7 +48,7 @@ export default function Footer() {
                 px: 0,
                 mt: 'auto',
             }}>
-            <Paper className={classes.footerBg}>
+            <Paper className={classes.footerBg} sx={{pt:8}}>
                 <Copyright  />
             </Paper>
         </Box>

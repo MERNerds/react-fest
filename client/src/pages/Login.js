@@ -17,6 +17,7 @@ import Auth from '../utils/auth';
 import Paper from '@mui/material/Paper';
 import Copyright from '../components/Copyright/';
 import { makeStyles } from '@material-ui/core/styles';
+import { textAlign } from "@mui/system";
 
 
 // //can change this once we know our color pallette 
@@ -33,8 +34,27 @@ const useStyles = makeStyles((theme) => ({
     paperBg: {
         backgroundColor: 'Rgba(2, 183, 221, 0.4)',
         borderBottom: '10px',
-        boxShadow: 0
+        boxShadow: 0,
+        '@media(min-width: 500px)': {
+            height: '80vh'
+            
+        }
     },
+    loginBox:{
+        width: '100%',
+        '@media(min-width: 200px)' : {
+            width: '80%',
+            paddingLeft: '100px'
+        }
+
+    },
+    signUpBtn:{
+        '@media(min-width: 200px)' : {
+            textAlign: 'center'
+        }
+        
+
+    }
 }))
 
 function Login() {
@@ -67,8 +87,9 @@ function Login() {
     return (
         // <ThemeProvider theme={theme} >
         <React.Fragment>
-            <Paper className={classes.paperBg} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)', height: '90vh' }}>
-                <Box
+            <Paper className={classes.paperBg} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)', height: '80vh' }}>
+                <Box 
+                    className={classes.loginBox}
                     sx={{
                         marginTop: 0,
                         display: 'flex',
@@ -76,6 +97,7 @@ function Login() {
                         alignItems: 'center',
                         paddingTop: 10
                     }}
+                    // xs={ wi}
                 >
                     <Typography component="h1" variant="h5">
                         Login
@@ -113,8 +135,8 @@ function Login() {
                         >
                             Sign In
                         </Button>
-                        <Grid container>
-                            <Grid item sx={{ m: 'auto' }}>
+                        <Grid container className={classes.signupBtn}>
+                            <Grid item sx={{ m: 'auto' }} className={classes.signupBtn}>
                                 <Link to='/signup' >
                                     "Don't have an account? Sign Up"
                                 </Link>
@@ -122,7 +144,6 @@ function Login() {
                         </Grid>
                     </Box>
                 </Box>
-                <Copyright sx={{ mt: 8, mb: 4 }} />
             </Paper>
         </React.Fragment>
     )

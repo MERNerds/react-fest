@@ -44,6 +44,10 @@ const useStyles = makeStyles({
     logo: {
         maxWidth: 160,
     },
+    logoMd: {
+        paddingRight: '165px' ,
+
+    }
 });
 
 
@@ -156,29 +160,20 @@ function Nav() {
     return (
         <ThemeProvider theme={theme}>
             <React.Fragment>
-                <AppBar  position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
+                <AppBar  position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }} >
                     <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
                         <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
                             <Box
                               component="img"
                               sx={{
                               height: 80,
-                              pr: 2
+                              pr: 2,
+                              display:{ xs:'none', md:'flex'},
                               }}
                               alt="Your logo."
                               src={"./images/header-reactFest.png"}
                               onClick={handlePageChange}
                             />
-                            {/* <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                            >
-                                <Link to="/">
-                                    React-Fest
-                                </Link>
-                            </Typography> */}
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
                                 <IconButton
                                     size="large"
@@ -220,14 +215,18 @@ function Nav() {
                                     </MenuItem>
                                 </Menu>
                             </Box>
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                            >
-                                React-Fest
-                            </Typography>
+                            <Box 
+                                className={classes.logoMd}
+                              component="img"
+                              sx={{
+                              height: 80,
+                              pr:{ xs: 10, s: '165px', md: '163px' } ,
+                              display: {xs: 'flex', md: 'none'}
+                              }}
+                              alt="Your logo."
+                              src={"./images/header-reactFest.png"}
+                              onClick={handlePageChange}
+                            />
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                 <Button variant="outlined"
                                     // onClick={handleCloseNavMenu}

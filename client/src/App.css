@@ -40,20 +40,28 @@
 
 
 @media only screen and (min-width: 860px) {
+ 
   .makeStyles-heroImg-6 {
     /* cover: contain; */
     width: 100%;
     height: 110vh !important;
     align-items: bottom;
   }
+  .css-1o46luo,
+  .logoMd {
+    padding-right: '165px' !important 
+
+}
 }
 
 @media only screen and (max-width: 595px) {
-
-  *{
-    margin: 0 !important;
-    padding: 0 !important;
+  .css-1o46luo{
+    padding-right: '165px' !important 
   }
+  .logoMd {
+    padding-right: '165px' !important 
+
+}
   
   .makeStyles-heroImg-6 {
     /* cover: contain; */
@@ -72,10 +80,7 @@
 
 @media only screen and (max-width: 400px) {
 
-  *{
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+
 
   .makeStyles-heroImg-6 {
     /* cover: contain; */
