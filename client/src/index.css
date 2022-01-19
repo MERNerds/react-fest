@@ -22,6 +22,7 @@
   position: absolute;
   top: 50px;
   width: 240px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .item {
@@ -37,6 +38,7 @@
 
 .dx-draggable-source {
   opacity: 0.5;
+  
 }
 
 .dx-draggable-dragging > * {

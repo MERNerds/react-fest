@@ -35,7 +35,7 @@ export const tasks = [
       text: 'Kanye',
       startDate: new Date('2022-04-20T23:00:00.000Z'),
       endDate: new Date('2022-04-20T24:00:00.000Z'),
-      genre: 1,
+      genre: 1
       //color: '#FF4DF0'
     }, {
       text: 'Lil Wayne',

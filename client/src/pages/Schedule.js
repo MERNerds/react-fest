@@ -9,7 +9,15 @@ import { appointments, tasks, genreData } from '../utils/data';
 
 
 const currentDate = new Date(2022, 3, 18);
-const views = [{ type: 'day', intervalCount: 1 }];
+const views = [
+  {
+    name: '1 Day', type: 'day', intervalCount: 1, startDate: new Date(2022, 3, 18)
+  },
+  {
+    name: '3 Days', type: 'day', intervalCount: 3, startDate: new Date(2022, 3, 18)
+  }
+    
+];
 const draggingGroupName = 'appointmentsGroup';
 
 class Schedule extends React.Component {
@@ -47,6 +55,7 @@ class Schedule extends React.Component {
           </Draggable>
         </ScrollView>
         <Scheduler
+          
           timeZone="Africa/Abidjan"
           id="scheduler"
           dataSource={this.state.appointments}
