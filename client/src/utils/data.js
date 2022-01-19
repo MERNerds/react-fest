@@ -1,5 +1,16 @@
 export const tasks = [
-    {}
+    {
+      text: 'Hip-Hop',
+      genre: 1
+    },
+    {
+      text: 'EDM',
+      genre: 2
+    },
+    {
+      text: 'Alternative/Rock'
+    },
+    
   ];
 
   export const genreData = [

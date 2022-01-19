@@ -51,7 +51,7 @@ class Schedule extends React.Component {
           dataSource={this.state.appointments}
           views={views}
           defaultCurrentDate={currentDate}
-          height={900}
+          height={500}
           startDayHour={15}
           editing={true}>
           <AppointmentDragging
