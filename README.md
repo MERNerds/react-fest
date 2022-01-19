@@ -22,17 +22,17 @@ Challenges Faced
 This application is target for festival goers. First and foremost, it supports the entire ecommerce process It is designed for you to have a user account for the best experience. Upon registering with the site, you can visit the artist line up pages and create your schedule for the event.
 
 ## Include Credits
--[Rick Martin](https://github.com/rmartin1985)
+[Rick Martin](https://github.com/rmartin1985)
 
--[Adam West](https://github.com/Adamwest023)
+[Adam West](https://github.com/Adamwest023)
 
--[Jacob Johnson](https://github.com/jljohnson1454)
+[Jacob Johnson](https://github.com/jljohnson1454)
 
--[Kaylee Stevens](https://github.com/kayldubs)
+[Kaylee Stevens](https://github.com/kayldubs)
 
--[Alexis Valesquez]()
+[Alexis Valesquez]()
 
--[Kyle Ferguson](https://github.com/kferguson52)
+[Kyle Ferguson](https://github.com/kferguson52)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
