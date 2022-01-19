@@ -17,7 +17,7 @@ Challenges Faced
 ## Table of Contents (Optional)
 ## How to Install and Run the Project
 1. Ensure you are in the root direct, and run the following `npm install`.
-2. Next, run `npm run develop`
+2. Next, run `npm run develop`.
 
 ## How to Use the Project
 Provide instructions and examples so users/contributors can use the project. This will make it easy for them in case they encounter a problem – they will always have a place to reference what is expected.
