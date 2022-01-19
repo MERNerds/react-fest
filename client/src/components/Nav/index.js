@@ -108,8 +108,8 @@ function Nav() {
                         <MenuItem >
                             <Typography
                                 underline="hover"
-                                component={Link} to={'/profile'}
-                                textAlign="center">Profile
+                                component={Link} to={'/myschedule'}
+                                textAlign="center">Schedule
                             </Typography>
                         </MenuItem>
                         <MenuItem >
