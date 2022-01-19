@@ -18,6 +18,7 @@ export const tasks = [
       text: 'Hip-hop',
       id: 1,
       color: '#FF4DF0',
+      
     }, {
       text: 'EDM',
       id: 2,

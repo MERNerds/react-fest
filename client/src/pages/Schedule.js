@@ -1,10 +1,8 @@
 import React from 'react';
-
-
-import Scheduler, { AppointmentDragging, Resource } from 'devextreme-react/scheduler';
+//import 'devextreme/dist/css/dx.dark.css';
+import Scheduler, { AppointmentDragging, Resource, notify } from 'devextreme-react/scheduler';
 import Draggable from 'devextreme-react/draggable';
 import ScrollView from 'devextreme-react/scroll-view';
-
 import { appointments, tasks, genreData } from '../utils/data';
 
 
@@ -64,16 +62,20 @@ class Schedule extends React.Component {
           height={900}
           startDayHour={15}
           editing={true}>
+          
           <AppointmentDragging
             group={draggingGroupName}
             onRemove={this.onAppointmentRemove}
             onAdd={this.onAppointmentAdd}
+            
           />
+          
            <Resource
             fieldExpr="genre"
             allowMultiple={false}
             dataSource={genreData}
             label="Genre"
+            
           />
         </Scheduler>
       </React.Fragment>
@@ -120,6 +122,13 @@ class Schedule extends React.Component {
     if (e.toData) {
       e.cancel = true;
     }
+  }
+
+    
+  
+
+  notifyDisableDate() {
+    notify('Cannot create or move an appointment/event to disabled time/date regions.', 'warning', 1000);
   }
   
 }
