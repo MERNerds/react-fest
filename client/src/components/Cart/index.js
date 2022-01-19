@@ -80,21 +80,19 @@ const Cart = () => {
 
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+    <Box >
       {state.cart.length ? (
-        <Grid>
+        <Grid container sx={{ display: 'flex', justifyContent: 'center' }} >
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
           <Grid>
-            <Grid>
-              Total: ${calculateTotal()}
-            </Grid>
-            <Grid>
-              <Button onClick={submitCheckout}>
-                Checkout
-              </Button>
-            </Grid>
+            Total: ${calculateTotal()}
+          </Grid>
+          <Grid>
+            <Button onClick={submitCheckout}>
+              Checkout
+            </Button>
           </Grid>
         </Grid>
       ) : (<h3>

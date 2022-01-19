@@ -185,7 +185,6 @@ function Nav() {
                         ))} */}
                     </Menu>
                     <BootstrapDialog
-                        fullWidth={true}
                         onClose={handleClose}
                         aria-labelledby="customized-dialog-title"
                         open={open}
