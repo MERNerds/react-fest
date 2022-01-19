@@ -22,16 +22,16 @@ function Success() {
         });
       }
 
-      setTimeout(() => {
-        window.location.assign('/');
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.assign('/');
+      // }, 3000);
     }
 
     saveOrder();
   }, [addOrder]);
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: 'var(--tertiary)' }}>
       <Grid>
         <h1>Success!</h1>
         <h2>Thank you for your purchase!</h2>
