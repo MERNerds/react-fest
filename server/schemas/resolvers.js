@@ -8,12 +8,13 @@ const resolvers = {
     Query: {
       user: async (parent, args, context) => {
         if (context.user) {
-          const userData = await User.findOne({ _id: context.user._id })
-            .select('-__v')
-            .populate('savedBands')
-            .populate('orders')
+          const user = await User.findById({ _id: context.user._id }).populate({
+            path: 'orders.tickets'
+          });
+          
+          user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate)
 
-            return userData;
+            return user;
         }
 
         throw new AuthenticationError('Not logged in'); 
@@ -26,9 +27,16 @@ const resolvers = {
         return Band.find()
           .select('-__v')
       },
-      tickets: async () => {
-        return await Ticket.find()
-          .select('-__v');
+      tickets: async (parent, { ticketName }) => {
+        const params = {};
+
+        if (ticketName) {
+          params.ticketName = {
+            $regex: ticketName
+          };
+        }
+
+        return await Ticket.find(params)
       },
       ticket: async (parent, { _id }) => {
         return await Ticket.findById(_id)
@@ -36,7 +44,7 @@ const resolvers = {
       order: async (parent, { _id }, context) => {
         if (context.user) {
           const user = await User.findById(context.user._id ).populate({
-            path: 'orders.ticket'
+            path: 'orders.tickets'
           });
 
           return user.orders.id(_id);
@@ -54,15 +62,15 @@ const resolvers = {
   
         for (let i = 0; i < tickets.length; i++) {
           // generate product id
-          const product = await stripe.tickets.create({
-            name: tickets[i].name,
-            description: tickets[i].description,
-            images: [`${url}/images/${tickets[i].image}`]
+          const ticket = await stripe.products.create({
+            name: tickets[i].ticketName,
+            description: tickets[i].description1,
+            // images: [`${url}/images/${products[i].image}`]
           });
   
           // generate price id using the product id
           const price = await stripe.prices.create({
-            ticket: ticket.id,
+            product: ticket.id,
             unit_amount: tickets[i].price * 100,
             currency: 'usd',
           });

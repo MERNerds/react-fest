@@ -7,8 +7,20 @@ import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
+const theme = createTheme({
+  components: {
+      MuiPaper: {
+          styleOverrides: {
+              root: {
+                  backgroundColor: 'Rgba(4, 241, 103, 0.4)'
+              }
+          }
+      },
+  }
+});
 
 const useStyles = makeStyles((theme) => ({
 
@@ -29,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   paperDiv: {
-    backgroundColor: 'Rgba(4, 241, 103, 0.4)',
+
     borderBottom: 0,
     boxShadow: 0,
     disableGutters: true,
@@ -55,7 +67,7 @@ export default function LineUp() {
   const classes = useStyles();
 
   return (
-
+    <ThemeProvider theme={theme}>
     <Paper className={classes.paperDiv}>
       <Card className={classes.lineupCard}>
         <CardMedia
@@ -100,5 +112,6 @@ export default function LineUp() {
         </Button>
       </Box>
     </Paper>
+    </ThemeProvider>
   );
 }

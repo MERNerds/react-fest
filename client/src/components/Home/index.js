@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row',
         margin: 'auto',
         boxShadow: '5px 5px 5px 5px rgba(3, 221, 94, .5)'
-
     }
 }));
 

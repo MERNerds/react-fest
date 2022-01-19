@@ -14,13 +14,9 @@ const scheduleSchema = new Schema({
   endDate: {
     type: String
   },
-  stage: {
+  genre: {
     type: String,
     required: true
-  },
-  colorExpr: {
-    type: String,
-    Default: 'color'
   }
   
 });
