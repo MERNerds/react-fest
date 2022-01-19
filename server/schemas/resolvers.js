@@ -54,7 +54,7 @@ const resolvers = {
   
         for (let i = 0; i < tickets.length; i++) {
           // generate product id
-          const product = await stripe.tickets.create({
+          const ticket = await stripe.products.create({
             name: tickets[i].name,
             description: tickets[i].description,
             images: [`${url}/images/${tickets[i].image}`]
@@ -62,7 +62,7 @@ const resolvers = {
   
           // generate price id using the product id
           const price = await stripe.prices.create({
-            ticket: ticket.id,
+            product: ticket.id,
             unit_amount: tickets[i].price * 100,
             currency: 'usd',
           });
