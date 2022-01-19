@@ -43,6 +43,7 @@ class Schedule extends React.Component {
               onDragEnd={this.onItemDragEnd}>
               {task.text}
             </Draggable>)}
+
           </Draggable>
         </ScrollView>
         <Scheduler
@@ -51,7 +52,7 @@ class Schedule extends React.Component {
           dataSource={this.state.appointments}
           views={views}
           defaultCurrentDate={currentDate}
-          height={500}
+          height={900}
           startDayHour={15}
           editing={true}>
           <AppointmentDragging
