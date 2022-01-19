@@ -1,5 +1,5 @@
 # React Fest
-## Project Description
+## Description
 
 React Fest is an an application for music festivals to utlizing the following technologies:
 
