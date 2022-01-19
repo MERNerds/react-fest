@@ -116,48 +116,50 @@ export default function Pricing() {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme}>
-      <React.Fragment>
-        <Paper className={classes.paperContainer} square>
-          <Card className={classes.heroImg}
-            src='./images/react-ticket-banner.png'
+    <React.Fragment>
+       <Paper className={classes.paperContainer} square>
+        <Card className={classes.heroImg}
+          src='./images/react-ticket-banner.jpg'
 
-          >
-            <CardMedia
-              component="img"
-              alt="ticket-banner"
-              image={bannerTickets}
-              alignItems="bottom"
-            />
-          </Card>
-        </Paper>
-        {/* End hero unit */}
-        <Paper className={classes.paperBg} sx={{ pt: 4, pb: 4}}>
-          <Container maxWidth="md" component="main">
-            <Grid container spacing={5} alignItems="flex-end" >
-              {state.tickets.map((ticket) => (
-                <TicketItem
-                  key={ticket._id}
-                  _id={ticket._id}
-                  ticketName={ticket.ticketName}
-                  subheader={ticket.subheader}
-                  price={ticket.price}
-                  description1={ticket.description1}
-                  description2={ticket.description2}
-                  description3={ticket.description3}
-                  description4={ticket.description4}
-                  buttonVariant={ticket.buttonVariant}
-                  buttonText={ticket.buttonText} />
-              ))}
-            </Grid>
-          </Container>
-          {/* Footer */}
-
-        </Paper>
-        <Cart />
-        {/* End footer */}
-      </React.Fragment>
-    </ThemeProvider>
+        >
+          <CardMedia
+            component="img"
+            alt="ticket-banner"
+            image="./images/react-ticket-banner.jpg"
+            sx={{ alignItems: "bottom" }}
+          />
+        </Card>
+      </Paper>
+      {/* End hero unit */}
+      <Paper className={classes.paperBg}>
+      <Container maxWidth="md" component="main">
+        <Grid container spacing={5} sx={{ alignItems:"flex-end" }}>
+          {state.tickets.map((ticket) => (
+            <TicketItem
+              key={ticket._id}
+              _id={ticket._id}
+              ticketName={ticket.ticketName}
+              subheader={ticket.subheader}
+              price={ticket.price}
+              description1={ticket.description1}
+              description2={ticket.description2}
+              description3={ticket.description3}
+              description4={ticket.description4}
+              buttonVariant={ticket.buttonVariant}
+              buttonText={ticket.buttonText} />
+          ))}
+        </Grid>
+      </Container>
+      {/* Footer */}
+      <Container maxWidth="md" component="footer" className={classes.footer}>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+      </Paper>
+      <Cart />
+      {/* End footer */}
+    </React.Fragment>
 
   );
 }

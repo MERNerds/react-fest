@@ -1,5 +1,5 @@
 .dx-theme-generic-typography a {  
-  color: white;  
+  color: rgb(0, 0, 0);  
 }  
 
 :root {
@@ -22,6 +22,8 @@
   position: absolute;
   top: 50px;
   width: 240px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
 }
 
 .item {
@@ -31,15 +33,49 @@
 }
 
 #scheduler {
-  margin-left: 270px;
-
+  margin-left: 250px;
+  
 }
 
 .dx-draggable-source {
   opacity: 0.5;
+  
 }
 
 .dx-draggable-dragging > * {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+.dx-scheduler-appointment-content-date {
+  font-weight: bolder;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
+  color: #000000;
+  
+
+}
+
+.dx-scheduler-appointment-title {
+  font-weight: 600;
+  font-family:'Arimo', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
+  color: #000000;
+}
+
+.options {
+  padding: 20px;
+  background-color: rgba(191, 191, 191, 0.15);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.caption {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.option {
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+}
