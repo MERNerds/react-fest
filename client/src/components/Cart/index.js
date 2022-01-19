@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography';
+
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -42,9 +45,9 @@ const Cart = () => {
     }
   }, [data])
 
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
+  // function toggleCart() {
+  //   dispatch({ type: TOGGLE_CART });
+  // }
 
   function calculateTotal() {
     let sum = 0;
@@ -68,44 +71,51 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
-    return (
-      <div className='cart-closed' onClick={toggleCart}>
-        <span role="img" aria-label='cart'>🛒</span>
-      </div>
-    );
-  }
+  // if (!state.cartOpen) {
+  //   return (
+  //     <div className='cart-closed' onClick={toggleCart}>
+  //       <span role="img" aria-label='cart' ></span>
+  //     </div>
+  //   );
+  // }
 
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>[close]</div>
-      <h2>Shopping Cart</h2>
+    <Box >
       {state.cart.length ? (
-        <div>
+        <Grid container sx={{ display: 'flex', justifyContent: 'center' }} >
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
-            {
-              Auth.loggedIn() ?
-              <button onClick={submitCheckout}>
-                  Checkout
-                </button>
-                :
-                <span>(log in to check out)</span>
-            }
-          </div>
-        </div>
-      ) : (<h3>
-        <span role="img" aria-label="shocked">
-          😱
-        </span>
-        You haven't added anything to your cart yet!
-      </h3>
+          <Grid
+            container
+            direction="row"
+            justifyContent='space-between'
+            alignItems='center'
+            sx={{ p: 3 }}
+          >
+            <Grid >
+              <Typography variant='h5' sx={{ color: 'black' }}>
+                Total: ${calculateTotal()}
+              </Typography>
+            </Grid>
+            <Grid >
+              <Button variant="contained" sx={{ color: 'black', backgroundColor: 'var(--tertiary)', '&:hover': { backgroundColor: 'var(--bright)' } }} onClick={submitCheckout}>
+                Checkout
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      ) : (<Grid
+        container
+        justifyContent='center'
+        sx={{ py: 5 }}>
+        <Grid item xs={8}>
+          <Typography variant='h5' sx={{ color: 'black' }}>How can you if you haven't added anything to your cart yet?!</Typography>
+        </Grid>
+      </Grid>
       )}
-    </div>
+    </Box>
   );
 };
 

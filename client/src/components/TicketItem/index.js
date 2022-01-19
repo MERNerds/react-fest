@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions'
 import { makeStyles } from '@material-ui/core/styles';
+import Auth from '../../utils/auth';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader';
@@ -143,13 +144,22 @@ function TicketItem(item) {
                     </ul>
                 </CardContent>
                 <CardActions>
-                    <Button fullWidth variant={buttonVariant} color="primary" onClick={addToCart}>
-                        {buttonText}
-                    </Button>
+                    {
+                        Auth.loggedIn() ?
+                            <Button fullWidth variant={buttonVariant} color="primary" onClick={addToCart}>
+                                {buttonText}
+                            </Button>
+
+                            :
+
+                            <Button fullWidth variant={buttonVariant} color="primary">
+                                Login To Purchase
+                            </Button>
+                    }
                 </CardActions>
             </Card>
         </Grid>
     )
-}
 
-export default TicketItem
+                }
+    export default TicketItem

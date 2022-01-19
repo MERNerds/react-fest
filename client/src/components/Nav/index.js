@@ -1,8 +1,7 @@
-// import React from 'react';
 import React from 'react';
+import { useSelector } from 'react-redux'
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,10 +14,19 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Cart from '../Cart'
 import '@fortawesome/fontawesome-free'
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import CloseIcon from '@mui/icons-material/Close';
+import Badge from '@mui/material/Badge';
+import Grid from '@mui/material/Grid';
 
 
 const theme = createTheme({
@@ -40,12 +48,48 @@ const theme = createTheme({
         }
     }
 });
-const useStyles = makeStyles({
-    logo: {
-        maxWidth: 160,
-    },
-});
 
+// This isn't being called anywhere so I am commenting it out incase it was meant to be used. 
+// const useStyles = makeStyles({
+//     logo: {
+//         maxWidth: 160,
+//     },
+// });
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(0),
+    }
+}));
+
+const BootstrapDialogTitle = (props) => {
+    const { children, onClose, ...other } = props;
+
+    return (
+        <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+            {children}
+            {onClose ? (
+                <IconButton
+                    aria-label="close"
+                    onClick={onClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        // color: (theme) => theme.palette.grey[500],
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
+            ) : null}
+        </DialogTitle>
+    );
+};
+
+BootstrapDialogTitle.propTypes = {
+    children: PropTypes.node,
+    onClose: PropTypes.func.isRequired,
+};
 
 
 // const pages = ['LineUp', 'Tickets'];
@@ -54,7 +98,18 @@ const useStyles = makeStyles({
 
 
 function Nav() {
-    const classes = useStyles();
+    const state = useSelector((state) => {
+        return state
+    });
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -74,8 +129,8 @@ function Nav() {
         setAnchorElUser(null);
     };
     const handlePageChange = () => {
-        window.location.href="/"
-        }
+        window.location.href = "/"
+    }
 
     function showNavigation() {
         if (Auth.loggedIn()) {
@@ -83,9 +138,11 @@ function Nav() {
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip sx={{ color: '#02B7DD' }} title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: '#02B7DD' }}>
-                            <Avatar alt="" src="">
-                                <MusicNoteIcon sx={{ fontSize: 30, color: '#04F167' }} />
-                            </Avatar>
+                            <Badge badgeContent={state.cart.length} color='error'>
+                                <Avatar alt="" src="">
+                                    <MusicNoteIcon sx={{ fontSize: 30, color: '#04F167' }} />
+                                </Avatar>
+                            </Badge>
                         </IconButton>
                     </Tooltip>
                     <Menu
@@ -113,11 +170,14 @@ function Nav() {
                             </Typography>
                         </MenuItem>
                         <MenuItem >
-                            <Typography
-                                sx={{ underline: 'none' }}
-                                component={Link} to={'/cart'}
-                                textAlign="center">Cart
-                            </Typography>
+                            <Grid container justifyContent='space-between' alignItems='center'>
+                                <Typography
+                                    sx={{ underline: 'none', textTransform: 'none' }}
+                                    component={Link} to='#' variant='text' onClick={handleClickOpen}
+                                    textAlign="center">Cart
+                                </Typography>
+                                <Badge badgeContent={state.cart.length} color='error' sx={{ px: 1 }} />
+                            </Grid>
                         </MenuItem>
                         <MenuItem >
                             <Typography
@@ -132,6 +192,19 @@ function Nav() {
                             </MenuItem>
                         ))} */}
                     </Menu>
+                    <BootstrapDialog
+                        fullWidth={true}
+                        onClose={handleClose}
+                        aria-labelledby="customized-dialog-title"
+                        open={open}
+                    >
+                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
+                            Smash That Checkout Button!
+                        </BootstrapDialogTitle>
+                        <DialogContent >
+                            <Cart />
+                        </DialogContent>
+                    </BootstrapDialog>
                 </Box>
 
 
@@ -156,18 +229,18 @@ function Nav() {
     return (
         <ThemeProvider theme={theme}>
             <React.Fragment>
-                <AppBar  position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
+                <AppBar position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
                     <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
                         <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
                             <Box
-                              component="img"
-                              sx={{
-                              height: 80,
-                              pr: 2
-                              }}
-                              alt="Your logo."
-                              src={"./images/header-reactFest.png"}
-                              onClick={handlePageChange}
+                                component="img"
+                                sx={{
+                                    height: 80,
+                                    pr: 2
+                                }}
+                                alt="Your logo."
+                                src={"./images/header-reactFest.png"}
+                                onClick={handlePageChange}
                             />
                             {/* <Typography
                                 variant="h6"
