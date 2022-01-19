@@ -17,7 +17,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import '@fortawesome/fontawesome-free'
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-
+import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
@@ -30,15 +30,20 @@ const theme = createTheme({
                 }
             }
         },
-        MuiTypography:{
+        MuiTypography: {
             styleOverrides: {
-                root:{
+                root: {
                     textDecoration: 'none',
                     color: 'white'
                 }
             }
         }
     }
+});
+const useStyles = makeStyles({
+    logo: {
+        maxWidth: 160,
+    },
 });
 
 
@@ -49,7 +54,7 @@ const theme = createTheme({
 
 
 function Nav() {
-    // const classes = useStyles
+    const classes = useStyles();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -68,6 +73,9 @@ function Nav() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const handlePageChange = () => {
+        window.location.href="/"
+        }
 
     function showNavigation() {
         if (Auth.loggedIn()) {
@@ -148,10 +156,20 @@ function Nav() {
     return (
         <ThemeProvider theme={theme}>
             <React.Fragment>
-                <AppBar position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
+                <AppBar  position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
                     <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
                         <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
-                            <Typography
+                            <Box
+                              component="img"
+                              sx={{
+                              height: 80,
+                              pr: 2
+                              }}
+                              alt="Your logo."
+                              src={"./images/header-reactFest.png"}
+                              onClick={handlePageChange}
+                            />
+                            {/* <Typography
                                 variant="h6"
                                 noWrap
                                 component="div"
@@ -160,8 +178,7 @@ function Nav() {
                                 <Link to="/">
                                     React-Fest
                                 </Link>
-                            </Typography>
-
+                            </Typography> */}
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
                                 <IconButton
                                     size="large"
