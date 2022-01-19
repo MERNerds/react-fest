@@ -15,6 +15,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Cart from '../Cart'
 import '@fortawesome/fontawesome-free'
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import { makeStyles } from '@material-ui/core/styles';
@@ -113,11 +114,12 @@ function Nav() {
                             </Typography>
                         </MenuItem>
                         <MenuItem >
-                            <Typography
+                            <Cart />
+                            {/* <Typography
                                 sx={{ underline: 'none' }}
                                 component={Link} to={'/cart'}
                                 textAlign="center">Cart
-                            </Typography>
+                            </Typography> */}
                         </MenuItem>
                         <MenuItem >
                             <Typography

@@ -16,7 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Copyright from '../components/Copyright';
-import Cart from '../components/Cart'
+// import Cart from '../components/Cart'
 import TicketItem from '../components/TicketItem'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -156,7 +156,7 @@ export default function Pricing() {
             </Box>
           </Container>
         </Paper>
-        <Cart />
+        {/* <Cart /> */}
         {/* End footer */}
       </React.Fragment>
     </ThemeProvider>
