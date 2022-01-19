@@ -19,7 +19,7 @@ Challenges Faced
 2. Next, run `npm run develop`.
 
 ## How to Use the Project
-This application is target for festival goers. First and foremost, it supports the entire ecommerce process It is designed for you to have a user account for the best experience. Upon registering with the site, you can visit the artist line up pages and create your schedule for the event.
+This application is target for festival goers. First and foremost, it supports the entire ecommerce process. It is designed for you to have a user account for the best experience. Upon registering with the site, you can visit the artist line up pages and create your schedule for the event.
 
 ## Include Credits
 [Rick Martin](https://github.com/rmartin1985)
