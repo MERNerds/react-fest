@@ -18,6 +18,7 @@ import Box from '@material-ui/core/Box';
 import Copyright from '../components/Copyright';
 import Cart from '../components/Cart'
 import TicketItem from '../components/TicketItem'
+import bannerTickets from '../assets/images/react-ticket-banner.png';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 //importing styles
@@ -118,13 +119,13 @@ export default function Pricing() {
       <React.Fragment>
         <Paper className={classes.paperContainer} square>
           <Card className={classes.heroImg}
-            src='./images/react-ticket-banner.jpg'
+            src='./images/react-ticket-banner.png'
 
           >
             <CardMedia
               component="img"
               alt="ticket-banner"
-              image="./images/react-ticket-banner.jpg"
+              image={bannerTickets}
               alignItems="bottom"
             />
           </Card>
