@@ -52,7 +52,7 @@ const typeDefs = gql`
     order(_id: ID!): Order
     ticket(_id: ID!): Ticket
     tickets: [Ticket]
-    checkout(ticket: [ID]!): Checkout 
+    checkout(tickets: [ID]!): Checkout 
   }
 
   type Mutation {
@@ -65,12 +65,6 @@ const typeDefs = gql`
   type Checkout {
     session: ID
   }
-
-   type Mutation {
-     login(email: String!, password: String!): Auth
-     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-   }
-
 `;
 
 module.exports = typeDefs;

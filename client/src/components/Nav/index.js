@@ -17,20 +17,44 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import '@fortawesome/fontawesome-free'
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import { padding } from '@mui/system';
-import { makeStyles } from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+const theme = createTheme({
+    components: {
+        MuiList: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'rgb(2,183,221)'
+                }
+            }
+        },
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    textDecoration: 'none',
+                    color: 'white'
+                }
+            }
+        }
+    }
+});
+const useStyles = makeStyles({
+    logo: {
+        maxWidth: 160,
+    },
+});
 
 
 
 // const pages = ['LineUp', 'Tickets'];
 // const settings = ['Profile', 'Account', "Cart", 'Logout'];
-// const useStyles = makeStyles((theme) => ({
 
 
-// }))
 
 function Nav() {
-    // const classes = useStyles
+    const classes = useStyles();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -49,20 +73,23 @@ function Nav() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const handlePageChange = () => {
+        window.location.href="/"
+        }
 
     function showNavigation() {
         if (Auth.loggedIn()) {
             return (
                 <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip sx={{color: '#02B7DD'}} title="Open settings">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: '#02B7DD'}}>
+                    <Tooltip sx={{ color: '#02B7DD' }} title="Open settings">
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, color: '#02B7DD' }}>
                             <Avatar alt="" src="">
-                                <MusicNoteIcon sx={{fontSize:30, color: '#04F167'}}/>
+                                <MusicNoteIcon sx={{ fontSize: 30, color: '#04F167' }} />
                             </Avatar>
                         </IconButton>
                     </Tooltip>
                     <Menu
-                        sx={{ mt: '45px' }}
+                        sx={{ mt: '45px', }}
                         id="menu-appbar"
                         anchorEl={anchorElUser}
                         anchorOrigin={{
@@ -78,19 +105,21 @@ function Nav() {
                         onClose={handleCloseUserMenu}
                     >
 
-                        <MenuItem>
+                        <MenuItem >
                             <Typography
-                                component={Link} to={'/profile'}
-                                textAlign="center">Profile
+                                underline="hover"
+                                component={Link} to={'/myschedule'}
+                                textAlign="center">Schedule
                             </Typography>
                         </MenuItem>
-                        <MenuItem>
+                        <MenuItem >
                             <Typography
+                                sx={{ underline: 'none' }}
                                 component={Link} to={'/cart'}
                                 textAlign="center">Cart
                             </Typography>
                         </MenuItem>
-                        <MenuItem>
+                        <MenuItem >
                             <Typography
                                 component={Link} to={'/'}
                                 onClick={() => Auth.logout()}
@@ -125,92 +154,103 @@ function Nav() {
 
 
     return (
-        <React.Fragment>
-            <AppBar position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
-                <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
-                    <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                        >
-                            <Link to="/">
+        <ThemeProvider theme={theme}>
+            <React.Fragment>
+                <AppBar  position="sticky" sx={{ backgroundColor: 'Rgba(255, 122, 243, 1)' }}>
+                    <Container maxWidth="xl" sx={{ color: "FF4DF0" }} >
+                        <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
+                            <Box
+                              component="img"
+                              sx={{
+                              height: 80,
+                              pr: 2
+                              }}
+                              alt="Your logo."
+                              src={"./images/header-reactFest.png"}
+                              onClick={handlePageChange}
+                            />
+                            {/* <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                            >
+                                <Link to="/">
+                                    React-Fest
+                                </Link>
+                            </Typography> */}
+                            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={handleOpenNavMenu}
+                                    color="inherit"
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+                                <Menu
+                                    id="menu-appbar"
+                                    anchorEl={anchorElNav}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'left',
+                                    }}
+                                    open={Boolean(anchorElNav)}
+                                    onClose={handleCloseNavMenu}
+                                    sx={{
+                                        display: { xs: 'block', md: 'none', color: "FF4DF0" },
+                                    }}
+                                >
+                                    <MenuItem>
+                                        <Link to="./lineup">
+                                            <Typography textAlign="center">Lineup</Typography>
+                                        </Link>
+                                    </MenuItem>
+                                    <MenuItem>
+                                        <Link to="./tickets">
+                                            <Typography textAlign="center">Tickets</Typography>
+                                        </Link>
+                                    </MenuItem>
+                                </Menu>
+                            </Box>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                            >
                                 React-Fest
-                            </Link>
-                        </Typography>
-
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="inherit"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', md: 'none', color: "FF4DF0" },
-                                }}
-                            >
-                                <MenuItem>
-                                    <Link to="./lineup">
-                                        <Typography textAlign="center">Lineup</Typography>
-                                    </Link>
-                                </MenuItem>
-                                <MenuItem>
-                                    <Link to="./tickets">
-                                        <Typography textAlign="center">Tickets</Typography>
-                                    </Link>
-                                </MenuItem>
-                            </Menu>
-                        </Box>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                        >
-                            React-Fest
-                        </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            <Button variant="outlined"
-                                // onClick={handleCloseNavMenu}
-                                component={Link} to={'/lineup'}
-                                // containerElement={<Link to="/lineup" />}
-                                sx={{ my: 2, color: 'white', display: 'block', mr: 1, borderColor:'Rgb(29, 38, 155)' }}
-                            >Lineup
-                            </Button>
-                            <Button variant="outlined"
-                                // onClick={handleCloseNavMenu}
-                                component={Link} to={'/tickets'}
-                                sx={{ my: 2, color: 'white', display: 'block', mr: 1, borderColor:'Rgb(29, 38, 155)' }}
-                            >Tickets
-                            </Button>
-                        </Box>
-                        <Box>
-                            {showNavigation()}
-                        </Box>
-                    </Toolbar>
-                </Container>
-            </AppBar>
-        </React.Fragment>
+                            </Typography>
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                <Button variant="outlined"
+                                    // onClick={handleCloseNavMenu}
+                                    component={Link} to={'/lineup'}
+                                    // containerElement={<Link to="/lineup" />}
+                                    sx={{ my: 2, color: 'white', display: 'block', mr: 1, borderColor: 'Rgb(29, 38, 155)' }}
+                                >Lineup
+                                </Button>
+                                <Button variant="outlined"
+                                    // onClick={handleCloseNavMenu}
+                                    component={Link} to={'/tickets'}
+                                    sx={{ my: 2, color: 'white', display: 'block', mr: 1, borderColor: 'Rgb(29, 38, 155)' }}
+                                >Tickets
+                                </Button>
+                            </Box>
+                            <Box>
+                                {showNavigation()}
+                            </Box>
+                        </Toolbar>
+                    </Container>
+                </AppBar>
+            </React.Fragment>
+        </ThemeProvider>
     );
 };
 export default Nav;
