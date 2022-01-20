@@ -80,7 +80,7 @@ class Schedule extends React.Component {
             })}
           </Draggable>
         </ScrollView>
-
+        
         <Scheduler
 
           timeZone="Africa/Abidjan"
@@ -91,6 +91,7 @@ class Schedule extends React.Component {
           height={900}
           startDayHour={15}
           editing={true}
+          adaptivityEnabled={true}
           >
 
 
