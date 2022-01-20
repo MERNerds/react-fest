@@ -3,7 +3,7 @@ import React from 'react';
 import Scheduler, { AppointmentDragging, Resource, notify } from 'devextreme-react/scheduler';
 import Draggable from 'devextreme-react/draggable';
 import ScrollView from 'devextreme-react/scroll-view';
-import { appointments, tasks, genreData, resourcesList } from '../utils/data';
+import { appointments, tasks, genreData, resourcesList, altRock, hipHop, electronicDM } from '../utils/data';
 import RadioGroup from 'devextreme-react/radio-group';
 //import { ResourceAssignments } from 'devextreme-react/gantt';
 
@@ -27,7 +27,7 @@ class Schedule extends React.Component {
     this.state = {
       tasks,
       appointments,
-      radioGroupValue: resourcesList,
+      radioGroupValue: resourcesList[0],
     };
     this.onAppointmentRemove = this.onAppointmentRemove.bind(this);
     this.onAppointmentAdd = this.onAppointmentAdd.bind(this);
@@ -104,25 +104,27 @@ class Schedule extends React.Component {
             allowMultiple={false}
             dataSource={genreData}
             label="Genre"
+            useColorAsDefault={this.state.radioGroupValue === 'ALL'}
+          />
+          
+
+          <Resource
+            dataSource={hipHop}
+            fieldExpr="hipId"
+            label="Hip-Hop"
+            useColorAsDefault={this.state.radioGroupValue === 'HIP-HOP'}
           />
 
           <Resource
-            dataSource={appointments}
-            fieldExpr="genre"
-            label="Hip-hop"
-            useColorAsDefault={this.state.radioGroupValue === 'Hip-hop'}
-          />
-
-          <Resource
-            dataSource={tasks}
-            fieldExpr="genre"
+            dataSource={electronicDM}
+            fieldExpr="edmId"
             label="EDM"
             useColorAsDefault={this.state.radioGroupValue === 'EDM'}
           />
 
           <Resource
-            dataSource={tasks}
-            fieldExpr="genre"
+            dataSource={altRock}
+            fieldExpr="rockId"
             label="Alternative/Rock"
             useColorAsDefault={this.state.radioGroupValue === 'Alternative/Rock'}
           />

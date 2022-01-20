@@ -1,7 +1,7 @@
-export const resourcesList = ['HIP-HOP', 'EDM', 'ALTERNATIVE/ROCK'];
+export const resourcesList = ['ALL', 'HIP-HOP', 'EDM', 'ALTERNATIVE/ROCK'];
 
 export const tasks = [
-  
+
   {
     text: 'Kanye',
     startDate: new Date('2022-04-20T23:00:00.000Z'),
@@ -169,7 +169,8 @@ export const tasks = [
     startDate: new Date('2022-04-20T19:45:00.000Z'),
     endDate: new Date('2022-04-20T20:30:00.000Z'),
     genre: 2,
-    color: '#02B7DD'
+    color: '#02B7DD',
+    edmId: 1
   },
   {
     text: 'Kygo',
@@ -296,8 +297,8 @@ export const tasks = [
     endDate: new Date('2022-04-18T16:45:00.000Z'),
     genre: 2,
     color: '#02B7DD'
-},
-  
+  },
+
   {
     text: 'Blink-182',
     startDate: new Date('2022-04-20T23:00:00.000Z'),
@@ -446,69 +447,79 @@ export const tasks = [
   },
 ];
 
-  export const genreData = [
-    {
-      text: 'Hip-hop',
-      id: 1,
-      color: '#FF4DF0',
-      
-    }, {
-      text: 'EDM',
-      id: 2,
-      color: '#02B7DD',
-    }, {
-      text: 'Alternative/Rock',
-      id: 3,
-      color: '#04F167',
-    },
-  ];
-  
-  export const appointments = 
+export const genreData = [
+  {
+    text: 'Hip-Hop',
+    id: 1,
+    color: '#FF4DF0',
+    hipId: 1
+
+  }, {
+    text: 'EDM',
+    id: 2,
+    color: '#02B7DD',
+    edmId: 1
+  }, {
+    text: 'Alternative/Rock',
+    id: 3,
+    color: '#04F167',
+    rockId: 1
+  },
+];
+
+export const appointments =
   [
     {
       text: 'Kanye',
       startDate: new Date('2022-04-20T23:00:00.000Z'),
       endDate: new Date('2022-04-20T24:00:00.000Z'),
       genre: 1,
-      
+      hipId: 1
+
       //color: '#FF4DF0'
     }, {
       text: 'Lil Wayne',
       startDate: new Date('2022-04-20T21:00:00.000Z'),
       endDate: new Date('2022-04-20T22:00:00.000Z'),
       genre: 1,
-      
+      hipId: 1
+
     }, {
       text: 'SZA',
       startDate: new Date('2022-04-20T20:00:00.000Z'),
       endDate: new Date('2022-04-20T20:45:00.000Z'),
       genre: 1,
-      
+      hipId: 1
+
     }, {
       text: 'Post Malone',
       startDate: new Date('2022-04-20T19:00:00.000Z'),
       endDate: new Date('2022-04-20T19:45:00.000Z'),
       genre: 1,
-      
+      hipId: 1
+
     }, {
       text: 'Isaiah Rashad',
       startDate: new Date('2022-04-20T17:45:00.000Z'),
       endDate: new Date('2022-04-20T18:30:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
     }, {
       text: 'Don Toliver',
       startDate: new Date('2022-04-20T15:00:00.000Z'),
       endDate: new Date('2022-04-20T15:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
     },
     {
       text: 'Mac Miller',
       startDate: new Date('2022-04-19T23:00:00.000Z'),
       endDate: new Date('2022-04-19T24:00:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -516,7 +527,8 @@ export const tasks = [
       startDate: new Date('2022-04-19T21:00:00.000Z'),
       endDate: new Date('2022-04-19T22:00:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -524,7 +536,8 @@ export const tasks = [
       startDate: new Date('2022-04-19T20:00:00.000Z'),
       endDate: new Date('2022-04-19T20:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -532,7 +545,8 @@ export const tasks = [
       startDate: new Date('2022-04-19T19:00:00.000Z'),
       endDate: new Date('2022-04-19T19:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -540,7 +554,8 @@ export const tasks = [
       startDate: new Date('2022-04-19T17:45:00.000Z'),
       endDate: new Date('2022-04-19T18:30:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -548,7 +563,8 @@ export const tasks = [
       startDate: new Date('2022-04-19T16:15:00.000Z'),
       endDate: new Date('2022-04-19T17:00:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -556,7 +572,8 @@ export const tasks = [
       startDate: new Date('2022-04-19T15:00:00.000Z'),
       endDate: new Date('2022-04-19T15:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -564,14 +581,16 @@ export const tasks = [
       startDate: new Date('2022-04-18T23:00:00.000Z'),
       endDate: new Date('2022-04-18T24:00:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
     },
     {
       text: 'Tyler The Creator',
       startDate: new Date('2022-04-18T21:00:00.000Z'),
       endDate: new Date('2022-04-18T22:00:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -579,7 +598,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T20:00:00.000Z'),
       endDate: new Date('2022-04-18T20:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -587,7 +607,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T17:45:00.000Z'),
       endDate: new Date('2022-04-18T18:30:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -595,7 +616,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T16:15:00.000Z'),
       endDate: new Date('2022-04-18T17:00:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -603,7 +625,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T15:00:00.000Z'),
       endDate: new Date('2022-04-18T15:45:00.000Z'),
       genre: 1,
-      color: '#FF4DF0'
+      color: '#FF4DF0',
+      hipId: 1
 
     },
     {
@@ -611,7 +634,8 @@ export const tasks = [
       startDate: new Date('2022-04-20T23:00:00.000Z'),
       endDate: new Date('2022-04-20T24:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
 
     },
     {
@@ -619,7 +643,8 @@ export const tasks = [
       startDate: new Date('2022-04-20T21:30:00.000Z'),
       endDate: new Date('2022-04-20T22:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
 
     },
     {
@@ -627,63 +652,72 @@ export const tasks = [
       startDate: new Date('2022-04-20T20:15:00.000Z'),
       endDate: new Date('2022-04-20T21:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Armin Van Buren',
       startDate: new Date('2022-04-20T19:45:00.000Z'),
       endDate: new Date('2022-04-20T20:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Kygo',
       startDate: new Date('2022-04-20T18:30:00.000Z'),
       endDate: new Date('2022-04-20T19:15:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Dr. Fresch',
       startDate: new Date('2022-04-20T17:15:00.000Z'),
       endDate: new Date('2022-04-20T18:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Griz',
       startDate: new Date('2022-04-20T16:00:00.000Z'),
       endDate: new Date('2022-04-20T16:45:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Zeds Dead',
       startDate: new Date('2022-04-19T23:00:00.000Z'),
       endDate: new Date('2022-04-19T24:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Space Jesus',
       startDate: new Date('2022-04-19T21:30:00.000Z'),
       endDate: new Date('2022-04-19T22:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Rezz',
       startDate: new Date('2022-04-19T20:15:00.000Z'),
       endDate: new Date('2022-04-19T21:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Peekaboo',
       startDate: new Date('2022-04-19T19:45:00.000Z'),
       endDate: new Date('2022-04-19T20:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
 
     },
     {
@@ -691,28 +725,32 @@ export const tasks = [
       startDate: new Date('2022-04-19T18:30:00.000Z'),
       endDate: new Date('2022-04-19T19:15:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Lucii',
       startDate: new Date('2022-04-19T21:30:00.000Z'),
       endDate: new Date('2022-04-19T22:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Louis The Child',
       startDate: new Date('2022-04-19T16:00:00.000Z'),
       endDate: new Date('2022-04-19T16:45:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
     {
       text: 'Tiesto',
       startDate: new Date('2022-04-18T23:00:00.000Z'),
       endDate: new Date('2022-04-18T24:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
 
     {
@@ -720,7 +758,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T21:30:00.000Z'),
       endDate: new Date('2022-04-18T22:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
 
     {
@@ -728,7 +767,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T20:15:00.000Z'),
       endDate: new Date('2022-04-18T21:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
 
     {
@@ -736,7 +776,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T19:45:00.000Z'),
       endDate: new Date('2022-04-18T20:30:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
 
     {
@@ -744,7 +785,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T18:30:00.000Z'),
       endDate: new Date('2022-04-18T19:15:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
     },
 
     {
@@ -752,7 +794,8 @@ export const tasks = [
       startDate: new Date('2022-04-18T16:15:00.000Z'),
       endDate: new Date('2022-04-18T17:00:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
+      color: '#02B7DD',
+      edmId: 1
 
     },
     {
@@ -760,15 +803,17 @@ export const tasks = [
       startDate: new Date('2022-04-18T16:00:00.000Z'),
       endDate: new Date('2022-04-18T16:45:00.000Z'),
       genre: 2,
-      color: '#02B7DD'
-  },
-    
+      color: '#02B7DD',
+      edmId: 1
+    },
+
     {
       text: 'Blink-182',
       startDate: new Date('2022-04-20T23:00:00.000Z'),
       endDate: new Date('2022-04-20T24:00:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
 
     },
     {
@@ -776,169 +821,201 @@ export const tasks = [
       startDate: new Date('2022-04-20T21:45:00.000Z'),
       endDate: new Date('2022-04-20T22:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'A Day to Remember',
       startDate: new Date('2022-04-20T20:30:00.000Z'),
       endDate: new Date('2022-04-20T21:15:00.000Z'),
       genre: 3,
+      rockId: 1
     },
     {
       text: 'Neck Deep',
       startDate: new Date('2022-04-20T19:15:00.000Z'),
       endDate: new Date('2022-04-20T20:00:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Bad Religion',
       startDate: new Date('2022-04-20T18:00:00.000Z'),
       endDate: new Date('2022-04-20T18:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'New Found Glory',
       startDate: new Date('2022-04-20T16:45:00.000Z'),
       endDate: new Date('2022-04-20T17:30:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Hot Mulligan',
       startDate: new Date('2022-04-20T15:30:00.000Z'),
       endDate: new Date('2022-04-20T16:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Manchester Orchestra',
       startDate: new Date('2022-04-19T23:00:00.000Z'),
       endDate: new Date('2022-04-19T24:00:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Mumford and Sons',
       startDate: new Date('2022-04-19T18:45:00.000Z'),
       endDate: new Date('2022-04-19T19:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Peach Pit',
       startDate: new Date('2022-04-19T20:30:00.000Z'),
       endDate: new Date('2022-04-19T21:15:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'The Strokes',
       startDate: new Date('2022-04-19T19:15:00.000Z'),
       endDate: new Date('2022-04-19T20:00:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'The Front Bottoms',
       startDate: new Date('2022-04-19T18:00:00.000Z'),
       endDate: new Date('2022-04-19T18:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'The Wood Brothers',
       startDate: new Date('2022-04-19T16:45:00.000Z'),
       endDate: new Date('2022-04-19T17:30:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Punch Brothers',
       startDate: new Date('2022-04-19T15:30:00.000Z'),
       endDate: new Date('2022-04-19T16:15:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Red Hot Chili Peppers',
       startDate: new Date('2022-04-18T23:00:00.000Z'),
       endDate: new Date('2022-04-18T24:00:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'The Clash',
       startDate: new Date('2022-04-18T21:45:00.000Z'),
       endDate: new Date('2022-04-18T22:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Weezer',
       startDate: new Date('2022-04-18T20:30:00.000Z'),
       endDate: new Date('2022-04-18T21:15:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Beastie Boys',
       startDate: new Date('2022-04-18T19:15:00.000Z'),
       endDate: new Date('2022-04-18T20:00:00.000Z'),
       genre: 3,
+      rockId: 1
     },
     {
       text: 'The Sparks',
       startDate: new Date('2022-04-18T18:00:00.000Z'),
       endDate: new Date('2022-04-18T18:45:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'The Wonder Years',
       startDate: new Date('2022-04-18T16:45:00.000Z'),
       endDate: new Date('2022-04-18T17:30:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
     {
       text: 'Evanescence',
       startDate: new Date('2022-04-18T15:30:00.000Z'),
       endDate: new Date('2022-04-18T16:15:00.000Z'),
       genre: 3,
-      color: '#04F167'
+      color: '#04F167',
+      rockId: 1
     },
   ];
 
-
-  
 export const hipHop = [
   {
-    
-      text: 'Kanye',
-      startDate: new Date('2022-04-20T23:00:00.000Z'),
-      endDate: new Date('2022-04-20T24:00:00.000Z'),
-      genre: 1,
+    text: 'Hip-hop',
+    id: 1,
+    color: '#FF4DF0'
   }
 ]
 
 export const altRock = [
   {
-    text: 'Evanescence',
-      startDate: new Date('2022-04-18T15:30:00.000Z'),
-      endDate: new Date('2022-04-18T16:15:00.000Z'),
-      genre: 3,
-      color: '#04F167'
+    text: 'Alt/Rock',
+    id: 1,
+    color: '#04F167'
   }
 ]
 
 export const electronicDM = [
   {
-    text: 'Ekali',
-    startDate: new Date('2022-04-18T20:15:00.000Z'),
-    endDate: new Date('2022-04-18T21:00:00.000Z'),
-    genre: 2,
+    text: 'EDM',
+    id: 1,
     color: '#02B7DD'
   }
 ]
+
+export const allGenre = [
+  {
+    text: 'Hip-Hop',
+    id: 1,
+    color: '#FF4DF0',
+    hipId: 1
+
+  }, {
+    text: 'EDM',
+    id: 2,
+    color: '#02B7DD',
+    edmId: 1
+  }, {
+    text: 'Alternative/Rock',
+    id: 3,
+    color: '#04F167',
+    rockId: 1
+  },
+];
