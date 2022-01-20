@@ -27,13 +27,14 @@ function Copyright() {
 const styles ={
     paperContainer: {
         backgroundImage:`url(${footerImage})`,
-        backgroundSize: "span",
+        backgroundSize: "cover",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
+
     },
-    // copyRight: {
-    //     paddingTop: "300px"
-    // }
+    copyRight: {
+        height: "300px"
+    }
 };
 
 
@@ -48,7 +49,8 @@ export default function Footer() {
                 py: 0,
                 px: 0,
                 mt: 'auto',
-            }}>
+            }}
+            >
             <Copyright />
 
             
