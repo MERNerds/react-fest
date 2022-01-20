@@ -11,7 +11,8 @@ import {
 const defaultState = {
     tickets: [],
     cart: [],
-    cartOpen: false
+    cartOpen: false,
+    orders: []
 }
 
 export default function reducer (state = defaultState, action) {

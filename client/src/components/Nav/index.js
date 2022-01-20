@@ -163,11 +163,18 @@ function Nav() {
                     >
 
                         <MenuItem >
+                            {state.orders.length ? (
+                                <Typography
+                                    underline="hover"
+                                    component={Link} to='#'
+                                    textAlign="center">Schedule
+                                </Typography> ) : (
                             <Typography
                                 underline="hover"
                                 component={Link} to={'/myschedule'}
                                 textAlign="center">Schedule
                             </Typography>
+                                )}
                         </MenuItem>
                         <MenuItem >
                             <Grid container justifyContent='space-between' alignItems='center'>
