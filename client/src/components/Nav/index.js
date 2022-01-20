@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { idbPromise } from '../../utils/helpers';
 import Auth from "../../utils/auth";
@@ -25,6 +25,7 @@ import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
 import Badge from '@mui/material/Badge';
 import Grid from '@mui/material/Grid';
@@ -138,7 +139,9 @@ function Nav() {
         }
     }, [state.orders.length, dispatch]);
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+
+    const [scheduleOpen, setScheduleOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -148,10 +151,10 @@ function Nav() {
     };
 
     const handleScheduleOpen = () => {
-        setOpen(true);
+        setScheduleOpen(true);
     };
     const handleScheduleClose = () => {
-        setOpen(false);
+        setScheduleOpen(false);
     };
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -217,7 +220,7 @@ function Nav() {
                                 underline="hover"
                                 component={Link} to='#'
                                 onClick={handleScheduleOpen}
-                                textAlign="center">It works
+                                textAlign="center">Schedule
                             </Typography>
                         </MenuItem>)}
                         <MenuItem >
@@ -249,8 +252,10 @@ function Nav() {
                         aria-labelledby="customized-dialog-title"
                         open={open}
                     >
-                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
-                            Smash That Checkout Button!
+                        <BootstrapDialogTitle sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
+                            <Typography variant='h4' sx={{ color: 'black' }}>
+                                Smash That Checkout Button!
+                            </Typography>
                         </BootstrapDialogTitle>
                         <DialogContent >
                             <Cart />
@@ -260,13 +265,32 @@ function Nav() {
                         fullWidth={true}
                         onClose={handleScheduleClose}
                         aria-labelledby="customized-dialog-title"
-                        open={open}
+                        open={scheduleOpen}
                     >
-                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
-                            Smash That Checkout Button!
+                        <BootstrapDialogTitle sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleScheduleClose}>
+                            <Typography variant='h4' sx={{ color: 'black' }}>
+                                Hold up!
+                            </Typography>
                         </BootstrapDialogTitle>
-                        <DialogContent >
-                            <Cart />
+                        <DialogContent dividers>
+                            <Grid container direction='row' justifyContent='center' alignItems='center' sx={{ textAlign: 'center', p: 3 }}>
+                                <Grid >
+                                    <Typography variant='h5' sx={{ color: 'black' }}>
+                                        Once you purchase tickets to React Fest you can see each band's set time and create your own schedule.
+                                    </Typography>
+                                </Grid>
+                                <Grid sx={{ pt: 1 }}>
+                                    <Typography variant='h5' sx={{ color: 'black' }}>
+                                        So what are you waiting for?
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <DialogActions>
+                                <Button component={Link} to='/tickets' variant='contained' onClick={handleScheduleClose}
+                                    sx={{ color: 'black', backgroundColor: 'var(--tertiary)', '&:hover': { backgroundColor: 'var(--bright)' } }}>
+                                    Get Tickets!
+                                </Button>
+                            </DialogActions>
                         </DialogContent>
                     </BootstrapDialog>
                 </Box>
