@@ -13,43 +13,64 @@ export const tasks = [
     startDate: new Date('2022-04-20T23:00:00.000Z'),
     endDate: new Date('2022-04-20T24:00:00.000Z'),
     genre: 1,
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
     //color: '#FF4DF0'
   }, {
     text: 'Lil Wayne',
     startDate: new Date('2022-04-20T21:00:00.000Z'),
     endDate: new Date('2022-04-20T22:00:00.000Z'),
     genre: 1,
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
   }, {
     text: 'SZA',
     startDate: new Date('2022-04-20T20:00:00.000Z'),
     endDate: new Date('2022-04-20T20:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
   }, {
     text: 'Post Malone',
     startDate: new Date('2022-04-20T19:00:00.000Z'),
     endDate: new Date('2022-04-20T19:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
   }, {
     text: 'Isaiah Rashad',
     startDate: new Date('2022-04-20T17:45:00.000Z'),
     endDate: new Date('2022-04-20T18:30:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
   }, {
     text: 'Don Toliver',
     startDate: new Date('2022-04-20T15:00:00.000Z'),
     endDate: new Date('2022-04-20T15:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
   },
   {
     text: 'Mac Miller',
     startDate: new Date('2022-04-19T23:00:00.000Z'),
     endDate: new Date('2022-04-19T24:00:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -57,7 +78,10 @@ export const tasks = [
     startDate: new Date('2022-04-19T21:00:00.000Z'),
     endDate: new Date('2022-04-19T22:00:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -65,7 +89,10 @@ export const tasks = [
     startDate: new Date('2022-04-19T20:00:00.000Z'),
     endDate: new Date('2022-04-19T20:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -73,7 +100,10 @@ export const tasks = [
     startDate: new Date('2022-04-19T19:00:00.000Z'),
     endDate: new Date('2022-04-19T19:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -81,7 +111,10 @@ export const tasks = [
     startDate: new Date('2022-04-19T17:45:00.000Z'),
     endDate: new Date('2022-04-19T18:30:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -89,7 +122,10 @@ export const tasks = [
     startDate: new Date('2022-04-19T16:15:00.000Z'),
     endDate: new Date('2022-04-19T17:00:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
 
   },
@@ -98,7 +134,10 @@ export const tasks = [
     startDate: new Date('2022-04-19T15:00:00.000Z'),
     endDate: new Date('2022-04-19T15:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -106,14 +145,20 @@ export const tasks = [
     startDate: new Date('2022-04-18T23:00:00.000Z'),
     endDate: new Date('2022-04-18T24:00:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
   },
   {
     text: 'Tyler The Creator',
     startDate: new Date('2022-04-18T21:00:00.000Z'),
     endDate: new Date('2022-04-18T22:00:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -121,7 +166,10 @@ export const tasks = [
     startDate: new Date('2022-04-18T20:00:00.000Z'),
     endDate: new Date('2022-04-18T20:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -129,7 +177,10 @@ export const tasks = [
     startDate: new Date('2022-04-18T17:45:00.000Z'),
     endDate: new Date('2022-04-18T18:30:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -137,7 +188,10 @@ export const tasks = [
     startDate: new Date('2022-04-18T16:15:00.000Z'),
     endDate: new Date('2022-04-18T17:00:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -145,7 +199,10 @@ export const tasks = [
     startDate: new Date('2022-04-18T15:00:00.000Z'),
     endDate: new Date('2022-04-18T15:45:00.000Z'),
     genre: 1,
-    color: '#FF4DF0'
+    color: '#FF4DF0',
+    hipId: 1,
+    edmId: 2,
+    rockId: 2
 
   },
   {
@@ -482,8 +539,8 @@ export const appointments =
       endDate: new Date('2022-04-20T24:00:00.000Z'),
       genre: 1,
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
       //color: '#FF4DF0'
     }, {
@@ -492,8 +549,8 @@ export const appointments =
       endDate: new Date('2022-04-20T22:00:00.000Z'),
       genre: 1,
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     }, {
       text: 'SZA',
@@ -501,8 +558,8 @@ export const appointments =
       endDate: new Date('2022-04-20T20:45:00.000Z'),
       genre: 1,
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     }, {
       text: 'Post Malone',
@@ -510,8 +567,8 @@ export const appointments =
       endDate: new Date('2022-04-20T19:45:00.000Z'),
       genre: 1,
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     }, {
       text: 'Isaiah Rashad',
@@ -520,8 +577,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
     }, {
       text: 'Don Toliver',
       startDate: new Date('2022-04-20T15:00:00.000Z'),
@@ -529,8 +586,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
     },
     {
       text: 'Mac Miller',
@@ -539,8 +596,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -550,8 +607,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -561,8 +618,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -572,8 +629,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -583,8 +640,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -594,8 +651,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -605,8 +662,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -616,8 +673,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
     },
     {
       text: 'Tyler The Creator',
@@ -626,8 +683,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -637,8 +694,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -648,8 +705,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -659,8 +716,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -670,8 +727,8 @@ export const appointments =
       genre: 1,
       color: '#FF4DF0',
       hipId: 1,
-      edmId:2,
-      rockId:2
+      edmId: 2,
+      rockId: 2
 
     },
     {
@@ -682,7 +739,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
 
     },
     {
@@ -693,7 +750,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
 
     },
     {
@@ -704,7 +761,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Armin Van Buren',
@@ -714,7 +771,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Kygo',
@@ -724,7 +781,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Dr. Fresch',
@@ -734,7 +791,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Griz',
@@ -744,7 +801,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Zeds Dead',
@@ -754,7 +811,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Space Jesus',
@@ -764,7 +821,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Rezz',
@@ -774,7 +831,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Peekaboo',
@@ -784,7 +841,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
 
     },
     {
@@ -795,7 +852,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Lucii',
@@ -805,7 +862,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Louis The Child',
@@ -815,7 +872,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
     {
       text: 'Tiesto',
@@ -825,7 +882,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
 
     {
@@ -836,7 +893,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
 
     {
@@ -847,7 +904,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
 
     {
@@ -858,7 +915,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
 
     {
@@ -869,7 +926,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
 
     {
@@ -880,7 +937,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
 
     },
     {
@@ -891,7 +948,7 @@ export const appointments =
       color: '#02B7DD',
       edmId: 1,
       hipId: 2,
-      rockId:2
+      rockId: 2
     },
 
     {
@@ -902,7 +959,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
 
     },
     {
@@ -913,7 +970,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'A Day to Remember',
@@ -922,7 +979,7 @@ export const appointments =
       genre: 3,
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Neck Deep',
@@ -932,7 +989,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Bad Religion',
@@ -942,7 +999,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'New Found Glory',
@@ -952,7 +1009,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Hot Mulligan',
@@ -962,7 +1019,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Manchester Orchestra',
@@ -982,7 +1039,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Peach Pit',
@@ -992,7 +1049,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'The Strokes',
@@ -1002,7 +1059,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'The Front Bottoms',
@@ -1012,7 +1069,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'The Wood Brothers',
@@ -1022,7 +1079,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Punch Brothers',
@@ -1032,7 +1089,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Red Hot Chili Peppers',
@@ -1042,7 +1099,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'The Clash',
@@ -1052,7 +1109,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Weezer',
@@ -1062,7 +1119,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Beastie Boys',
@@ -1071,7 +1128,7 @@ export const appointments =
       genre: 3,
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'The Sparks',
@@ -1081,7 +1138,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'The Wonder Years',
@@ -1091,7 +1148,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
     {
       text: 'Evanescence',
@@ -1101,7 +1158,7 @@ export const appointments =
       color: '#04F167',
       rockId: 1,
       hipId: 2,
-      edmId:2
+      edmId: 2
     },
   ];
 
@@ -1151,13 +1208,13 @@ export const allGenre = [
     color: '#FF4DF0',
     hipId: 1
 
-  }, 
+  },
   {
     text: 'EDM',
     id: 2,
     color: '#02B7DD',
     edmId: 1
-  }, 
+  },
   {
     text: 'Alternative/Rock',
     id: 3,
