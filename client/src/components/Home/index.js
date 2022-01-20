@@ -43,14 +43,17 @@ const useStyles = makeStyles((theme) => ({
         height: "100%",
     },
     photoGrid: {
-        paddingBottom: "10px",
+        //paddingBottom: "10px",
         marginTop: '20px',
+        marginBottom: 50,
         maxWidth: 800,
         display: 'flex',
         flexDirection: 'row',
         margin: 'auto',
-        boxShadow: '5px rgba(3, 221, 94, .5)'
-    
+        boxShadow: '5px 5px 5px 5px rgba(3, 221, 94, .5)',
+    },
+    photoPaper: {
+        marginBottom: "40px"
     }
 
 }));
@@ -69,11 +72,10 @@ export default function Home() {
 
                 />
             </Card>
-            <Grid container>
+            <Grid container className={classes.photo}>
                 <Card className={classes.photoGrid}>
                     <CardMedia
                         component="img"
-                        width="50%"
                         alt="photogrid"
                         image={nightBlue}
                     />

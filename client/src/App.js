@@ -53,20 +53,20 @@ function App() {
       <Router>
         <div>
           <Provider store={store}>
-          <Nav />
-          <CssBaseline />
-          <Switch>  
-            <Route exact path="/" component={Home} />
-            <Route exact path="/lineup" component={LineUp} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path='/tickets' component={Pricing} />
-            <Route exact path="/myschedule" component={Schedule} />
-            {/* <Route exact path="/myschedule" component={MySchedule} />  */}
-            {/* <Route exact path="/info" component={Info} */}
-            <Route exact path='/success' component={Success} />
-          </Switch>
-          <Footer />
+            <Nav />
+            <CssBaseline />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/lineup" component={LineUp} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path='/tickets' component={Pricing} />
+              <Route exact path="/myschedule" component={Schedule} />
+              {/* <Route exact path="/myschedule" component={MySchedule} />  */}
+              {/* <Route exact path="/info" component={Info} */}
+              <Route exact path='/success' component={Success} />
+            </Switch>
+            <Footer />
           </Provider>
         </div>
       </Router>

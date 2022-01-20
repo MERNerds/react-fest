@@ -119,7 +119,7 @@ export default function Pricing() {
       <React.Fragment>
         <Paper className={classes.paperContainer} square>
           <Card className={classes.heroImg}
-            src='./images/react-ticket-banner.png'
+            //src='./images/react-ticket-banner.png'
 
           >
             <CardMedia
