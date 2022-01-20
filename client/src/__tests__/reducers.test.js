@@ -8,7 +8,8 @@ import {
     REMOVE_FROM_CART,
     UPDATE_CART_QUANTITY, 
     CLEAR_CART, 
-    TOGGLE_CART
+    TOGGLE_CART,
+    CHECK_ORDERS
 } from '../utils/actions'
 
 const initialState = {
@@ -25,7 +26,8 @@ const initialState = {
             purchaseQuantity: 2
         }
     ],
-    cartOpen: false
+    cartOpen: false,
+    orders: []
 };
 
 test('UPDATE_TICKETS', () => {
@@ -121,3 +123,14 @@ test('UPDATE_CART_QUANTITY', () => {
   
     expect(newState2.cartOpen).toBe(false);
   });
+
+  test('CHECK_ORDERS', () => {
+      let newState = reducer(initialState, {
+          type: CHECK_ORDERS,
+          orders: [{},{}]
+      });
+
+      expect(newState.orders.length).toBe(2);
+      expect(initialState.orders.length).toBe(0);
+      
+  })

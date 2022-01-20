@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { idbPromise } from '../../utils/helpers';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
@@ -24,9 +25,13 @@ import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
 import Badge from '@mui/material/Badge';
 import Grid from '@mui/material/Grid';
+import { CHECK_ORDERS } from '../../utils/actions';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../../utils/queries';
 
 
 const theme = createTheme({
@@ -102,13 +107,54 @@ function Nav() {
         return state
     });
 
-    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
+
+    const { data } = useQuery(QUERY_USER);
+
+    let user;
+    let userOrders;
+
+
+    if (data) {
+        user = data.user;
+        userOrders = user.orders
+        // console.log(user.orders.length)
+    } else {
+        userOrders = [];
+        // console.log(userOrders.length)
+    };
+
+    useEffect(() => {
+        async function getOrders() {
+            const orders = await idbPromise('orders', 'get');
+            dispatch({
+                type: CHECK_ORDERS,
+                orders: [...orders],
+
+            });
+        };
+
+        if (!state.orders.length) {
+            getOrders();
+        }
+    }, [state.orders.length, dispatch]);
+
+    const [open, setOpen] = useState(false);
+
+    const [scheduleOpen, setScheduleOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleScheduleOpen = () => {
+        setScheduleOpen(true);
+    };
+    const handleScheduleClose = () => {
+        setScheduleOpen(false);
     };
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -161,14 +207,22 @@ function Nav() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-
-                        <MenuItem >
+                        {userOrders.length ? (
+                            <MenuItem >
+                                <Typography
+                                    underline="hover"
+                                    component={Link} to={'/myschedule'}
+                                    textAlign="center">Schedule
+                                </Typography>
+                            </MenuItem>
+                        ) : (<MenuItem>
                             <Typography
                                 underline="hover"
-                                component={Link} to={'/myschedule'}
+                                component={Link} to='#'
+                                onClick={handleScheduleOpen}
                                 textAlign="center">Schedule
                             </Typography>
-                        </MenuItem>
+                        </MenuItem>)}
                         <MenuItem >
                             <Grid container justifyContent='space-between' alignItems='center'>
                                 <Typography
@@ -198,11 +252,45 @@ function Nav() {
                         aria-labelledby="customized-dialog-title"
                         open={open}
                     >
-                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
-                            Smash That Checkout Button!
+                        <BootstrapDialogTitle sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
+                            <Typography variant='h4' sx={{ color: 'black' }}>
+                                Smash That Checkout Button!
+                            </Typography>
                         </BootstrapDialogTitle>
                         <DialogContent >
                             <Cart />
+                        </DialogContent>
+                    </BootstrapDialog>
+                    <BootstrapDialog
+                        fullWidth={true}
+                        onClose={handleScheduleClose}
+                        aria-labelledby="customized-dialog-title"
+                        open={scheduleOpen}
+                    >
+                        <BootstrapDialogTitle sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleScheduleClose}>
+                            <Typography variant='h4' sx={{ color: 'black' }}>
+                                Hold up!
+                            </Typography>
+                        </BootstrapDialogTitle>
+                        <DialogContent dividers>
+                            <Grid container direction='row' justifyContent='center' alignItems='center' sx={{ textAlign: 'center', p: 3 }}>
+                                <Grid >
+                                    <Typography variant='h5' sx={{ color: 'black' }}>
+                                        Once you purchase tickets to React Fest you can see each band's set time and create your own schedule.
+                                    </Typography>
+                                </Grid>
+                                <Grid sx={{ pt: 1 }}>
+                                    <Typography variant='h5' sx={{ color: 'black' }}>
+                                        So what are you waiting for?
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <DialogActions>
+                                <Button component={Link} to='/tickets' variant='contained' onClick={handleScheduleClose}
+                                    sx={{ color: 'black', backgroundColor: 'var(--tertiary)', '&:hover': { backgroundColor: 'var(--bright)' } }}>
+                                    Get Tickets!
+                                </Button>
+                            </DialogActions>
                         </DialogContent>
                     </BootstrapDialog>
                 </Box>

@@ -1,55 +1,47 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom'
 import { Paper } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
-import footer from '../../assets/graphics/footer.png'
-import { borderColor, margin } from '@mui/system';
+import footerImage from '../../assets/images/react-footer.png';
 
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="text.secondary" sx={{margin:'auto', textAlign: 'center', pt:2}}>
-            {'Copyright © '}
-            <Link color="inherit" to="/">
-                React-fest
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-const useStyles = makeStyles({
-    footerBg: {
-        maxWidth: 1600,
-        height: 60,
-        backgroundImage: `url(${footer})`,
-        backgroundSize: "1600px 300px",
+const useStyles = makeStyles((theme) => ({
+    paperContainer: {
+        backgroundImage: `url(${footerImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        border: 4,
-        borderColor: 'pink',
-        borderRadius: 2,
-        margin: 0
-    },
-});
+        height: '300px'
+
+    }
+}));
 
 
-export default function Footer() {
+function Footer() {
     const classes = useStyles();
 
     return (
-        <Box component="footer" sx={{margin: 0, padding: 0}}
-            sx={{
-                py: 0,
-                px: 0,
-                mt: 'auto',
-            }}>
-            <Paper className={classes.footerBg}>
-                <Copyright  />
-            </Paper>
-        </Box>
+        <Paper>
+            <Grid
+                container
+                direction='row'
+                justifyContent='center'
+                alignItems='center'
+                className={classes.paperContainer}>
+                <Grid>
+                    <Typography variant="body2" align="center">
+                        {'Copyright © '}
+                        <Link color="inherit" to="https://mui.com/">
+                            React Fest
+                        </Link>{' '}
+                        {new Date().getFullYear()}
+                        {'.'}
+                    </Typography>
+                </Grid>
+            </Grid>
+        </Paper>
     );
 }
+
+export default Footer;

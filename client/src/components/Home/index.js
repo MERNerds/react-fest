@@ -111,7 +111,6 @@ export default function Home() {
                     />
                 </Card>
                 </Grid>
-            <Pricing />
         </Paper>
 
     )
