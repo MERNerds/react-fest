@@ -100,8 +100,6 @@ export default function Home() {
                 <Card className={classes.photoGrid}>
                     <CardMedia
                     component="img"
-                    width="50%"
-                    height="80%"
                     alt="photo"
                     image={heartStage}
                     />
