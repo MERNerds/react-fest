@@ -62,8 +62,8 @@ function App() {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path='/tickets' component={Pricing} />
             <Route exact path="/myschedule" component={Schedule} />
-            {/* <Route exact path="/myschedule" component={MySchedule} />  */}
-            {/* <Route exact path="/info" component={Info} */}
+
+
             <Route exact path='/success' component={Success} />
           </Switch>
           <Footer />

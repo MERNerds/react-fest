@@ -1,9 +1,25 @@
 import React, { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid'
+
 import { ADD_ORDER } from '../utils/mutations';
 import { idbPromise } from '../utils/helpers';
+
+//items needed for styling
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+
+import Cart from '../components/Cart'
+import TicketItem from '../components/TicketItem'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import  success from '../assets/graphics/react-success-banner-2.png';
+
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
@@ -29,15 +45,59 @@ function Success() {
 
     saveOrder();
   }, [addOrder]);
+  
+  const useStyles = makeStyles((theme) => ({
+    '@global': {
+      ul: {
+        margin: 0,
+        padding: 0,
+        listStyle: 'none',
+      },
+    },
+    paperBg: {
+      backgroundColor: 'Rgba(2, 183, 221, 0.4)',
+      // borderBottom: '100px',
+      boxShadow: 0,
+      paddingBottom: '10px'
+    },
+    heroImg: {
+      width: "100%",
+      cover: 'contain',
+      alignItems: 'bottom',
+      // borderBottom: '100px'
+  
+    },
+  
+  }));
+  
+  
+  const theme = createTheme({
+    components: {
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'Rgba(4, 241, 103, 0.4)'
+          }
+        }
+      },
+    }
+  });const classes = useStyles();
 
   return (
-    <Box sx={{ backgroundColor: 'var(--tertiary)' }}>
-      <Grid>
-        <h1>Success!</h1>
-        <h2>Thank you for your purchase!</h2>
-        <h2>You will now be redirected to the home page</h2>
-      </Grid>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <Paper class={classes.paperBg}> 
+          <Card className={classes.heroImg}          >
+            <CardMedia
+              component="img"
+              alt="ticket-banner"
+              image={success}
+              alignItems="bottom"
+            />
+          </Card>
+        </Paper>
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
 
