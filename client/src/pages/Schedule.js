@@ -38,7 +38,17 @@ class Schedule extends React.Component {
   render() {
     return (
       <React.Fragment>
-
+        <div className="options">
+          <div className="caption">CLICK TO FILTER BY GENRE:</div>
+          <div className="option">
+            <RadioGroup
+              items={resourcesList}
+              value={this.state.radioGroupValue}
+              layout="horizontal"
+              onValueChanged={this.onRadioGroupValueChanged}
+            />
+          </div>
+        </div>
         <ScrollView id="scroll">
           <Draggable
             id="list"
@@ -69,7 +79,7 @@ class Schedule extends React.Component {
             })}
           </Draggable>
         </ScrollView>
-        
+
         <Scheduler
 
           timeZone="Africa/Abidjan"
@@ -119,7 +129,7 @@ class Schedule extends React.Component {
 
 
         </Scheduler>
-       
+
       </React.Fragment>
     );
   }
