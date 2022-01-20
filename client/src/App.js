@@ -66,9 +66,9 @@ function App() {
             {/* <Route exact path="/info" component={Info} */}
             <Route exact path='/success' component={Success} />
           </Switch>
-          <Footer />
           </Provider>
         </div>
+        {/* <Footer /> */}
       </Router>
     </ApolloProvider>
   );
