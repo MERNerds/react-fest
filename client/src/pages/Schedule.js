@@ -49,8 +49,8 @@ class Schedule extends React.Component {
             />
           </div>
         </div>
-        <ScrollView id="scroll">
-          <Draggable
+        <ScrollView id="scroll" type="button" class="collapsible">
+          <Draggable class="content"
             id="list"
             data="dropArea"
             group={draggingGroupName}
@@ -74,7 +74,6 @@ class Schedule extends React.Component {
                   onDragStart={this.onItemDragStart}
                   onDragEnd={this.onItemDragEnd}>
                   {task.text}
-                  
                 </Draggable>
               );
             })}
@@ -86,6 +85,7 @@ class Schedule extends React.Component {
           timeZone="Africa/Abidjan"
           id="scheduler"
           dataSource={this.state.appointments}
+          
           views={views}
           defaultCurrentDate={currentDate}
           height={900}
