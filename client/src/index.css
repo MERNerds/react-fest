@@ -51,8 +51,6 @@
   font-family: 'Mochiy Pop P One', sans-serif;
   font-size: larger;
   color: #000000;
-  
-
 }
 
 .dx-scheduler-appointment-title {
@@ -60,6 +58,7 @@
   font-family: 'Mochiy Pop P One', sans-serif;
   font-size: larger;
   color: #000000;
+  
 }
 
 .options {
@@ -101,4 +100,8 @@
 
 .dx-calendar-cell {
   font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.dx-item-content {
+  border-radius: 25px;
 }

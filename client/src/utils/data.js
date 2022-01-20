@@ -913,4 +913,32 @@ export const tasks = [
 
 
   
+export const hipHop = [
+  {
+    
+      text: 'Kanye',
+      startDate: new Date('2022-04-20T23:00:00.000Z'),
+      endDate: new Date('2022-04-20T24:00:00.000Z'),
+      genre: 1,
+  }
+]
 
+export const altRock = [
+  {
+    text: 'Evanescence',
+      startDate: new Date('2022-04-18T15:30:00.000Z'),
+      endDate: new Date('2022-04-18T16:15:00.000Z'),
+      genre: 3,
+      color: '#04F167'
+  }
+]
+
+export const electronicDM = [
+  {
+    text: 'Ekali',
+    startDate: new Date('2022-04-18T20:15:00.000Z'),
+    endDate: new Date('2022-04-18T21:00:00.000Z'),
+    genre: 2,
+    color: '#02B7DD'
+  }
+]

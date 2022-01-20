@@ -108,7 +108,7 @@ class Schedule extends React.Component {
 
           <Resource
             dataSource={appointments}
-            fieldExpr="hipId"
+            fieldExpr="genre"
             label="Hip-hop"
             useColorAsDefault={this.state.radioGroupValue === 'Hip-hop'}
           />
