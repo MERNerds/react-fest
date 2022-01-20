@@ -1,0 +1,9 @@
+.main-footer {
+        max-width: 100%wv;
+        max-height: 30%hv;
+        border: 4;
+        border-color: pink;
+        border-radius: 2;
+        margin-top: 20px;
+        padding-top: "40px"
+}

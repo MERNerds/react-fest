@@ -25,6 +25,7 @@ import heartStage from '../../assets/images/heart-stage.jpeg';
 
 
 
+
 const useStyles = makeStyles((theme) => ({
     lineupHero: {
         component: "img",
@@ -42,14 +43,15 @@ const useStyles = makeStyles((theme) => ({
         height: "100%",
     },
     photoGrid: {
-        padding: "10px",
+        paddingBottom: "10px",
         marginTop: '20px',
         maxWidth: 800,
         display: 'flex',
         flexDirection: 'row',
         margin: 'auto',
-        boxShadow: '5px 5px 5px 5px rgba(3, 221, 94, .5)'
+        boxShadow: '5px rgba(3, 221, 94, .5)'
     }
+
 }));
 
 export default function Home() {
@@ -110,8 +112,7 @@ export default function Home() {
                     image={dayYellow}
                     />
                 </Card>
-                </Grid>
-            <Pricing />
+                </Grid>     
         </Paper>
 
     )
