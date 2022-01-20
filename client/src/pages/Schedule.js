@@ -89,13 +89,15 @@ class Schedule extends React.Component {
           defaultCurrentDate={currentDate}
           height={900}
           startDayHour={15}
-          editing={true}>
+          editing={true}
+          >
 
 
           <AppointmentDragging
             group={draggingGroupName}
             onRemove={this.onAppointmentRemove}
             onAdd={this.onAppointmentAdd}
+            
             
           />
 
