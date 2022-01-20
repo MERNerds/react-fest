@@ -103,35 +103,46 @@ BootstrapDialogTitle.propTypes = {
 
 function Nav() {
     const state = useSelector((state) => {
+        console.log(state)
         return state
     });
 
     const dispatch = useDispatch();
 
-    const [orderHistory, setOrderHistory] = useState([])
+    // const [orderHistory, setOrderHistory] = useState({ orders: [] });
+    // console.log(orderHistory.orders);
+
+    const { data } = useQuery(QUERY_USER);
+
+    let user;
+    let userOrders;
+
+
+    if (data) {
+        user = data.user;
+        userOrders = user.orders
+        console.log(user.orders.length)
+    } else {
+        userOrders = [];
+        console.log(userOrders.length)
+    };
 
     useEffect(() => {
         async function getOrders() {
             const orders = await idbPromise('orders', 'get');
             dispatch({
                 type: CHECK_ORDERS,
-                orders: [...orders]
+                orders: [...orders],
+
             });
         };
 
-        if (state.orders.length) {
+        if (!state.orders.length) {
             getOrders();
         }
     }, [state.orders.length, dispatch]);
 
     const [open, setOpen] = React.useState(false);
-
-    const { data } = useQuery(QUERY_USER);
-    let user;
-
-    if (data) {
-        setOrderHistory(data.user.orders)
-    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -197,7 +208,7 @@ function Nav() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        {state.orders.length ? (
+                        {userOrders.length ? (
                             <MenuItem >
                                 <Typography
                                     underline="hover"
