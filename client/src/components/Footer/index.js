@@ -32,9 +32,9 @@ const styles ={
         backgroundPosition: 'center'
 
     },
-    copyRight: {
-        height: "300px"
-    }
+    // copyRight: {
+    //     height: "300px"
+    // }
 };
 
 
