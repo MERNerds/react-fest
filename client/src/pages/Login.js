@@ -17,6 +17,7 @@ import Auth from '../utils/auth';
 import Paper from '@mui/material/Paper';
 import Copyright from '../components/Copyright/';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from 'react-redux'
 
 
 // //can change this once we know our color pallette 
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function Login() {
+
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN);
 
@@ -65,7 +67,6 @@ function Login() {
     const classes = useStyles();
 
     return (
-        // <ThemeProvider theme={theme} >
         <React.Fragment>
             <Paper className={classes.paperBg} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)', height: '90vh' }}>
                 <Box
@@ -91,7 +92,7 @@ function Login() {
                             autoComplete="email"
                             autoFocus
                             onChange={handleChange}
-                            sx={{ backgroundColor: 'Rgb(232, 240, 254)',borderRadius:'5px' }}
+                            sx={{ backgroundColor: 'Rgb(232, 240, 254)', borderRadius: '5px' }}
                         />
                         <TextField
                             margin="normal"
@@ -103,7 +104,7 @@ function Login() {
                             id="password"
                             autoComplete="current-password"
                             onChange={handleChange}
-                            sx={{ backgroundColor: 'Rgb(232, 240, 254)', borderRadius:'5px' }}
+                            sx={{ backgroundColor: 'Rgb(232, 240, 254)', borderRadius: '5px' }}
                         />
                         <Button
                             type="submit"
@@ -122,7 +123,6 @@ function Login() {
                         </Grid>
                     </Box>
                 </Box>
-                <Copyright sx={{ mt: 8, mb: 4 }} />
             </Paper>
         </React.Fragment>
     )

@@ -5,13 +5,15 @@ import {
     ADD_MULTIPLE_TO_CART,
     REMOVE_FROM_CART,
     CLEAR_CART,
-    TOGGLE_CART
+    TOGGLE_CART,
+    CHECK_ORDERS
 } from './actions';
 
 const defaultState = {
     tickets: [],
     cart: [],
-    cartOpen: false
+    cartOpen: false,
+    orders: []
 }
 
 export default function reducer (state = defaultState, action) {
@@ -70,6 +72,12 @@ export default function reducer (state = defaultState, action) {
                 ...state,
                 cartOpen: !state.cartOpen
             };
+
+        case CHECK_ORDERS:
+            return {
+                ...state,
+                orders: [...action.orders]
+            }
 
         default:
             return state;

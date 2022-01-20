@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { idbPromise } from '../../utils/helpers';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
@@ -24,9 +25,13 @@ import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 import CloseIcon from '@mui/icons-material/Close';
 import Badge from '@mui/material/Badge';
 import Grid from '@mui/material/Grid';
+import { CHECK_ORDERS } from '../../utils/actions';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../../utils/queries';
 
 
 const theme = createTheme({
@@ -43,6 +48,26 @@ const theme = createTheme({
                 root: {
                     textDecoration: 'none',
                     color: 'white'
+                }
+            }
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontFamily: [
+                        'Mochiy Pop P One',
+                        'sans-serif'
+                    ].join(','),
+                }
+            }
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    fontFamily: [
+                        'Mochiy Pop P One',
+                        'sans-serif'
+                    ].join(','),
                 }
             }
         }
@@ -91,24 +116,59 @@ BootstrapDialogTitle.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
-
-// const pages = ['LineUp', 'Tickets'];
-// const settings = ['Profile', 'Account', "Cart", 'Logout'];
-
-
-
 function Nav() {
     const state = useSelector((state) => {
         return state
     });
 
-    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
+
+    const { data } = useQuery(QUERY_USER);
+
+    let user;
+    let userOrders;
+
+
+    if (data) {
+        user = data.user;
+        userOrders = user.orders
+        // console.log(user.orders.length)
+    } else {
+        userOrders = [];
+        // console.log(userOrders.length)
+    };
+
+    useEffect(() => {
+        async function getOrders() {
+            const orders = await idbPromise('orders', 'get');
+            dispatch({
+                type: CHECK_ORDERS,
+                orders: [...orders],
+
+            });
+        };
+
+        if (!state.orders.length) {
+            getOrders();
+        }
+    }, [state.orders.length, dispatch]);
+
+    const [open, setOpen] = useState(false);
+
+    const [scheduleOpen, setScheduleOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleScheduleOpen = () => {
+        setScheduleOpen(true);
+    };
+    const handleScheduleClose = () => {
+        setScheduleOpen(false);
     };
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -161,14 +221,22 @@ function Nav() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-
-                        <MenuItem >
+                        {userOrders.length ? (
+                            <MenuItem >
+                                <Typography
+                                    underline="hover"
+                                    component={Link} to={'/myschedule'}
+                                    textAlign="center">Schedule
+                                </Typography>
+                            </MenuItem>
+                        ) : (<MenuItem>
                             <Typography
                                 underline="hover"
-                                component={Link} to={'/myschedule'}
+                                component={Link} to='#'
+                                onClick={handleScheduleOpen}
                                 textAlign="center">Schedule
                             </Typography>
-                        </MenuItem>
+                        </MenuItem>)}
                         <MenuItem >
                             <Grid container justifyContent='space-between' alignItems='center'>
                                 <Typography
@@ -198,11 +266,45 @@ function Nav() {
                         aria-labelledby="customized-dialog-title"
                         open={open}
                     >
-                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
-                            Smash That Checkout Button!
+                        <BootstrapDialogTitle sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
+                            <Typography variant='h4' sx={{ color: 'black' }}>
+                                Smash That Checkout Button!
+                            </Typography>
                         </BootstrapDialogTitle>
                         <DialogContent >
                             <Cart />
+                        </DialogContent>
+                    </BootstrapDialog>
+                    <BootstrapDialog
+                        fullWidth={true}
+                        onClose={handleScheduleClose}
+                        aria-labelledby="customized-dialog-title"
+                        open={scheduleOpen}
+                    >
+                        <BootstrapDialogTitle sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleScheduleClose}>
+                            <Typography variant='h4' sx={{ color: 'black' }}>
+                                Hold up!
+                            </Typography>
+                        </BootstrapDialogTitle>
+                        <DialogContent dividers>
+                            <Grid container direction='row' justifyContent='center' alignItems='center' sx={{ textAlign: 'center', p: 3 }}>
+                                <Grid >
+                                    <Typography variant='h5' sx={{ color: 'black' }}>
+                                        Once you purchase tickets to React Fest you can see each band's set time and create your own schedule.
+                                    </Typography>
+                                </Grid>
+                                <Grid sx={{ pt: 1 }}>
+                                    <Typography variant='h5' sx={{ color: 'black' }}>
+                                        So what are you waiting for?
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <DialogActions>
+                                <Button component={Link} to='/tickets' variant='contained' onClick={handleScheduleClose}
+                                    sx={{ color: 'black', backgroundColor: 'var(--tertiary)', '&:hover': { backgroundColor: 'var(--bright)' } }}>
+                                    Get Tickets!
+                                </Button>
+                            </DialogActions>
                         </DialogContent>
                     </BootstrapDialog>
                 </Box>
@@ -213,10 +315,10 @@ function Nav() {
         } else {
             return (
                 <Box>
-                    <Button component={Link} to={'/login'} color="inherit" variant="outlined" >
+                    <Button component={Link} to={'/login'} color="inherit" variant="outlined" sx={{ borderColor: 'Rgb(29, 38, 155)' }}>
                         Login
                     </Button>
-                    <Button component={Link} to={'/signup'} color="inherit" variant="outlined" sx={{ ml: 1 }}>
+                    <Button component={Link} to={'/signup'} color="inherit" variant="outlined" sx={{ ml: 1, borderColor: 'Rgb(29, 38, 155)' }}>
                         SignUp
                     </Button>
                 </Box>
@@ -234,24 +336,19 @@ function Nav() {
                         <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
                             <Box
                                 component="img"
-                                sx={{
+                                sx={[{
                                     height: 80,
-                                    pr: 2
-                                }}
+                                    pr: 2,
+                                    display: { xs: ' none', md: 'flex' },
+
+                                },{'&:hover':{
+                                    cursor:'pointer'
+                                }}]
+                                }
                                 alt="Your logo."
                                 src={"./images/header-reactFest.png"}
                                 onClick={handlePageChange}
                             />
-                            {/* <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                            >
-                                <Link to="/">
-                                    React-Fest
-                                </Link>
-                            </Typography> */}
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
                                 <IconButton
                                     size="large"
@@ -293,14 +390,23 @@ function Nav() {
                                     </MenuItem>
                                 </Menu>
                             </Box>
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                            <Box
+                                component="img"
+                                alt="Your logo."
+                                src={"./images/header-reactFest.png"}
+                                onClick={handlePageChange}
+                                sx={[{
+                                    pr: 10,
+                                    pt: 1,
+                                    height: 80,
+                                    width: 60,
+                                    flexGrow: 1,
+                                    display: { xs: 'flex', md: 'none' }
+                                },{'&:hover':{
+                                    cursor:'pointer'
+                                }}]}
                             >
-                                React-Fest
-                            </Typography>
+                            </Box>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                 <Button variant="outlined"
                                     // onClick={handleCloseNavMenu}

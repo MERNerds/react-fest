@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { UPDATE_TICKETS } from '../utils/actions'
 import { idbPromise } from '../utils/helpers';
 //items needed for styling
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
@@ -16,7 +15,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Copyright from '../components/Copyright';
-import Cart from '../components/Cart'
 import TicketItem from '../components/TicketItem'
 import bannerTickets from '../assets/images/react-ticket-banner.png';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -117,23 +115,21 @@ export default function Pricing() {
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
-        <Paper className={classes.paperContainer} square>
-          <Card className={classes.heroImg}
-            //src='./images/react-ticket-banner.png'
-
+        <Paper >
+          <Card
           >
             <CardMedia
               component="img"
               alt="ticket-banner"
               image={bannerTickets}
-              alignItems="bottom"
+              sx={{ alignItems: "bottom" }}
             />
           </Card>
         </Paper>
         {/* End hero unit */}
-        <Paper className={classes.paperBg} sx={{ pt: 4 }}>
+        <Paper className={classes.paperBg} sx={{ pt: 4,pb:2}}>
           <Container maxWidth="md" component="main">
-            <Grid container spacing={5} alignItems="flex-end" >
+            <Grid container spacing={5} sx={{ alignItems: "flex-end" }} >
               {state.tickets.map((ticket) => (
                 <TicketItem
                   key={ticket._id}
@@ -150,15 +146,7 @@ export default function Pricing() {
               ))}
             </Grid>
           </Container>
-          {/* Footer */}
-          <Container maxWidth="md" component="footer" className={classes.footer}>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </Container>
         </Paper>
-        <Cart />
-        {/* End footer */}
       </React.Fragment>
     </ThemeProvider>
 
