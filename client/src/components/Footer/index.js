@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Paper } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import footerImage from '../../assets/images/react-footer.png';
+//import { BackgroundColor } from 'chalk';
 
 const useStyles = makeStyles((theme) => ({
     paperContainer: {
@@ -12,7 +13,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: "cover",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        height: '300px'
+        height: '270px',
+        paddingTop: '40px'
+        
 
     }
 }));
