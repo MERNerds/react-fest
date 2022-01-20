@@ -19,6 +19,7 @@ import Cart from '../components/Cart'
 import TicketItem from '../components/TicketItem'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import  success from '../assets/graphics/react-success-banner-2.png';
+import { height } from '@mui/system';
 
 
 function Success() {
@@ -38,9 +39,9 @@ function Success() {
         });
       }
 
-      setTimeout(() => {
-        window.location.assign('/');
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.assign('/');
+      // }, 3000);
     }
 
     saveOrder();
@@ -58,13 +59,15 @@ function Success() {
       backgroundColor: 'Rgba(2, 183, 221, 0.4)',
       // borderBottom: '100px',
       boxShadow: 0,
-      paddingBottom: '10px'
+      paddingBottom: '10px',
+      height:'100vh'
     },
     heroImg: {
       width: "100%",
       cover: 'contain',
       alignItems: 'bottom',
-      // borderBottom: '100px'
+      // borderBottom: '100px',
+      height:'100vh'
   
     },
   

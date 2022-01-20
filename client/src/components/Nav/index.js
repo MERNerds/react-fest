@@ -254,11 +254,6 @@ function Nav() {
                                 textAlign="center">Logout
                             </Typography>
                         </MenuItem>
-                        {/* {settings.map((setting) => (
-                            <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">{setting}</Typography>
-                            </MenuItem>
-                        ))} */}
                     </Menu>
                     <BootstrapDialog
                         fullWidth={true}
@@ -341,9 +336,11 @@ function Nav() {
                                     pr: 2,
                                     display: { xs: ' none', md: 'flex' },
 
-                                },{'&:hover':{
-                                    cursor:'pointer'
-                                }}]
+                                }, {
+                                    '&:hover': {
+                                        cursor: 'pointer'
+                                    }
+                                }]
                                 }
                                 alt="Your logo."
                                 src={"./images/header-reactFest.png"}
@@ -376,17 +373,22 @@ function Nav() {
                                     onClose={handleCloseNavMenu}
                                     sx={{
                                         display: { xs: 'block', md: 'none', color: "FF4DF0" },
+                                        underline: 'none'
                                     }}
                                 >
                                     <MenuItem>
-                                        <Link to="./lineup">
-                                            <Typography textAlign="center">Lineup</Typography>
-                                        </Link>
+                                        <Typography
+                                            underline="hover"
+                                            component={Link} to={'/lineup'}
+                                            textAlign="center">Lineup
+                                        </Typography>
                                     </MenuItem>
                                     <MenuItem>
-                                        <Link to="./tickets">
-                                            <Typography textAlign="center">Tickets</Typography>
-                                        </Link>
+                                        <Typography
+                                            underline="hover"
+                                            component={Link} to={'/tickets'}
+                                            textAlign="center">Tickets
+                                        </Typography>
                                     </MenuItem>
                                 </Menu>
                             </Box>
@@ -402,9 +404,11 @@ function Nav() {
                                     width: 60,
                                     flexGrow: 1,
                                     display: { xs: 'flex', md: 'none' }
-                                },{'&:hover':{
-                                    cursor:'pointer'
-                                }}]}
+                                }, {
+                                    '&:hover': {
+                                        cursor: 'pointer'
+                                    }
+                                }]}
                             >
                             </Box>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

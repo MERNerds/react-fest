@@ -50,9 +50,14 @@
 
 @media only screen and (max-width: 595px) {
 
-  *{
+  
 
-    padding: 0 !important;
+  .MuiBox-root {
+    padding-right: 0px !important;
+  }
+  .makeStyles-paperContainer-4{
+    height: 64px;
+    padding-top: 4px;
   }
   
   .makeStyles-heroImg-6 {
@@ -72,10 +77,7 @@
 
 @media only screen and (max-width: 400px) {
 
-  *{
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+
 
   .makeStyles-heroImg-6 {
     /* cover: contain; */
