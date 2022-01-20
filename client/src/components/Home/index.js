@@ -22,6 +22,7 @@ import dayYellow from '../../assets/images/day-yellow.jpeg';
 import ubbi from '../../assets/images/ubbi.JPG';
 import crowdSurf from '../../assets/images/crowd-surf.jpg';
 import heartStage from '../../assets/images/heart-stage.jpeg';
+import gridBack from '../../assets/images/gridBack.png';
 
 
 
@@ -43,7 +44,9 @@ const useStyles = makeStyles((theme) => ({
         height: "100%",
     },
     photoGrid: {
-        //paddingBottom: "10px",
+        backgroundSize: "cover",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
         marginTop: '20px',
         marginBottom: 50,
         maxWidth: 800,
@@ -53,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '5px 5px 5px 5px rgba(3, 221, 94, .5)',
     },
     photoPaper: {
-        marginBottom: "40px"
+        backgroundImage: `url(${gridBack})`
     }
 
 }));
@@ -72,7 +75,7 @@ export default function Home() {
 
                 />
             </Card>
-            <Grid container className={classes.photo}>
+            <Grid container className={classes.photoPaper}>
                 <Card className={classes.photoGrid}>
                     <CardMedia
                         component="img"
