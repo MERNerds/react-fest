@@ -14,9 +14,9 @@ query user {
       tickets {
         _id
         ticketName
-        description
+        description1
         price
-        quantity
+        
       } 
     }
     savedBands {

@@ -45,10 +45,6 @@ const Cart = () => {
     }
   }, [data])
 
-  // function toggleCart() {
-  //   dispatch({ type: TOGGLE_CART });
-  // }
-
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
@@ -70,14 +66,6 @@ const Cart = () => {
       variables: { tickets: ticketIds }
     });
   }
-
-  // if (!state.cartOpen) {
-  //   return (
-  //     <div className='cart-closed' onClick={toggleCart}>
-  //       <span role="img" aria-label='cart' ></span>
-  //     </div>
-  //   );
-  // }
 
 
   return (

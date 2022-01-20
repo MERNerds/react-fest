@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { idbPromise } from '../../utils/helpers';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
@@ -27,6 +28,9 @@ import DialogContent from '@mui/material/DialogContent';
 import CloseIcon from '@mui/icons-material/Close';
 import Badge from '@mui/material/Badge';
 import Grid from '@mui/material/Grid';
+import { CHECK_ORDERS } from '../../utils/actions';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../../utils/queries';
 
 
 const theme = createTheme({
@@ -102,12 +106,44 @@ function Nav() {
         return state
     });
 
+    const dispatch = useDispatch();
+
+    const [orderHistory, setOrderHistory] = useState([])
+
+    useEffect(() => {
+        async function getOrders() {
+            const orders = await idbPromise('orders', 'get');
+            dispatch({
+                type: CHECK_ORDERS,
+                orders: [...orders]
+            });
+        };
+
+        if (state.orders.length) {
+            getOrders();
+        }
+    }, [state.orders.length, dispatch]);
+
     const [open, setOpen] = React.useState(false);
+
+    const { data } = useQuery(QUERY_USER);
+    let user;
+
+    if (data) {
+        setOrderHistory(data.user.orders)
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleScheduleOpen = () => {
+        setOpen(true);
+    };
+    const handleScheduleClose = () => {
         setOpen(false);
     };
 
@@ -161,21 +197,22 @@ function Nav() {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-
-                        <MenuItem >
-                            {state.orders.length ? (
+                        {state.orders.length ? (
+                            <MenuItem >
                                 <Typography
                                     underline="hover"
-                                    component={Link} to='#'
+                                    component={Link} to={'/myschedule'}
                                     textAlign="center">Schedule
-                                </Typography> ) : (
+                                </Typography>
+                            </MenuItem>
+                        ) : (<MenuItem>
                             <Typography
                                 underline="hover"
-                                component={Link} to={'/myschedule'}
-                                textAlign="center">Schedule
+                                component={Link} to='#'
+                                onClick={handleScheduleOpen}
+                                textAlign="center">It works
                             </Typography>
-                                )}
-                        </MenuItem>
+                        </MenuItem>)}
                         <MenuItem >
                             <Grid container justifyContent='space-between' alignItems='center'>
                                 <Typography
@@ -202,6 +239,19 @@ function Nav() {
                     <BootstrapDialog
                         fullWidth={true}
                         onClose={handleClose}
+                        aria-labelledby="customized-dialog-title"
+                        open={open}
+                    >
+                        <BootstrapDialogTitle sx={{ color: 'black', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--secondary)' }} onClose={handleClose}>
+                            Smash That Checkout Button!
+                        </BootstrapDialogTitle>
+                        <DialogContent >
+                            <Cart />
+                        </DialogContent>
+                    </BootstrapDialog>
+                    <BootstrapDialog
+                        fullWidth={true}
+                        onClose={handleScheduleClose}
                         aria-labelledby="customized-dialog-title"
                         open={open}
                     >
