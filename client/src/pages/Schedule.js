@@ -66,7 +66,7 @@ class Schedule extends React.Component {
               return (
                 <Draggable
                   key={task.text}
-                  className="item dx-card dx-theme-text-color" // Do not forget to remove the 'dx-theme-background-color' class to prevent conflict with the style above
+                  className="item dx-card dx-theme-text-color"
                   style={style} // Set the draggable element's style
                   clone={true}
                   group={draggingGroupName}
@@ -74,6 +74,7 @@ class Schedule extends React.Component {
                   onDragStart={this.onItemDragStart}
                   onDragEnd={this.onItemDragEnd}>
                   {task.text}
+                  
                 </Draggable>
               );
             })}
