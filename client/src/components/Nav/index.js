@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { idbPromise } from '../../utils/helpers';
 import Auth from "../../utils/auth";
@@ -103,14 +103,10 @@ BootstrapDialogTitle.propTypes = {
 
 function Nav() {
     const state = useSelector((state) => {
-        console.log(state)
         return state
     });
 
     const dispatch = useDispatch();
-
-    // const [orderHistory, setOrderHistory] = useState({ orders: [] });
-    // console.log(orderHistory.orders);
 
     const { data } = useQuery(QUERY_USER);
 
@@ -121,10 +117,10 @@ function Nav() {
     if (data) {
         user = data.user;
         userOrders = user.orders
-        console.log(user.orders.length)
+        // console.log(user.orders.length)
     } else {
         userOrders = [];
-        console.log(userOrders.length)
+        // console.log(userOrders.length)
     };
 
     useEffect(() => {
