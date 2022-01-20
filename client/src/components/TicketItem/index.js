@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import { idbPromise } from "../../utils/helpers";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const useStyles = makeStyles((theme) => ({
     '@global': {
@@ -62,6 +63,36 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+const theme1 = createTheme({
+    typography: {
+      fontFamily: [
+        'Mochiy Pop P One',
+        'sans-serif'
+      ].join(','),
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            fontFamily: [
+              'Mochiy Pop P One',
+              'sans-serif'
+            ].join(','),
+          }
+        }
+      },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            fontFamily: [
+              'Mochiy Pop P One',
+              'sans-serif'
+            ].join(','),
+          }
+        }
+      }
+    }})
+
 function TicketItem(item) {
     const state = useSelector((state) => {
         return state
@@ -109,6 +140,7 @@ function TicketItem(item) {
     const classes = useStyles();
 
     return (
+        <ThemeProvider theme={theme1}>
         <Grid item key={_id} xs={12} sm={ticketName === 'Enterprise' ? 12 : 6} md={4} sx={{ p: 1 }}>
             <Card sx={{ border: 1, borderColor: 'Rgba(255, 122, 243, 1)', backgroundColor: "rgb(250,250,249)" }}>
                 <CardHeader
@@ -159,6 +191,7 @@ function TicketItem(item) {
                 </CardActions>
             </Card>
         </Grid>
+        </ThemeProvider>
     )
 
                 }

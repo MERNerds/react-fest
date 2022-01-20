@@ -50,6 +50,26 @@ const theme = createTheme({
                     color: 'white'
                 }
             }
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontFamily: [
+                        'Mochiy Pop P One',
+                        'sans-serif'
+                    ].join(','),
+                }
+            }
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    fontFamily: [
+                        'Mochiy Pop P One',
+                        'sans-serif'
+                    ].join(','),
+                }
+            }
         }
     }
 });
@@ -95,12 +115,6 @@ BootstrapDialogTitle.propTypes = {
     children: PropTypes.node,
     onClose: PropTypes.func.isRequired,
 };
-
-
-// const pages = ['LineUp', 'Tickets'];
-// const settings = ['Profile', 'Account', "Cart", 'Logout'];
-
-
 
 function Nav() {
     const state = useSelector((state) => {
@@ -301,10 +315,10 @@ function Nav() {
         } else {
             return (
                 <Box>
-                    <Button component={Link} to={'/login'} color="inherit" variant="outlined" >
+                    <Button component={Link} to={'/login'} color="inherit" variant="outlined" sx={{ borderColor: 'Rgb(29, 38, 155)' }}>
                         Login
                     </Button>
-                    <Button component={Link} to={'/signup'} color="inherit" variant="outlined" sx={{ ml: 1 }}>
+                    <Button component={Link} to={'/signup'} color="inherit" variant="outlined" sx={{ ml: 1, borderColor: 'Rgb(29, 38, 155)' }}>
                         SignUp
                     </Button>
                 </Box>
@@ -322,24 +336,19 @@ function Nav() {
                         <Toolbar disableGutters sx={{ color: "FF4DF0" }}>
                             <Box
                                 component="img"
-                                sx={{
+                                sx={[{
                                     height: 80,
-                                    pr: 2
-                                }}
+                                    pr: 2,
+                                    display: { xs: ' none', md: 'flex' },
+
+                                },{'&:hover':{
+                                    cursor:'pointer'
+                                }}]
+                                }
                                 alt="Your logo."
                                 src={"./images/header-reactFest.png"}
                                 onClick={handlePageChange}
                             />
-                            {/* <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                            >
-                                <Link to="/">
-                                    React-Fest
-                                </Link>
-                            </Typography> */}
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "FF4DF0" }}>
                                 <IconButton
                                     size="large"
@@ -381,14 +390,23 @@ function Nav() {
                                     </MenuItem>
                                 </Menu>
                             </Box>
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                            <Box
+                                component="img"
+                                alt="Your logo."
+                                src={"./images/header-reactFest.png"}
+                                onClick={handlePageChange}
+                                sx={[{
+                                    pr: 10,
+                                    pt: 1,
+                                    height: 80,
+                                    width: 60,
+                                    flexGrow: 1,
+                                    display: { xs: 'flex', md: 'none' }
+                                },{'&:hover':{
+                                    cursor:'pointer'
+                                }}]}
                             >
-                                React-Fest
-                            </Typography>
+                            </Box>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                 <Button variant="outlined"
                                     // onClick={handleCloseNavMenu}

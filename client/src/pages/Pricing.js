@@ -115,10 +115,8 @@ export default function Pricing() {
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
-        <Paper className={classes.paperContainer} square>
-          <Card className={classes.heroImg}
-            //src='./images/react-ticket-banner.png'
-
+        <Paper >
+          <Card
           >
             <CardMedia
               component="img"
@@ -129,7 +127,7 @@ export default function Pricing() {
           </Card>
         </Paper>
         {/* End hero unit */}
-        <Paper className={classes.paperBg} sx={{ pt: 4 }}>
+        <Paper className={classes.paperBg} sx={{ pt: 4,pb:2}}>
           <Container maxWidth="md" component="main">
             <Grid container spacing={5} sx={{ alignItems: "flex-end" }} >
               {state.tickets.map((ticket) => (
@@ -147,11 +145,6 @@ export default function Pricing() {
                   buttonText={ticket.buttonText} />
               ))}
             </Grid>
-          </Container>
-          <Container maxWidth="md" component="footer" className={classes.footer}>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </Container>
         </Paper>
       </React.Fragment>
