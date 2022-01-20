@@ -13,10 +13,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: "cover",
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        height: '270px',
+        height: {xs:'59px', md:'270px'},
         paddingTop: '40px'
         
-
     }
 }));
 
@@ -33,13 +32,12 @@ function Footer() {
                 alignItems='center'
                 className={classes.paperContainer}>
                 <Grid>
-                    <Typography variant="body2" align="center">
+                    <Typography variant="body2" align="center" sx={{mt:{xs:'-30px', md:'0px'}}}>
                         {'Copyright © '}
                         <Link color="inherit" to="https://mui.com/">
                             React Fest
                         </Link>{' '}
                         {new Date().getFullYear()}
-                        {'.'}
                     </Typography>
                 </Grid>
             </Grid>

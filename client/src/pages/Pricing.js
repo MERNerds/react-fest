@@ -7,14 +7,11 @@ import { UPDATE_TICKETS } from '../utils/actions'
 import { idbPromise } from '../utils/helpers';
 //items needed for styling
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import Copyright from '../components/Copyright';
 import TicketItem from '../components/TicketItem'
 import bannerTickets from '../assets/images/react-ticket-banner.png';
 import { ThemeProvider, createTheme } from '@mui/material/styles';

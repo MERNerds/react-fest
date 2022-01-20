@@ -3,23 +3,15 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_ORDER } from '../utils/mutations';
 import { idbPromise } from '../utils/helpers';
-
 //items needed for styling
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-
-import Cart from '../components/Cart'
-import TicketItem from '../components/TicketItem'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import  success from '../assets/graphics/react-success-banner-2.png';
-import { height } from '@mui/system';
+
 
 
 function Success() {
@@ -39,13 +31,15 @@ function Success() {
         });
       }
 
-      // setTimeout(() => {
-      //   window.location.assign('/');
-      // }, 3000);
+      setTimeout(() => {
+        window.location.assign('/');
+      }, 3000);
     }
 
     saveOrder();
   }, [addOrder]);
+  
+  
   
   const useStyles = makeStyles((theme) => ({
     '@global': {
@@ -83,8 +77,16 @@ function Success() {
           }
         }
       },
+    },
+    typography: {
+      fontFamily: [
+        'Mochiy Pop P One',
+        'sans-serif'
+      ].join(','),
     }
-  });const classes = useStyles();
+  });
+  
+  const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
@@ -96,7 +98,11 @@ function Success() {
               alt="ticket-banner"
               image={success}
               alignItems="bottom"
+              sx={{mt: '25px'}}
             />
+          <Typography sx={{textAlign:"center", mt: 3, fontSize: '30px'}}>
+            You are now being redirected!
+          </Typography>
           </Card>
         </Paper>
       </React.Fragment>

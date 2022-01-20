@@ -1,27 +1,17 @@
 import React from 'react';
-// import coverImage from '../../assets/images/react-lineup.jpg';
-// import ticketBanner from '../../assets/images/react-ticket-banner.jpg';
 
 //importing Material UI
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { Box } from '@mui/system';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { alignProperty } from '@mui/material/styles/cssUtils';
-import { margin } from '@mui/system';
-import { Container, Grid } from '@mui/material';
-import { Image } from 'mui-image';
-import Pricing from '../../pages/Pricing';
+import { Grid } from '@mui/material';
 import nightBlue from '../../assets/images/night-blue.jpeg';
 import dayYellow from '../../assets/images/day-yellow.jpeg';
 import ubbi from '../../assets/images/ubbi.JPG';
 import crowdSurf from '../../assets/images/crowd-surf.jpg';
 import heartStage from '../../assets/images/heart-stage.jpeg';
+
 //import gridBack from '../../assets/images/gridBack.png';
 
 

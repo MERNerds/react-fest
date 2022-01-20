@@ -16,8 +16,8 @@ import { setContext } from '@apollo/client/link/context';
 
 //adding font 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 import CssBaseline from '@mui/material/CssBaseline';
+import 'devextreme/dist/css/dx.light.css';
 
 //import components
 import Nav from './components/Nav';
@@ -27,11 +27,9 @@ import Pricing from './pages/Pricing';
 import Login from './pages/Login';
 import Schedule from './pages/Schedule';
 import Success from './pages/Success';
-
-import 'devextreme/dist/css/dx.light.css';
 import LineUp from './components/Lineup';
 import Footer from './components/Footer';
-import { createMuiTheme } from '@mui/material';
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });

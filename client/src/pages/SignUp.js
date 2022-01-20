@@ -6,18 +6,12 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 //material ui components 
-// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Copyright from '../components/Copyright';
 import { makeStyles } from '@material-ui/core/styles';
 
 
