@@ -67,15 +67,22 @@
   background-color: rgba(191, 191, 191, 0.15);
   margin-top: 20px;
   text-align: center;
+  font-family: 'Mochiy Pop P One', sans-serif;
 }
 
 .caption {
   font-size: 18px;
   font-weight: 200;
+  
 }
 
 .option {
   margin-top: 10px;
   display: inline-block;
   text-align: center;
+  font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.dx-item-content {
+  font-family: 'Mochiy Pop P One', sans-serif;
 }
