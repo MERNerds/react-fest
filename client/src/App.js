@@ -106,7 +106,6 @@ function App() {
             </Provider>
           </ThemeProvider>
         </div>
-        <Footer />
       </Router>
     </ApolloProvider>
   );

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '5px 5px 5px 5px rgba(3, 221, 94, .5)',
     },
     photoPaper: {
-      //  backgroundImage: `url(${gridBack})`
+       // backgroundImage: `url(${gridBack})`
     }
 
 }));
