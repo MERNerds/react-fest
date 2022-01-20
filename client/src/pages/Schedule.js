@@ -96,7 +96,7 @@ class Schedule extends React.Component {
             group={draggingGroupName}
             onRemove={this.onAppointmentRemove}
             onAdd={this.onAppointmentAdd}
-
+            
           />
 
           <Resource
