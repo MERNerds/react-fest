@@ -67,7 +67,7 @@ function SignUp() {
 
   return (
     <React.Fragment>
-      <Paper className={classes.paperBg} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)', height: '90vh' }}>
+      <Paper className={classes.paperBg} sx={{ backgroundColor: 'Rgba(2, 183, 221, 0.4)', height: '90vh'}}>
         <Box
           sx={{
             marginTop: 0,
