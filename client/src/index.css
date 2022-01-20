@@ -22,7 +22,7 @@
   position: absolute;
   top: 50px;
   width: 240px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Mochiy Pop P One', sans-serif;
   font-weight: 600;
 }
 
@@ -48,7 +48,7 @@
 
 .dx-scheduler-appointment-content-date {
   font-weight: bolder;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Mochiy Pop P One', sans-serif;
   font-size: larger;
   color: #000000;
   
@@ -57,7 +57,7 @@
 
 .dx-scheduler-appointment-title {
   font-weight: 600;
-  font-family:'Arimo', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Mochiy Pop P One', sans-serif;
   font-size: larger;
   color: #000000;
 }
