@@ -49,8 +49,8 @@ class Schedule extends React.Component {
             />
           </div>
         </div>
-        <ScrollView id="scroll">
-          <Draggable
+        <ScrollView id="scroll" type="button" class="collapsible">
+          <Draggable class="content"
             id="list"
             data="dropArea"
             group={draggingGroupName}
@@ -66,7 +66,7 @@ class Schedule extends React.Component {
               return (
                 <Draggable
                   key={task.text}
-                  className="item dx-card dx-theme-text-color" // Do not forget to remove the 'dx-theme-background-color' class to prevent conflict with the style above
+                  className="item dx-card dx-theme-text-color"
                   style={style} // Set the draggable element's style
                   clone={true}
                   group={draggingGroupName}
@@ -79,17 +79,19 @@ class Schedule extends React.Component {
             })}
           </Draggable>
         </ScrollView>
-
+        
         <Scheduler
 
           timeZone="Africa/Abidjan"
           id="scheduler"
           dataSource={this.state.appointments}
+          
           views={views}
           defaultCurrentDate={currentDate}
           height={900}
           startDayHour={15}
           editing={true}
+          adaptivityEnabled={true}
           >
 
 
