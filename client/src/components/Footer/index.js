@@ -7,10 +7,10 @@ import Link from '@mui/material/Link';
 import { Paper } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import footer from '../../assets/graphics/footer.png'
-import { borderColor, margin } from '@mui/system';
+import { borderColor, margin, maxHeight } from '@mui/system';
 import CardMedia from '@mui/material/CardMedia';
 import footerImage from '../../assets/images/react-footer.png';
-import "./footer.css"
+
 
 function Copyright() {
     return (
@@ -24,46 +24,37 @@ function Copyright() {
         </Typography>
     );
 }
-// const useStyles = makeStyles({
-//     footerBg: {
-//         maxWidth: "100wv",
-//         maxHeight: "30hv",
-//         //backgroundImage: {footerImage},
-//         //backgroundSize: "1600px 300px",
-//         //backgroundPosition: 'center',
-//         border: 4,
-//         borderColor: 'pink',
-//         borderRadius: 2,
-//         marginTop: "20px",
-//         //paddingTop: "40px"
-//     },
-// });
+const styles ={
+    paperContainer: {
+        backgroundImage:`url(${footerImage})`,
+        backgroundSize: "span",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
+    },
+    // copyRight: {
+    //     paddingTop: "300px"
+    // }
+};
 
 
 export default function Footer() {
     //const classes = useStyles();
 
     return (
-        <Box className="main-footer" 
+        <Paper style={styles.paperContainer}>
+        <Box 
         sx={{margin: 0, padding: 0}}
             sx={{
                 py: 0,
                 px: 0,
                 mt: 'auto',
             }}>
-            <Grid>
-        
-            <CardMedia
-            component="img"
-            alt="footer"
-            backgroundImage={footerImage}
-            />
-            <Copyright  />
-        
-    </Grid>
+            <Copyright />
+
             
             
         </Box>
+        </Paper>
     );
 }
 {/* <Container maxWidth='xl'>
