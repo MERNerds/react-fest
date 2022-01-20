@@ -115,9 +115,8 @@ export default function Pricing() {
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
-        <Paper  square >
-          <Card className={classes.heroImg}
-
+        <Paper >
+          <Card
           >
             <CardMedia
               component="img"
