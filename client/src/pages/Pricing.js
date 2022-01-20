@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { UPDATE_TICKETS } from '../utils/actions'
 import { idbPromise } from '../utils/helpers';
 //items needed for styling
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
