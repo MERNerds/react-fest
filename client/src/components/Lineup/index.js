@@ -76,6 +76,7 @@ export default function LineUp() {
           height="400"
           width="800"
           image="./images/Day-1.png"
+          sx={{ objectFit: 'contain' }}
         />
       </Card>
       <Card className={classes.lineupCard}>
@@ -84,6 +85,7 @@ export default function LineUp() {
           alt="Day 1"
           height="400"
           image="./images/Day-2.png"
+          sx={{ objectFit: 'contain' }}
         />
       </Card>
       <Card className={classes.lineupCard}>
@@ -92,6 +94,7 @@ export default function LineUp() {
           alt="Day 1"
           height="400"
           image="./images/Day-3.png"
+          sx={{ objectFit: 'contain' }}
         />
       </Card>
       <Box  sx={{
