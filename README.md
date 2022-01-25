@@ -66,7 +66,7 @@ Then I can add or update the events I have planned
 
 Just a quick gif of the site in action. 
 <br>
-![React Fest](https://media.giphy.com/media/OMoWTYEIeFvLC3rTgi/giphy.gif)
+![React-Fest](https://media.giphy.com/media/GdQrYcgTS23AQykMBL/giphy-downsized-large.gif)
 
 ## Technology Used
 **1. [React](https://reactjs.org/)**
